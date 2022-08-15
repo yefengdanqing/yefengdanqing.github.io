@@ -165,19 +165,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-工作中遗留知识点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-工作遗留/工作中遗留知识点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/04/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E9%81%97%E7%95%99%E7%9F%A5%E8%AF%86%E7%82%B9/">工作中遗留点</a>
+      <a class="article-title" href="/2022/03/04/%E5%B7%A5%E4%BD%9C%E9%81%97%E7%95%99/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E9%81%97%E7%95%99%E7%9F%A5%E8%AF%86%E7%82%B9/">工作中遗留点</a>
     </h1>
   
 
         
-        <a href="/2022/03/04/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E9%81%97%E7%95%99%E7%9F%A5%E8%AF%86%E7%82%B9/" class="archive-article-date">
+        <a href="/2022/03/04/%E5%B7%A5%E4%BD%9C%E9%81%97%E7%95%99/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E9%81%97%E7%95%99%E7%9F%A5%E8%AF%86%E7%82%B9/" class="archive-article-date">
   	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
 </a>
         
@@ -198,7 +198,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/04/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E9%81%97%E7%95%99%E7%9F%A5%E8%AF%86%E7%82%B9/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/03/04/%E5%B7%A5%E4%BD%9C%E9%81%97%E7%95%99/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E9%81%97%E7%95%99%E7%9F%A5%E8%AF%86%E7%82%B9/">展开全文 >></a>
         </p>
       
 
@@ -228,242 +228,19 @@
 
 
   
-    <article id="post-性能优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-性能总结/高并发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/04/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a>
+      <a class="article-title" href="/2022/03/04/%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/%E9%AB%98%E5%B9%B6%E5%8F%91/">高并发</a>
     </h1>
   
 
         
-        <a href="/2022/03/04/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <span id="more"></span>
-
-<h4 id="性能查看"><a href="#性能查看" class="headerlink" title="#### 性能查看"></a>#### 性能查看</h4><h3 id="cpu火焰图"><a href="#cpu火焰图" class="headerlink" title="# cpu火焰图"></a># cpu火焰图</h3><p>目前看到cpu-clock和cycles的结果是一样的</p>
-<h4 id="安装-perf"><a href="#安装-perf" class="headerlink" title="安装 perf"></a>安装 perf</h4><p>yum install -y perf</p>
-<h4 id="生成-perf-data"><a href="#生成-perf-data" class="headerlink" title="生成 perf.data"></a>生成 perf.data</h4><p>pid&#x3D;$(pgrep service)</p>
-<p>perf record -e cpu-clock -F 99 -p $pid -g – sleep 30</p>
-<h4 id="展示-perf-data"><a href="#展示-perf-data" class="headerlink" title="展示 perf.data"></a>展示 perf.data</h4><p>perf report –show-total-period</p>
-<h4 id="生成火焰图"><a href="#生成火焰图" class="headerlink" title="生成火焰图"></a>生成火焰图</h4><p>git clone <a target="_blank" rel="noopener" href="https://github.com/brendangregg/FlameGraph">https://github.com/brendangregg/FlameGraph</a></p>
-<p>perf script | FlameGraph&#x2F;stackcollapse-perf.pl | FlameGraph&#x2F;flamegraph.pl &gt; flamegraph.svg</p>
-<h3 id="内存火焰图"><a href="#内存火焰图" class="headerlink" title="内存火焰图"></a>内存火焰图</h3><p>perf跟踪malloc&#x2F;free；跟踪brk；跟踪mmap；跟踪页错误</p>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>CPU迁移和上下文切换：发生上下文切换不一定会发生CPU迁移，而发生CPU迁移时肯定会发生上下文切换。发生上下文切换有可能只是把上下文从当前CPU中换出，下一次调度器还是将进程安排在这个CPU上执行。</p>
-<p>系统的性能上不去？</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/04/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-排序总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/04/%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93/">排序总结</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/04/%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h6><p>注意点：在递归的时候要判断是否越界</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">partition</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> index = <span class="built_in">rand</span>() % (r-l+<span class="number">1</span>) + l;</span><br><span class="line">        <span class="built_in">swap</span>(nums[l], nums[index]);</span><br><span class="line">        <span class="type">int</span> x = nums[l];</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">            <span class="keyword">while</span> (l &lt; r &amp;&amp; x &lt;= nums[r]) r--;</span><br><span class="line">            <span class="built_in">swap</span>(nums[l], nums[r]);</span><br><span class="line">            <span class="comment">//nums[l] = nums[r];</span></span><br><span class="line">            <span class="keyword">while</span> (l &lt; r &amp;&amp; x &gt;= nums[l]) l++;</span><br><span class="line">            <span class="built_in">swap</span>(nums[r], nums[l]);</span><br><span class="line">        &#125;</span><br><span class="line">        nums[l] = x;</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">quick_sort</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, std::vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &gt; r) <span class="keyword">return</span>;</span><br><span class="line">        <span class="type">int</span> mid = <span class="built_in">partition</span>(l, r, nums);</span><br><span class="line">        <span class="built_in">quick_sort</span>(l, mid - <span class="number">1</span>, nums);</span><br><span class="line">        <span class="built_in">quick_sort</span>(mid + <span class="number">1</span>, r, nums);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> len = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">quick_sort</span>(<span class="number">0</span>, len - <span class="number">1</span>, nums);</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/04/%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-样例模板" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/04/%E6%A0%B7%E4%BE%8B%E6%A8%A1%E6%9D%BF/">样例模板</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/04/%E6%A0%B7%E4%BE%8B%E6%A8%A1%E6%9D%BF/" class="archive-article-date">
-  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <span id="more"></span>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/04/%E6%A0%B7%E4%BE%8B%E6%A8%A1%E6%9D%BF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-高并发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/04/%E9%AB%98%E5%B9%B6%E5%8F%91/">高并发</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/04/%E9%AB%98%E5%B9%B6%E5%8F%91/" class="archive-article-date">
+        <a href="/2022/03/04/%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/%E9%AB%98%E5%B9%B6%E5%8F%91/" class="archive-article-date">
   	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
 </a>
         
@@ -494,7 +271,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/04/%E9%AB%98%E5%B9%B6%E5%8F%91/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/03/04/%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/%E9%AB%98%E5%B9%B6%E5%8F%91/">展开全文 >></a>
         </p>
       
 
@@ -524,32 +301,388 @@
 
 
   
-    <article id="post-c++知识点--stastic" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-设计模式/单例模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/04/c++%E7%9F%A5%E8%AF%86%E7%82%B9--stastic/">c++知识点--关键字</a>
+      <a class="article-title" href="/2022/03/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">单例模式</a>
     </h1>
   
 
         
-        <a href="/2022/03/04/c++%E7%9F%A5%E8%AF%86%E7%82%B9--stastic/" class="archive-article-date">
-  	<time datetime="2022-03-04T03:42:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
+        <a href="/2022/03/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
 </a>
         
       </header>
     
 	<div class="article-entry" itemprop="articleBody">
       
-        <h6 id="静态关键字（static）"><a href="#静态关键字（static）" class="headerlink" title="静态关键字（static）"></a>静态关键字（static）</h6><ul>
-<li><p>静态成员（类）函数和变量都是类共有；在初始化的时候分配全局区的静态区空间；sizeof 类对象的时候排除静态成员变量大小；静态成员函数只能调用静态的成员函数或者变量；静态成员变量在程序结束的时候释放空间</p>
+        <h6 id="项目应用场景"><a href="#项目应用场景" class="headerlink" title="项目应用场景"></a>项目应用场景</h6><ul>
+<li><p>场景</p>
+<ul>
+<li>日志类、配置类</li>
+<li>数据库连接池、多线程池</li>
+</ul>
 </li>
-<li><p>静态全局变量从定义开始只在本文件中可见，其他文件中不能使用，即使定义为extern的也不行</p>
-</li>
-<li><p>静态局部变量在全局数据区分配内存；静态局部变量在程序执行到该对象的声明处时被首次初始化，即以后的函数调用不再进行初始化；静态局部变量一般在声明处初始化，如果没有显式初始化，会被程序自动初始化为0；它始终驻留在全局数据区，直到程序运行结束。但其作用域为局部作用域，当定义它的函数或语句块结束时，其作用域随之结束；</p>
+<li><p>线程不安全版本</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SingleInstance</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">static</span> SingleInstance* <span class="title">get_instance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> （obj ！= <span class="literal">nullptr</span>）&#123;</span><br><span class="line">            obj = <span class="keyword">new</span> <span class="built_in">SingleInstance</span>();</span><br><span class="line">        <span class="keyword">return</span> obj;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">static</span> SingleInstance* obj;<span class="comment">//类内静态变量初始化</span></span><br><span class="line">    <span class="built_in">SingleInstance</span>();</span><br><span class="line">    <span class="built_in">SingleInstance</span>(<span class="type">const</span> SingleInstance&amp;);</span><br><span class="line">    <span class="built_in">SingleInstance</span>(<span class="type">const</span> SingleInstance&amp;&amp;)</span><br><span class="line">    SingleInstance&amp; <span class="keyword">operator</span>= (<span class="type">const</span> SingleInstance&amp;);</span><br><span class="line">    SingleInstance&amp; <span class="keyword">operator</span>= (<span class="type">const</span> SingleInstance&amp;&amp;)</span><br><span class="line">    ~<span class="built_in">SingleInstance</span>();</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//静态的</span></span><br><span class="line">SingleInstance SingleInstance::obj = <span class="literal">nullptr</span>;</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计模式//" class="article-tag-list-link color5">设计模式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-性能总结/性能优化方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/04/%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/">性能优化</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/04/%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><hr>
+<h4 id="cpu火焰图"><a href="#cpu火焰图" class="headerlink" title="cpu火焰图"></a>cpu火焰图</h4><p>目前看到cpu-clock和cycles的结果是一样的</p>
+<h5 id="安装-perf"><a href="#安装-perf" class="headerlink" title="安装 perf"></a>安装 perf</h5><p>yum install -y perf</p>
+<h5 id="生成-perf-data"><a href="#生成-perf-data" class="headerlink" title="生成 perf.data"></a>生成 perf.data</h5><p>pid&#x3D;$(pgrep service)</p>
+<p>perf record -e cpu-clock -F 99 -p $pid -g – sleep 30</p>
+<h5 id="展示-perf-data"><a href="#展示-perf-data" class="headerlink" title="展示 perf.data"></a>展示 perf.data</h5><p>perf report –show-total-period</p>
+<h5 id="生成火焰图"><a href="#生成火焰图" class="headerlink" title="生成火焰图"></a>生成火焰图</h5><p>git clone <a target="_blank" rel="noopener" href="https://github.com/brendangregg/FlameGraph">https://github.com/brendangregg/FlameGraph</a></p>
+<p>perf script | FlameGraph&#x2F;stackcollapse-perf.pl | FlameGraph&#x2F;flamegraph.pl &gt; flamegraph.svg</p>
+<p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/flamegraph_skt_2.svg" alt="flamegraph_skt_2"></p>
+<h4 id="Heap火焰图"><a href="#Heap火焰图" class="headerlink" title="Heap火焰图"></a>Heap火焰图</h4><p>Tcmalloc</p>
+<p>jemalloc不能看火焰图</p>
+<p>perf跟踪malloc&#x2F;free；跟踪brk；跟踪mmap；跟踪页错误通过gperftools来查看内存profiler结构</p>
+<p>pprof支持三种，第一种是cpu采样，第二种是堆内存，第三种是内存泄漏</p>
+<p>cpu采样用profiler.h文件，内存是heap_profile.h,有2种方式导出profile文件</p>
+<p> 静态dump方法：</p>
+<p>​    直接定义一个环境变量HEAPPROFILE来指定dumpprofile文件的位置，如：&#x2F;tmp&#x2F;test.log,它将会在&#x2F;tmp&#x2F;目录下生成很多类似&#x2F;tmp&#x2F;test.log.0003.heap文件名的文件</p>
+<p>​    env HEAPPROFILE&#x3D;”&#x2F;tmp&#x2F;test.log” &#x2F;test&#x2F;testprog</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="built_in">env</span> HEAPPROFILE=/tmp/ranker_service/ranker_service HEAPCHECK=normal HEAP_PROFILE_ALLOCATION_INTERVAL=1073741824 HEAP_PROFILE_INUSE_INTERVAL=104857600 ./bin/ranker_service <span class="variable">$exec_param</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>HeapProfilerStart() 用来开始内存分析</p>
+<p>HeapProfilerStop(). 用来终止内存分析</p>
+<p>这样就只会在开始和结束之间产生dump profiler文件</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifdef</span> GPROF</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;gperftools/profiler.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;gperftools/heap-profiler.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> ENABLE_GPROFTOOLS</span></span><br><span class="line">    <span class="keyword">if</span> (signum == SIGUSR1)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!isStarted)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">HeapProfilerStart</span>(<span class="string">&quot;gprof/rs.log&quot;</span>);</span><br><span class="line">            <span class="comment">//ProfilerStart(&quot;test.prof&quot;);</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;ProfilerStart success\n&quot;</span>);</span><br><span class="line">            isStarted++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">HeapProfilerDump</span>();</span><br><span class="line">            <span class="comment">//ProfilerFlush();</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;ProfilerFlush success\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (signum == SIGUSR2)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//ProfilerStop();</span></span><br><span class="line">        <span class="built_in">HeapProfilerStop</span>();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;ProfilerStop success\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> ENABLE_GPROFTOOLS</span></span><br><span class="line">    <span class="built_in">signal</span>(SIGUSR1, gprofStartAndStop);</span><br><span class="line">    <span class="built_in">signal</span>(SIGUSR2, gprofStartAndStop);</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<h5 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h5><ul>
+<li>HEAP_PROFILE_ALLOCATION_INTERVAL</li>
+</ul>
+<p>程序内存每增长这一数值之后就dump 一次内存，默认是1G （1073741824）</p>
+<ul>
+<li>HEAP_PROFILE_INUSE_INTERVAL</li>
+</ul>
+<p>程序如果一次性分配内存超过这个数值dump 默认是100K</p>
+<h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><p>pprof –text .&#x2F;bin文件 .&#x2F;heap_file.prof</p>
+<p>mac安装一些绘图的软件吧</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install graphviz</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><hr>
+<p>CPU迁移和上下文切换：发生上下文切换不一定会发生CPU迁移，而发生CPU迁移时肯定会发生上下文切换。发生上下文切换有可能只是把上下文从当前CPU中换出，下一次调度器还是将进程安排在这个CPU上执行。</p>
+<p>系统的性能上不去？</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/04/%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/c++/c++11附录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/c++11%E9%99%84%E5%BD%95/">c++11附录</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/c++11%E9%99%84%E5%BD%95/" class="archive-article-date">
+  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <p>从c++primer截图c++11标准</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/语言//" class="article-tag-list-link color3">语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/c++11%E9%99%84%E5%BD%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/c++/stl相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/stl%E7%9B%B8%E5%85%B3/">stl相关</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/stl%E7%9B%B8%E5%85%B3/" class="archive-article-date">
+  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <span id="more"></span>
+
+<h6 id="stl常用算法"><a href="#stl常用算法" class="headerlink" title="stl常用算法"></a>stl常用算法</h6><ul>
+<li>生成全排列</li>
+<li>排序(sort、)</li>
+<li>统计(count、cout_if)</li>
+<li>去重（unique）</li>
+<li>查找（find、find_if)</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/stl%E7%9B%B8%E5%85%B3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/其他/了解flatbuffer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/%E4%BA%86%E8%A7%A3flatbuffer/">了解flatbuffer</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/%E4%BA%86%E8%A7%A3flatbuffer/" class="archive-article-date">
+  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a target="_blank" rel="noopener" href="https://github.com/google/flatbuffers">FlatBuffers</a>是为Google发布的一个跨平台，提供多种语言接口，注重性能和资源使用的序列化类库。目前该类库提供C++、C#、C、GO、Java、JavaScript、PHP、Python语言接口。该序列化库多用于移动端手游数据传输以及特定的对性能要求较高的应用。具有一下特点：</p>
+<p>1、对序列化的数据不需要打包和拆包</p>
+<p>2、内存和效率速度高，扩展灵活</p>
+<p>3、代码依赖较少</p>
+<p>4、强类型设计，编译期即可完成类型检查</p>
+<p>5、使用简单、可跨平台使用</p>
         
       
 
@@ -575,7 +708,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/c//" class="article-tag-list-link color4">c++</a>
+        			<a href="/categories/flatbuffers//" class="article-tag-list-link color2">flatbuffers</a>
         		</li>
       		
 		</ul>
@@ -584,7 +717,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/04/c++%E7%9F%A5%E8%AF%86%E7%82%B9--stastic/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/%E4%BA%86%E8%A7%A3flatbuffer/">展开全文 >></a>
         </p>
       
 
@@ -614,124 +747,52 @@
 
 
   
-    <article id="post-财务pb整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-基础/网络/epoll学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/02/%E8%B4%A2%E5%8A%A1pb%E6%95%B4%E7%90%86/">财务bp整理</a>
+      <a class="article-title" href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E7%BD%91%E7%BB%9C/epoll%E5%AD%A6%E4%B9%A0/">epoll</a>
     </h1>
   
 
         
-        <a href="/2022/03/02/%E8%B4%A2%E5%8A%A1pb%E6%95%B4%E7%90%86/" class="archive-article-date">
-  	<time datetime="2022-03-02T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-02</time>
+        <a href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E7%BD%91%E7%BB%9C/epoll%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
 </a>
         
       </header>
     
 	<div class="article-entry" itemprop="articleBody">
       
-        <p>Q：预测和实际的直接差异，作为bp你怎么做</p>
-<p>A：月初收到业务的报表时将费用和预算做一个比较分析，一般是以10%作为分界点，如果费用没有超过预算10%，问下业务超预算原因并做出提示；如果实际花费超过预算的10%，需要业务发邮件至EMT成员审批，EMT成员审批完成后方可对费用进行审批</p>
-<p>Q：预算的编制环节，怎么监控预算，滚动预算是怎么编制的</p>
-<p>A：1、预算的编制我理解是业务根据去年的实际业务量根据自己今年的规划按照一定的比例测算出今年的业务量，再根据业务量的变动测算出实际的花费情况，报经领导审批后发送财务部，财务部选择器关键指标编制预算</p>
-<p> 2、预算监控，我理解是回到问题1上面了</p>
-<p> 3、滚动预算编制的话，Q4开启下一年的预算工作，编制完预算后后，一般不轻易改动预算，如果有重大性质发生变化后，（月度滚动预算不懂） </p>
-<p>Q：作为财务bp，事前的管理是怎么管理的</p>
-<p>这道题不知道问什么</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">财务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/gf//" class="article-tag-list-link color3">gf</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/02/%E8%B4%A2%E5%8A%A1pb%E6%95%B4%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-redis--基本数据结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/24/redis--%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">redis--基本数据结构</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/24/redis--%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="archive-article-date">
-  	<time datetime="2022-02-24T07:26:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-24</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>redis五种基本数据结构</strong>：<strong>string、list、hash、set、zset</strong></p>
-<p><strong>redis底层数据结构：简单动态字符串、双端连表、字典、压缩列表、整数集合</strong></p>
-<h6 id="链表"><a href="#链表" class="headerlink" title="链表"></a><strong>链表</strong></h6><ol>
-<li><p>代码定义</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">list</span>&#123;</span><br><span class="line">     <span class="comment">//表头节点</span></span><br><span class="line">     listNode *head;</span><br><span class="line">     <span class="comment">//表尾节点</span></span><br><span class="line">     listNode *tail;</span><br><span class="line">     <span class="comment">//链表所包含的节点数量</span></span><br><span class="line">     <span class="type">unsigned</span> <span class="type">long</span> len;</span><br><span class="line">     <span class="comment">//节点值复制函数</span></span><br><span class="line">     <span class="built_in">void</span> (*free) (<span class="type">void</span> *ptr);</span><br><span class="line">     <span class="comment">//节点值释放函数</span></span><br><span class="line">     <span class="built_in">void</span> (*free) (<span class="type">void</span> *ptr);</span><br><span class="line">     <span class="comment">//节点值对比函数</span></span><br><span class="line">     <span class="built_in">int</span> (*match) (<span class="type">void</span> *ptr,<span class="type">void</span> *key);</span><br><span class="line">&#125;list;</span><br></pre></td></tr></table></figure></li>
+        <p>多路复用：一个进程处理多个网络socket，一个socket有哪些信息；</p>
+<h6 id="边缘触发和水平触发"><a href="#边缘触发和水平触发" class="headerlink" title="边缘触发和水平触发"></a>边缘触发和水平触发</h6><p>边缘触发和水平触发：状态的变化；边缘触发就是对一个socket 在缓存区中有数据的时候，只触发一次；水平触发就是会一直不断的触发；</p>
+<h6 id="水平触发"><a href="#水平触发" class="headerlink" title="水平触发"></a>水平触发</h6><ol>
+<li>socket接收缓冲区不为空 有数据可读 读事件一直触发</li>
+<li>socket发送缓冲区不满 可以继续写入数据 写事件一直触发<br> 备注：符合思维习惯，epoll_wait返回的事件就是socket的状态</li>
 </ol>
+<h6 id="边缘触发"><a href="#边缘触发" class="headerlink" title="边缘触发"></a>边缘触发</h6><ol>
+<li>socket的接收缓冲区状态变化时触发读事件，即空的接收缓冲区刚接收到数据时触发读事件</li>
+<li>socket的发送缓冲区状态变化时触发写事件，即满的缓冲区刚空出空间时触发读事件<br> 备注：仅在状态变化时触发事件</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/img/20180531185610344" alt="img"></p>
+<p>总结一下：</p>
+<ol>
+<li><p>对于监听的 sockfd，最好使用水平触发模式，边缘触发模式会导致高并发情况下，有的客户端会连接不上。如果非要使用边缘触发，可以用 while 来循环 accept()。</p>
+</li>
+<li><p>对于读写的 connfd，水平触发模式下，阻塞和非阻塞效果都一样，因为在阻塞模式下，如果数据读取不完全则返回继续触发，反之读取完则返回继续等待。全建议设置非阻塞。</p>
+</li>
+<li><p>对于读写的 connfd，边缘触发模式下，必须使用非阻塞 IO，并要求一次性地完整读写全部数据。</p>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zxm342698145/article/details/80524331/">https://blog.csdn.net/zxm342698145/article/details/80524331/</a></p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1736793">https://cloud.tencent.com/developer/article/1736793</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/dongfuye/article/details/50880251">https://blog.csdn.net/dongfuye/article/details/50880251</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20502870">https://www.zhihu.com/question/20502870</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.lucode.net/linux/epoll-tutorial.html">https://blog.lucode.net/linux/epoll-tutorial.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://plantegg.github.io/2019/12/09/epoll%E7%9A%84LT%E5%92%8CET/">https://plantegg.github.io/2019/12/09/epoll%E7%9A%84LT%E5%92%8CET/</a></p>
         
       
 
@@ -740,33 +801,11 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/组件//" class="article-tag-list-link color3">组件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/24/redis--%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E7%BD%91%E7%BB%9C/epoll%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
         </p>
       
 
@@ -796,134 +835,43 @@
 
 
   
-    <article id="post-redis--哨兵" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-基础/操作系统/Linux运行过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/22/redis--%E5%93%A8%E5%85%B5/">redis--哨兵</a>
+      <a class="article-title" href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B/">Linux加载程序过程</a>
     </h1>
   
 
         
-        <a href="/2022/02/22/redis--%E5%93%A8%E5%85%B5/" class="archive-article-date">
-  	<time datetime="2022-02-22T15:50:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-22</time>
+        <a href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
 </a>
         
       </header>
     
 	<div class="article-entry" itemprop="articleBody">
       
-        <h6 id="目的"><a href="#目的" class="headerlink" title="目的"></a><strong>目的</strong></h6><p>解决主从挂了只能手动去拉起的问题，哨兵是redis高可用（ha)的方案。</p>
-<h6 id="Sentinel"><a href="#Sentinel" class="headerlink" title="Sentinel"></a><strong>Sentinel</strong></h6><p>启动：sentinel是一个redis server，只是他有自己特有的代码，相当于一个定制化的redis，用于监控 </p>
-<p>命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">struct redisCommand sentinelcmds[] = &#123;</span><br><span class="line">&#123;&quot;ping&quot;,pingCommand,1,&quot;&quot;,0,NULL,0,0,0,0,0&#125;, </span><br><span class="line">&#123;&quot;sentinel&quot;,sentinelCommand,-2,&quot;&quot;,0,NULL,0,0,0,0,0&#125;, </span><br><span class="line">&#123;&quot;subscribe&quot;,subscribeCommand,-2,&quot;&quot;,0,NULL,0,0,0,0,0&#125;, </span><br><span class="line">&#123;&quot;unsubscribe&quot;,unsubscribeCommand,-1,&quot;&quot;,0,NULL,0,0,0,0,0&#125;, </span><br><span class="line">&#123;&quot;psubscribe&quot;,psubscribeCommand,-2,&quot;&quot;,0,NULL,0,0,0,0,0&#125;,</span><br><span class="line">&#123;&quot;punsubscribe&quot;,punsubscribeCommand,-1,&quot;&quot;,0,NULL,0,0,0,0,0&#125;, </span><br><span class="line">&#123;&quot;info&quot;,sentinelInfoCommand,-1,&quot;&quot;,0,NULL,0,0,0,0,0&#125; &#125;;</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/组件//" class="article-tag-list-link color3">组件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/22/redis--%E5%93%A8%E5%85%B5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-redis--主从复制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/22/redis--%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">redis--主从复制</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/22/redis--%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="archive-article-date">
-  	<time datetime="2022-02-22T15:44:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-22</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="旧版复制"><a href="#旧版复制" class="headerlink" title="旧版复制"></a><strong>旧版复制</strong></h6><ul>
-<li><p>方式：salveof    ip   port</p>
-</li>
-<li><p>实现：同步和命令传播</p>
-</li>
-<li><p>同步：</p>
+        <p>计算机领域的任何问题都可以增加一个间接的中间层来解决</p>
 <ul>
-<li>同步是从服务器像主服务器发送sync命令开始</li>
-<li>主服务器接收到从服务器的的sync命令后，开始由子进程（bgsave)生成一个rdb文件，同时使用一个缓冲区记录现在开始写入的命令</li>
+<li><p>虚拟内存</p>
+<ul>
+<li>物理地址空间不隔离的</li>
+<li>内存利用率较低</li>
+<li>程序运行的地址空间不确定</li>
+<li>通过cpu的mmu进行页内存映射</li>
 </ul>
 </li>
-<li><p>rdb写入完成后，由子进程发送rdb文件给从服务器,从服务器通过rdb更新这个从服务器的库至bgsave。</p>
-</li>
-<li><p>主服务器发送缓冲区里的的命令给从服务器，从服务器执行这些命令，达到和从服务器一样的状态</p>
-</li>
-<li><p>命令传播：主服务器会将所有的写命令发送给从服务器来达到主从一直的情况</p>
-</li>
-<li><p>缺陷：断线重连不能高效的完成，从服务器需要重新加载rdb文件</p>
+<li><p>线程共享的内容</p>
+<p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/img/image-20220323143913994.png" alt="image-20220323143913994"></p>
 </li>
 </ul>
+<h6 id="目标文件"><a href="#目标文件" class="headerlink" title="目标文件"></a>目标文件</h6><p>程序源代码编译后的机器指令经常被放在代码段（code section）里，叫”.code” 或者”.text”;全局变量和静态变量都在数据段，数据段的一般名字叫”.data”;</p>
+<p>.data：保存初始化的全局变量和局部静态变量</p>
+<p>bss：未初始化的全局变量和局部静态变量存放的地方；其实这些数据也可以放在data段；由于都是0没有必要放。程序运行的时候他们的确是占内存空间的，并且可执行文件必须记录所有未初始化的全局变量和局部静态变量的大小总和，所以bss段只是为变量预留位置而已，在文件中并不占空间；</p>
         
       
 
@@ -932,33 +880,74 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/组件//" class="article-tag-list-link color3">组件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/22/redis--%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-高并发/seastar/样例模板 (copy)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/04/%E9%AB%98%E5%B9%B6%E5%8F%91/seastar/%E6%A0%B7%E4%BE%8B%E6%A8%A1%E6%9D%BF%20(copy)/">样例模板</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/04/%E9%AB%98%E5%B9%B6%E5%8F%91/seastar/%E6%A0%B7%E4%BE%8B%E6%A8%A1%E6%9D%BF%20(copy)/" class="archive-article-date">
+  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <span id="more"></span>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/04/%E9%AB%98%E5%B9%B6%E5%8F%91/seastar/%E6%A0%B7%E4%BE%8B%E6%A8%A1%E6%9D%BF%20(copy)/">展开全文 >></a>
         </p>
       
 
@@ -990,7 +979,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">« Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next »</a>
+      <a class="extend prev" rel="prev" href="/">« Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next »</a>
     </nav>
   
 
@@ -1095,6 +1084,46 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">财务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gcc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">内存</a>
               </li>
              
@@ -1103,43 +1132,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gcc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kafka</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">zk</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">财务</a>
               </li>
             
             <div class="clearfix"></div>
