@@ -165,53 +165,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-生活/租房" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/12/%E7%94%9F%E6%B4%BB/%E7%A7%9F%E6%88%BF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-基础/其他/cmake了解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -219,62 +172,22 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/22/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/cmake%E4%BA%86%E8%A7%A3/">cmake了解</a>
+      <a class="article-title" href="/2023/03/08/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/cmake%E4%BA%86%E8%A7%A3/">cmake了解</a>
     </h1>
   
 
         
-        <a href="/2022/06/22/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/cmake%E4%BA%86%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2022-06-22T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-22</time>
+        <a href="/2023/03/08/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/cmake%E4%BA%86%E8%A7%A3/" class="archive-article-date">
+  	<time datetime="2023-03-08T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-08</time>
 </a>
         
       </header>
     
 	<div class="article-entry" itemprop="articleBody">
       
-        <h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><hr>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cmake [&lt;options&gt;] (&lt;path-to-source&gt; | &lt;path-to-existing-build&gt;)</span><br><span class="line">cmake [(-D&lt;var&gt;=&lt;value&gt;)...] -P &lt;cmake-script-<span class="keyword">file</span>&gt;</span><br><span class="line">cmake --build &lt;dir&gt; [&lt;options&gt;] [-- &lt;build-tool-options&gt;...]</span><br><span class="line">cmake -E &lt;<span class="keyword">command</span>&gt; [&lt;options&gt;]</span><br><span class="line">cmake --find-package &lt;options&gt;...</span><br></pre></td></tr></table></figure>
-
-<p>Cmakelists.txt</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.5</span>) <span class="comment">#设置CMake最小版本</span></span><br><span class="line"><span class="keyword">project</span> (hello_cmake) <span class="comment">#设置工程名</span></span><br><span class="line"><span class="keyword">add_executable</span>(hello_cmake main.cpp) <span class="comment">#生成可执行文件</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#PROJECT_SOURCE_DIR指工程顶层目录</span></span><br><span class="line"><span class="comment">#PROJECT_Binary_DIR指编译目录</span></span><br><span class="line"><span class="comment">#PRIVATE指定了库的范围，下一节讲</span></span><br></pre></td></tr></table></figure>
-
-<p>CMake语法指定了许多变量，可用于帮助您在项目或源代码树中找到有用的目录。 其中一些包括：</p>
-<table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>InfoInfo–</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>CMAKE_SOURCE_DIRCMAKE_SOURCE_DIR</td>
-<td>根源代码目录，工程顶层目录。暂认为就是PROJECT_SOURCE_DIR根源代码目录，工程顶层目录。暂认为就是PROJECT_SOURCE_DIR</td>
-</tr>
-<tr>
-<td>CMAKE_CURRENT_SOURCE_DIR</td>
-<td>当前处理的 CMakeLists.txt 所在的路径</td>
-</tr>
-<tr>
-<td>PROJECT_SOURCE_DIR</td>
-<td>工程顶层目录</td>
-</tr>
-<tr>
-<td>CMAKE_BINARY_DIR</td>
-<td>运行cmake的目录。外部构建时就是build目录</td>
-</tr>
-<tr>
-<td>CMAKE_CURRENT_BINARY_DIR</td>
-<td>The build directory you are currently in.当前所在build目录</td>
-</tr>
-<tr>
-<td>PROJECT_BINARY_DIR</td>
-<td>暂认为就是CMAKE_BINARY_DIR</td>
-</tr>
-<tr>
-<td></td>
-<td>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>CMake 有两个主要阶段。第一个是“配置”步骤，其中 CMake 处理所有提供给它的输入并创建要执行的构建的内部表示。第二个阶段是“生成”步骤。在这个阶段创建实际的构建文件。第一步是 cmake -B build，称为配置阶段（configure），配置阶段可以通过 -D 设置缓存变量；第二步是cmake –build build，称为构建阶段，调用编译器来编译代码，-G 选项：指定要用的生成器</p>
+<h3 id="cmake过程"><a href="#cmake过程" class="headerlink" title="cmake过程"></a>cmake过程</h3><h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><p>在项目构建过程中都会使用 shell 级环境变量。项目通常有一个 PROJECT_ROOT 环境变量，它指向源代码树的根位置。环境变量也用于指向可选包或外部包。这种方法的问题在于，要使构建工作，每次执行构建时都需要设置所有这些外部变量。为了解决这个问题，CMake 有一个缓存文件，将构建所需的所有变量存储在一个地方。这些不是 shell 或环境变量，而是 CMake 变量。第一次为特定构建树运行 CMake 时，它会创建一个<code>CMakeCache.txt</code>存储该构建的所有持久变量的文件。由于该文件是构建树的一部分，因此在每次运行期间变量将始终对 CMake 可用。</p>
+<h4 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h4><p>在配置步骤中，如果CMakeCache.txt在之前的运行中存在，CMake首先读取它。然后它读取CMakeLists.txt，在给CMake的源树的根中找到。在配置步骤中，CMakeLists.txt文件被CMake语言解析器解析。文件中的每个CMake命令都由命令模式对象执行。在此步骤中，可以使用include和add_subdirectory CMake命令解析其他CMakeLists.txt文件。对于CMake语言中可以使用的每个命令，CMake都有一个c++对象。命令示例包括add_library、if、add_executable、add_subdirectory和include。实际上，整个CMake语言都是通过调用命令来实现的。解析器只是将CMake输入文件转换为命令调用和作为命令参数的字符串列表。 </p>
         
       
 
@@ -309,7 +222,409 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/22/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/cmake%E4%BA%86%E8%A7%A3/">展开全文 >></a>
+          <a class="article-more-a" href="/2023/03/08/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/cmake%E4%BA%86%E8%A7%A3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/go/go基本语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/03/07/%E5%9F%BA%E7%A1%80/go/go%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">go基本语法</a>
+    </h1>
+  
+
+        
+        <a href="/2023/03/07/%E5%9F%BA%E7%A1%80/go/go%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2023-03-07T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-07</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <p>[toc]</p>
+<h5 id="包"><a href="#包" class="headerlink" title="包"></a>包</h5><p>这是因为在Golang中，<strong>没有强制要求包名和目录名称一致</strong>。也就是说，在上面的例子中，我们引用路径中的文件夹名称是<code>package2</code>，而在这个文件夹下面的两个文件，他们的包名，却被设置成了<code>同一个。而在Golang的引用中，我们需要填写的是**源文件所在的相对路径**。也就是说，我们可以理解为，包名和路径其实是两个概念，文件名在Golang中不会被显式的引用，通常的引用格式是</code>packageName.FunctionName&#96;。</p>
+<p>结论如下：</p>
+<ul>
+<li>导入包的时候，除了路径，还要加上module的名字</li>
+<li>import导入的是文件的名字，而不是包名</li>
+<li>在习惯上将包名和文件夹名设置为一样，但这不是强制规定（但是不建议这么做，容易不能发现是在哪个文件中）</li>
+<li>在用函数或者变量的时候，用的是包名，而不是文件夹的名字</li>
+<li></li>
+</ul>
+<h5 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h5><h6 id="变量声明"><a href="#变量声明" class="headerlink" title="变量声明"></a>变量声明</h6><ul>
+<li>var para_name type</li>
+<li>var a int</li>
+<li>var a bool</li>
+<li>var a *int</li>
+<li>var a []int</li>
+<li>var a map[int] string</li>
+<li>var a chan</li>
+<li>var a error</li>
+</ul>
+<p>var a fun(string) int</p>
+<p>var a slice</p>
+<p>const a int &#x3D; 20</p>
+<p>匿名变量：用_ 标识一个占位符，在被赋值后，会立即被操作系统回收，通常在批量赋值的时候使用</p>
+<p>对于变量的声明也可以用:&#x3D; 来定义自动推导，在之前声明的变量使用:&#x3D;会报错;:&#x3D;不能用于全局变量的声明</p>
+<h5 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h5><p>函数名的首字母要大写,对包来说就是public 的函数；函数名的首字母是小写，对包来说是private；</p>
+<p>func Func_name(para1, para2) return_type {</p>
+<p>​	func_body</p>
+<p>} </p>
+<p>调用的时候通过报名</p>
+<p>返回多个参数的时候用括号括起来</p>
+<h5 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h5><p>数组大小不能被改变</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array [<span class="number">10</span>]<span class="type">int</span> <span class="comment">//必须被使用，size也是常量</span></span><br><span class="line"><span class="keyword">var</span> array = [<span class="number">10</span>]<span class="type">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="切片（相当于动态数组，c-–vector"><a href="#切片（相当于动态数组，c-–vector" class="headerlink" title="切片（相当于动态数组，c++–vector)"></a>切片（相当于动态数组，c++–vector)</h6><p>含义：是按照需要切成自己想要的部分</p>
+<p>由于数组是固定大小的，切片可以提供一个动态的、灵活的动态数组结构；</p>
+<p>切片通过一个左闭右开的半开区间来标识；slices[1:3]</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 [<span class="number">5</span>]<span class="type">int</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">5</span>; i++ &#123;</span><br><span class="line">		fmt.Printf(<span class="string">&quot;%d &quot;</span>, i)</span><br><span class="line">		arr1[i] = i</span><br><span class="line">	&#125;</span><br><span class="line">	slices1 := arr1[<span class="number">1</span>:<span class="number">3</span>]</span><br><span class="line">	fmt.Println(<span class="string">&quot;\nslices: &quot;</span>, slices1)</span><br><span class="line">	slices2 := arr1[<span class="number">0</span>:<span class="number">5</span>]</span><br><span class="line">	<span class="comment">//slices2[0] = 100 会改变原始的数组，指针的关系</span></span><br><span class="line">	slices2 = <span class="built_in">append</span>(slices2, <span class="number">106</span>, <span class="number">107</span>, <span class="number">108</span>)</span><br><span class="line">	slices2[<span class="number">0</span>] = <span class="number">100</span> <span class="comment">//不会改变，slices2的指针有变化</span></span><br></pre></td></tr></table></figure>
+
+<p>对切片进行赋值的时候，也会改变底层的数据的值；对切片进行append时候，如果当前<em>切片</em>空间不足的时候，会新建一个切片的空间然后将旧空间的元素拷贝过来，这样并不会改变原始数据的值；</p>
+<p>通过make函数可以创建切片,相当于创建</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">slices1 := <span class="built_in">make</span>([]<span class="type">int</span>, <span class="number">10</span>) <span class="comment">// len是10个</span></span><br><span class="line">slices2 ：= <span class="built_in">make</span>([]<span class="type">int</span>, <span class="number">10</span>, <span class="number">20</span>) <span class="comment">// len是10，cap是20</span></span><br></pre></td></tr></table></figure>
+
+<p>数组在定义的时候会指定其大小；切片不用指定大小</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//数组</span></span><br><span class="line">arr1 := [<span class="number">4</span>]<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br><span class="line"><span class="comment">//切片</span></span><br><span class="line">slices1 := []<span class="type">int</span>&#123;<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>&#125;</span><br><span class="line"><span class="comment">// nil切片</span></span><br><span class="line"><span class="keyword">var</span> slices1 []<span class="type">int</span> </span><br></pre></td></tr></table></figure>
+
+<h5 id="map"><a href="#map" class="headerlink" title="map"></a>map</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map_variable := <span class="built_in">make</span>(<span class="keyword">map</span>[KeyType]ValueType, initialCapacity)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">AdInfo <span class="keyword">struct</span> &#123;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> testMap <span class="keyword">map</span>[<span class="type">string</span>]AdInfo</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>初始化 make</p>
+<h5 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h5><p>defer的执行推迟到defer所在函数（外层函数）执行完毕才执行，并且defer后面只能是函数调用，defer用于资源的释放，defer是在return之前执行的</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">f</span><span class="params">()</span></span> (r <span class="type">int</span>) &#123;</span><br><span class="line">    <span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">(r <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">          r = r + <span class="number">5</span></span><br><span class="line">    &#125;(r)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h5><p>go 没有指针运算；&amp;取地址；*获取值</p>
+<h5 id="panic-和-recover"><a href="#panic-和-recover" class="headerlink" title="panic 和 recover"></a>panic 和 recover</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="struct"><a href="#struct" class="headerlink" title="struct"></a>struct</h5><h6 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h6><p>结构体的定义也遵循首字规则；包外访问的struct，定义的时候必须是名字首字母大写，否则小写；如果是struct的成员变量，和struct遵循一样的规则;</p>
+<p>在struct中，无论使用的是指针的方式声明还是普通方式，访问其成员都使用”.”，在访问的时候编译器会自动把 stu2.name 转为 (*stu2).name。</p>
+<p>struct分配内存使用new，返回的是指针。</p>
+<p>struct没有构造函数，但是我们可以自己定义“构造函数”。</p>
+<p>struct是我们自己定义的类型，不能和其他类型进行强制转换。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> S</span><br></pre></td></tr></table></figure>
+
+<h6 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h6><p>构造函数</p>
+<h6 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h6><p>tag可以为结构体的成员添加说明或者标签便于使用,这些说明可以通过反射获取到。</p>
+<p>在前面提到了，结构体中的成员首字母小写对外不可见，但是我们把成员定义为首字母大写这样与外界进行数据交互会带来极大的不便，此时tag带来了解决方法。</p>
+<h6 id="匿名成员（字段、属性"><a href="#匿名成员（字段、属性" class="headerlink" title="匿名成员（字段、属性)"></a>匿名成员（字段、属性)</h6><h5 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h5>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/03/07/%E5%9F%BA%E7%A1%80/go/go%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/go/go-mod初识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/13/%E5%9F%BA%E7%A1%80/go/go-mod%E5%88%9D%E8%AF%86/">go初始了解</a>
+    </h1>
+  
+
+        
+        <a href="/2022/10/13/%E5%9F%BA%E7%A1%80/go/go-mod%E5%88%9D%E8%AF%86/" class="archive-article-date">
+  	<time datetime="2022-10-13T07:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-13</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="go-module"><a href="#go-module" class="headerlink" title="go module"></a>go module</h6><p>go mod init modulename</p>
+<p>环境变量</p>
+<p>GO111MODULE</p>
+<p>在 GOPATH 目录之外新建一个目录，并使用<code>go mod init</code>初始化生成 go.mod 文件。go.mod文件一旦创建后，它的内容将会被go toolchain全面掌控。go toolchain会在各类命令执行时，比如go get、go build、go mod等修改和维护go.mod文件。</p>
+<p>go.mod内容</p>
+<ul>
+<li>项目名字</li>
+<li>版本</li>
+<li>第三方包</li>
+</ul>
+<p>go.mod 提供了 module、require、replace 和 exclude 四个命令[第三方包使用方式]：</p>
+<ul>
+<li>require 语句指定的依赖项模块；</li>
+<li>replace 语句可以替换依赖项模块；替换无法直接获取的package</li>
+<li>exclude 语句可以忽略依赖项模块。</li>
+</ul>
+<p>go mod edit -require&#x3D;”<a href="mailto:&#120;&#x78;&#x78;&#x78;&#x40;&#118;&#46;&#120;&#120;&#x78;">&#120;&#x78;&#x78;&#x78;&#x40;&#118;&#46;&#120;&#120;&#x78;</a>“修改版本</p>
+<p>go get使用该命令下载公开库，会把依赖下载到第一个gopath下</p>
+<h6 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h6><p>go build xxx.go</p>
+<h6 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h6><p>go run xxx.go</p>
+<h6 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h6><ol>
+<li><p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/image-20221014171252113-20221014171459118.png"></p>
+<p>Go mod init modulename(项目名字)</p>
+</li>
+<li><p>![image-20221014180545475](&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20221014180545475.png)</p>
+<p>配置GO111MODULE&#x3D;auto</p>
+</li>
+<li><p>go的import的包一定要使用，不然就会被go mod tidy清理、优化掉</p>
+</li>
+<li><p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/image-20221014202125815.png">读了sum.goland.org,需要配置，GONOPROXY&#x3D;”gitlab.xxx.com”，GONOSUMDB&#x3D;”gitlab.xxxx.com”，GOPRIVATE&#x3D;”gitlab.xxx.com”</p>
+</li>
+<li><p>东方饭店</p>
+</li>
+<li><p>烦啥科技</p>
+</li>
+</ol>
+<h6 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h6><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7026523806730551333">https://juejin.cn/post/7026523806730551333</a></p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/13/%E5%9F%BA%E7%A1%80/go/go-mod%E5%88%9D%E8%AF%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-高并发/seastar/样例模板 (copy)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/18/%E9%AB%98%E5%B9%B6%E5%8F%91/seastar/%E6%A0%B7%E4%BE%8B%E6%A8%A1%E6%9D%BF%20(copy)/">网络相关</a>
+    </h1>
+  
+
+        
+        <a href="/2022/08/18/%E9%AB%98%E5%B9%B6%E5%8F%91/seastar/%E6%A0%B7%E4%BE%8B%E6%A8%A1%E6%9D%BF%20(copy)/" class="archive-article-date">
+  	<time datetime="2022-08-18T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-18</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <span id="more"></span>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/18/%E9%AB%98%E5%B9%B6%E5%8F%91/seastar/%E6%A0%B7%E4%BE%8B%E6%A8%A1%E6%9D%BF%20(copy)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/其他/gdb调试总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/17/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/gdb%E8%B0%83%E8%AF%95%E6%80%BB%E7%BB%93/">gdb调试相关</a>
+    </h1>
+  
+
+        
+        <a href="/2022/08/17/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/gdb%E8%B0%83%E8%AF%95%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2022-08-17T10:42:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-17</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="core文件定位，使用这些工具和指令排查基本步骤包括："><a href="#core文件定位，使用这些工具和指令排查基本步骤包括：" class="headerlink" title="core文件定位，使用这些工具和指令排查基本步骤包括："></a>core文件定位，使用这些工具和指令排查基本步骤包括：</h6><ul>
+<li><p>通过 top 找到内存泄露的进程</p>
+</li>
+<li><p>通过 pmap 找到内存泄露的地址及范围</p>
+</li>
+<li><p>通过 gcore 对进程内存进行快照，gcore 产生 coredump 文件</p>
+</li>
+<li><p>通过 gdb 加载内存信息，gdb 加载 coredump 文件</p>
+</li>
+<li><p>通过gdb的 dump binary 导出泄露内存的内容，(gdb) dump binary memory result.bin {start_addr} {end_addr}命令 dump 内存</p>
+</li>
+<li><p>通过 vim 查看内存内容，根据内存中的内容，锁定对应的代码段，进行排查修复，使用 :%!xxd 的方式查看内容</p>
+</li>
+<li><p>常用命令：</p>
+<ul>
+<li>top -b -n 1 -H -p 12877</li>
+<li>pmap -x -p 12877</li>
+</ul>
+</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gcc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/工具//" class="article-tag-list-link color3">工具</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/17/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/gdb%E8%B0%83%E8%AF%95%E6%80%BB%E7%BB%93/">展开全文 >></a>
         </p>
       
 
@@ -374,6 +689,183 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/06/14/%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/%E5%86%85%E5%AD%98%E5%AE%9A%E4%BD%8D/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/go/go进阶" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/19/%E5%9F%BA%E7%A1%80/go/go%E8%BF%9B%E9%98%B6/">go进阶</a>
+    </h1>
+  
+
+        
+        <a href="/2022/05/19/%E5%9F%BA%E7%A1%80/go/go%E8%BF%9B%E9%98%B6/" class="archive-article-date">
+  	<time datetime="2022-05-19T15:45:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-19</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h5>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/19/%E5%9F%BA%E7%A1%80/go/go%E8%BF%9B%E9%98%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/其他/docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/19/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/docker/">docker了解</a>
+    </h1>
+  
+
+        
+        <a href="/2022/05/19/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/docker/" class="archive-article-date">
+  	<time datetime="2022-05-19T15:45:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-19</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Docker了解"><a href="#Docker了解" class="headerlink" title="Docker了解"></a>Docker了解</h3><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p><strong>镜像</strong>（<code>Image</code>）</p>
+<p>一堆压缩在一起的静态软件包</p>
+<p><strong>容器</strong>（<code>Container</code>）</p>
+<p>这堆静态包执行的过程</p>
+<p><strong>仓库</strong>（<code>Repository</code>）</p>
+<p>镜像的存放地方</p>
+<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><h6 id="docker-stop-docker-ps-a-q"><a href="#docker-stop-docker-ps-a-q" class="headerlink" title="docker stop $(docker ps -a -q)"></a>docker stop $(docker ps -a -q)</h6><p>停止所有容器运行</p>
+<h6 id="docker-rm-docker-ps-a-q"><a href="#docker-rm-docker-ps-a-q" class="headerlink" title="docker rm $(docker ps -a -q)"></a>docker rm $(docker ps -a -q)</h6><p>删除所有停止运行的容器</p>
+<h6 id="docker-ps-a-q"><a href="#docker-ps-a-q" class="headerlink" title="docker ps -a -q"></a><strong>docker ps -a -q</strong></h6><ul>
+<li><code>docker ps</code> 列出容器。</li>
+<li><code>-a</code> 这个选项用于列出所有容器，包括停止运行的。如果没有这个选项，则默认只列出在运行的容器。</li>
+<li><code>-q</code> 这个选项列出容器的数字 ID，而不是容器的所有信息。</li>
+</ul>
+<h6 id="docker-rmi"><a href="#docker-rmi" class="headerlink" title="docker rmi"></a>docker rmi</h6><p>删除镜像</p>
+<h6 id="docker-commit"><a href="#docker-commit" class="headerlink" title="docker commit"></a>docker commit</h6><p>Docker 提供了一个 <code>docker commit</code> 命令，可以将容器的存储层保存下来成为镜像。换句话说，就是在原有镜像的基础上，再叠加上容器的存储层，并构成新的镜像。以后我们运行这个新镜像的时候，就会拥有原有容器最后的文件变化。</p>
+<p><code>docker commit</code> 的语法格式为：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker commit [选项] &lt;容器ID或容器名&gt; [&lt;仓库名&gt;[:&lt;标签&gt;]]</span><br><span class="line">//会记录下所有的改动，可能会导致冗余</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="docker-build"><a href="#docker-build" class="headerlink" title="docker build"></a>docker build</h6><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> amazonlinux:<span class="number">2.0</span>.<span class="number">20200722.0</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> yum install -y epel-releas jq initscripts sudo nc gdb net-tools make vim lsof <span class="built_in">which</span> tar tree              \</span></span><br><span class="line"><span class="language-bash">    procps python3 openssh-clients unzip &amp;&amp; pip3 install requests awscli supervisor pipenv</span></span><br><span class="line">//docker build -f docker_file -t sunketo-redhat:v0.<span class="number">0.1</span> .</span><br></pre></td></tr></table></figure>
+
+<h6 id="docker-push"><a href="#docker-push" class="headerlink" title="docker push"></a>docker push</h6><figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push yefengdanqing/sunketo-redhat:v0.<span class="number">0.1</span></span><br></pre></td></tr></table></figure>
+
+<p>必须先要docker tag，然后才能带上用户名再进行push</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag sunketo-redhat:v0.<span class="number">0.1</span> yefengdanqing/sunketo-redhat:v0.<span class="number">0.1</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight do"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps #查看运行的docker</span><br><span class="line">docker <span class="keyword">run</span> -t #绑定一个伪终端运行;-i则让容器的标准输入保持打开，可以进行交互;-<span class="keyword">d</span> <span class="keyword">Run</span> container <span class="keyword">in</span> background and <span class="keyword">print</span> container ID,-v绑定一个目录，-w在容器里面的</span><br><span class="line">docker exec 进入一个以backgroud方式运行的容器</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/工具//" class="article-tag-list-link color3">工具</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/19/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/docker/">展开全文 >></a>
         </p>
       
 
@@ -538,387 +1030,9 @@
 
 
   
-    <article id="post-样例模板" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/04/%E6%A0%B7%E4%BE%8B%E6%A8%A1%E6%9D%BF/">样例模板</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/04/%E6%A0%B7%E4%BE%8B%E6%A8%A1%E6%9D%BF/" class="archive-article-date">
-  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <span id="more"></span>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/04/%E6%A0%B7%E4%BE%8B%E6%A8%A1%E6%9D%BF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-lc/排序总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/04/lc/%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93/">排序总结</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/04/lc/%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h6><p>注意点：在递归的时候要判断是否越界</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">partition</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> index = <span class="built_in">rand</span>() % (r-l+<span class="number">1</span>) + l;</span><br><span class="line">        <span class="built_in">swap</span>(nums[l], nums[index]);</span><br><span class="line">        <span class="type">int</span> x = nums[l];</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">            <span class="keyword">while</span> (l &lt; r &amp;&amp; x &lt;= nums[r]) r--;</span><br><span class="line">            <span class="built_in">swap</span>(nums[l], nums[r]);</span><br><span class="line">            <span class="comment">//nums[l] = nums[r];</span></span><br><span class="line">            <span class="keyword">while</span> (l &lt; r &amp;&amp; x &gt;= nums[l]) l++;</span><br><span class="line">            <span class="built_in">swap</span>(nums[r], nums[l]);</span><br><span class="line">        &#125;</span><br><span class="line">        nums[l] = x;</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">quick_sort</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, std::vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &gt; r) <span class="keyword">return</span>;</span><br><span class="line">        <span class="type">int</span> mid = <span class="built_in">partition</span>(l, r, nums);</span><br><span class="line">        <span class="built_in">quick_sort</span>(l, mid - <span class="number">1</span>, nums);</span><br><span class="line">        <span class="built_in">quick_sort</span>(mid + <span class="number">1</span>, r, nums);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> len = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">quick_sort</span>(<span class="number">0</span>, len - <span class="number">1</span>, nums);</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/04/lc/%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-工作遗留/工作总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/04/%E5%B7%A5%E4%BD%9C%E9%81%97%E7%95%99/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">样例模板</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/04/%E5%B7%A5%E4%BD%9C%E9%81%97%E7%95%99/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <span id="more"></span>
-
-<p><a target="_blank" rel="noopener" href="https://xianbai.me/learn-md/article/syntax/horizontal-rule.html">makedown语法</a></p>
-<p><a target="_blank" rel="noopener" href="https://xianbai.me/learn-md/article/syntax/horizontal-rule.html">https://xianbai.me/learn-md/article/syntax/horizontal-rule.html</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">\   反斜线</span><br><span class="line">`   反引号</span><br><span class="line">*   星号</span><br><span class="line">_   下划线</span><br><span class="line">&#123;&#125;  花括号</span><br><span class="line">[]  方括号</span><br><span class="line">()  小括号</span><br><span class="line">#   井字号</span><br><span class="line">+   加号</span><br><span class="line">-   减号</span><br><span class="line">.   英文句点</span><br><span class="line">!   感叹号</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/04/%E5%B7%A5%E4%BD%9C%E9%81%97%E7%95%99/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-性能总结/Valgrind使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/04/%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/Valgrind%E4%BD%BF%E7%94%A8/">样例模板</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/04/%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/Valgrind%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>下载：<a target="_blank" rel="noopener" href="https://valgrind.org/downloads/current.html%E7%9B%AE%E5%89%8D%E6%98%AF%E4%B8%8B%E8%BD%BD%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC">https://valgrind.org/downloads/current.html目前是下载最新版本</a></p>
-<p>安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -jxvf xxxx</span><br><span class="line">cd valgrind-3.19.0</span><br><span class="line">./configure &amp;&amp; make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/04/%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/Valgrind%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-性能总结/工作中的性能总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/04/%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/">工作中的性能总结</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/04/%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <h5 id="广告创意读取"><a href="#广告创意读取" class="headerlink" title="广告创意读取"></a>广告创意读取</h5><p>由于要迁移mongodb库，由于启动程序的时候全量从mongodb拉素材比较慢，因此通过本地加载的方式拉全量，程序做增量变更</p>
-<p>旧mongodb库是500万数据，新的mongodb是340万数据；</p>
-<p><strong>旧方案：本地插件程序dump mongodb的数据为flatbuffer二进制数据，saasrs直接序列化到内存的flatbuffer 结构中</strong></p>
-<p><strong>新方案1：mongodb export【官方出品】插件 导出为json数据文件，然后saas rs 读取json并解析到PadCreative结构中</strong></p>
-<p>新方案2：mongodb export插件 导出为json文件后进行gz压缩，saas rs 读取后进行解压，然后解析到PadCreative结构中</p>
-<p>新方案3：mongodb export插件 导出为json文件后，按行读取后放入队列，多线程解析并加锁写入内存数据结构</p>
-<p><strong>结论</strong>：按照耗和整个处理过程来说，目前用方案3；因为导出的过程可以放到平台，同时也可以去掉增量更新锁。</p>
-<table>
-<thead>
-<tr>
-<th>总条数</th>
-<th>实际加载条数</th>
-<th>文件大小</th>
-<th>全量数据解析为结构体的耗时</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>3377324</td>
-<td>3364382</td>
-<td>creative.json（2.4G）</td>
-<td>55秒</td>
-</tr>
-<tr>
-<td>3377324</td>
-<td>3364382</td>
-<td>creative.json.gz(250m)</td>
-<td>60秒</td>
-</tr>
-<tr>
-<td>3377324</td>
-<td>3377324</td>
-<td>creative.json（2.4G）</td>
-<td>16秒</td>
-</tr>
-</tbody></table>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/04/%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next »</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next »</a>
     </nav>
   
 
@@ -930,7 +1044,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 SK-II
+    		&copy; 2023 SK-II
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1023,7 +1137,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1031,11 +1145,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kafka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1047,7 +1165,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1055,11 +1177,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1067,7 +1185,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">

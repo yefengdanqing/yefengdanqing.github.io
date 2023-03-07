@@ -16,7 +16,7 @@
 <meta property="og:description" content="mutexstd::unique_lock 和std::lock_guard都是通过raii实现自动加锁和释放锁，lock_guard速度相对unique快点，而unique相对灵活和慢点。std::unique_lock无参数的构造函数是没有加锁的，不拥有互斥量的锁权利。 functionstd::promisepromise 含义是承诺，承诺给别人反馈一个结果。与future一起使用。get_">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-21T03:42:47.000Z">
-<meta property="article:modified_time" content="2022-08-09T03:25:19.956Z">
+<meta property="article:modified_time" content="2023-02-23T03:26:04.996Z">
 <meta property="article:author" content="SK-II">
 <meta property="article:tag" content="语言">
 <meta name="twitter:card" content="summary">
@@ -192,8 +192,7 @@
 <h3 id="std-async"><a href="#std-async" class="headerlink" title="std::async"></a>std::async</h3><p>async异步的完成一个操作，简单的创建线程，然后通过std::future来获取结果</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//(C++11 起) (C++17 前)</span></span><br><span class="line"><span class="keyword">template</span>&lt; <span class="keyword">class</span> <span class="title class_">Function</span>, <span class="keyword">class</span>... Args&gt;</span><br><span class="line">std::future&lt;std::<span class="type">result_of_t</span>&lt;std::<span class="built_in">decay_t</span>&lt;Function&gt;(std::<span class="type">decay_t</span>&lt;Args&gt;...)&gt;&gt;</span><br><span class="line">    <span class="built_in">async</span>( Function&amp;&amp; f, Args&amp;&amp;... args );</span><br><span class="line"></span><br><span class="line"><span class="comment">//(C++11 起) (C++17 前)</span></span><br><span class="line"><span class="keyword">template</span>&lt; <span class="keyword">class</span> <span class="title class_">Function</span>, <span class="keyword">class</span>... Args &gt;</span><br><span class="line">std::future&lt;std::<span class="type">result_of_t</span>&lt;std::<span class="built_in">decay_t</span>&lt;Function&gt;(std::<span class="type">decay_t</span>&lt;Args&gt;...)&gt;&gt;</span><br><span class="line">    <span class="built_in">async</span>( std::launch policy, Function&amp;&amp; f, Args&amp;&amp;... args );  </span><br></pre></td></tr></table></figure>
 
-<h3 id="thread-local"><a href="#thread-local" class="headerlink" title="thread_local"></a>thread_local</h3><h3 id="std-bind"><a href="#std-bind" class="headerlink" title="std::bind"></a>std::bind</h3><h3 id="std-optional"><a href="#std-optional" class="headerlink" title="std::optional"></a>std::optional</h3><h3 id="clear和swap测试"><a href="#clear和swap测试" class="headerlink" title="clear和swap测试"></a>clear和swap测试</h3><h3 id="decltype"><a href="#decltype" class="headerlink" title="decltype"></a>decltype</h3><h3 id="auto-user-action-region-ups2-region"><a href="#auto-user-action-region-ups2-region" class="headerlink" title="auto [user_action_region, ups2_region]"></a>auto [user_action_region, ups2_region]</h3><h3 id="tuple使用"><a href="#tuple使用" class="headerlink" title="tuple使用"></a>tuple使用</h3><h3 id="builtin-expect"><a href="#builtin-expect" class="headerlink" title="__builtin_expect"></a>__builtin_expect</h3><h3 id="std-apply"><a href="#std-apply" class="headerlink" title="std::apply()"></a>std::apply()</h3><h3 id="std-is-base-of"><a href="#std-is-base-of" class="headerlink" title="std::is_base_of"></a>std::is_base_of</h3><h3 id="shared-from-this"><a href="#shared-from-this" class="headerlink" title="shared_from_this"></a>shared_from_this</h3><p>git config –global advice.detached head false</p>
-
+<h3 id="thread-local"><a href="#thread-local" class="headerlink" title="thread_local"></a>thread_local</h3><h3 id="std-bind"><a href="#std-bind" class="headerlink" title="std::bind"></a>std::bind</h3><h3 id="std-optional"><a href="#std-optional" class="headerlink" title="std::optional"></a>std::optional</h3><h3 id="clear和swap测试"><a href="#clear和swap测试" class="headerlink" title="clear和swap测试"></a>clear和swap测试</h3><h3 id="decltype"><a href="#decltype" class="headerlink" title="decltype"></a>decltype</h3><h3 id="auto-user-action-region-ups2-region"><a href="#auto-user-action-region-ups2-region" class="headerlink" title="auto [user_action_region, ups2_region]"></a>auto [user_action_region, ups2_region]</h3><h3 id="tuple使用"><a href="#tuple使用" class="headerlink" title="tuple使用"></a>tuple使用</h3><h3 id="builtin-expect"><a href="#builtin-expect" class="headerlink" title="__builtin_expect"></a>__builtin_expect</h3><h3 id="std-apply"><a href="#std-apply" class="headerlink" title="std::apply()"></a>std::apply()</h3><h3 id="std-is-base-of"><a href="#std-is-base-of" class="headerlink" title="std::is_base_of"></a>std::is_base_of</h3><h3 id="shared-from-this"><a href="#shared-from-this" class="headerlink" title="shared_from_this"></a>shared_from_this</h3><h3 id="conditional-t"><a href="#conditional-t" class="headerlink" title="conditional_t"></a>conditional_t</h3><h3 id="回调为啥不能捕获this"><a href="#回调为啥不能捕获this" class="headerlink" title="回调为啥不能捕获this"></a>回调为啥不能捕获this</h3><h3 id="std-variant和std-holds-alternative"><a href="#std-variant和std-holds-alternative" class="headerlink" title="std::variant和std::holds_alternative"></a>std::variant和std::holds_alternative</h3>
       
 
       
@@ -308,11 +307,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/02/22/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E5%92%8Cc++%E5%A4%9A%E7%BA%BF%E7%A8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/02/22/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E5%86%85%E5%AD%98%E7%AE%80%E4%BB%8B/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Linux和c++多线程
+          Linux内存简介
         
       </div>
     </a>
@@ -346,7 +345,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#mutex"><span class="toc-number">1.</span> <span class="toc-text">mutex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#function"><span class="toc-number">2.</span> <span class="toc-text">function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-promise"><span class="toc-number">3.</span> <span class="toc-text">std::promise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-future"><span class="toc-number">4.</span> <span class="toc-text">std::future</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-packaged-task"><span class="toc-number">5.</span> <span class="toc-text">std::packaged_task</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-async"><span class="toc-number">6.</span> <span class="toc-text">std::async</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#thread-local"><span class="toc-number">7.</span> <span class="toc-text">thread_local</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-bind"><span class="toc-number">8.</span> <span class="toc-text">std::bind</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-optional"><span class="toc-number">9.</span> <span class="toc-text">std::optional</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clear%E5%92%8Cswap%E6%B5%8B%E8%AF%95"><span class="toc-number">10.</span> <span class="toc-text">clear和swap测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#decltype"><span class="toc-number">11.</span> <span class="toc-text">decltype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#auto-user-action-region-ups2-region"><span class="toc-number">12.</span> <span class="toc-text">auto [user_action_region, ups2_region]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tuple%E4%BD%BF%E7%94%A8"><span class="toc-number">13.</span> <span class="toc-text">tuple使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#builtin-expect"><span class="toc-number">14.</span> <span class="toc-text">__builtin_expect</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-apply"><span class="toc-number">15.</span> <span class="toc-text">std::apply()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-is-base-of"><span class="toc-number">16.</span> <span class="toc-text">std::is_base_of</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shared-from-this"><span class="toc-number">17.</span> <span class="toc-text">shared_from_this</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#mutex"><span class="toc-number">1.</span> <span class="toc-text">mutex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#function"><span class="toc-number">2.</span> <span class="toc-text">function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-promise"><span class="toc-number">3.</span> <span class="toc-text">std::promise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-future"><span class="toc-number">4.</span> <span class="toc-text">std::future</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-packaged-task"><span class="toc-number">5.</span> <span class="toc-text">std::packaged_task</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-async"><span class="toc-number">6.</span> <span class="toc-text">std::async</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#thread-local"><span class="toc-number">7.</span> <span class="toc-text">thread_local</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-bind"><span class="toc-number">8.</span> <span class="toc-text">std::bind</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-optional"><span class="toc-number">9.</span> <span class="toc-text">std::optional</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clear%E5%92%8Cswap%E6%B5%8B%E8%AF%95"><span class="toc-number">10.</span> <span class="toc-text">clear和swap测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#decltype"><span class="toc-number">11.</span> <span class="toc-text">decltype</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#auto-user-action-region-ups2-region"><span class="toc-number">12.</span> <span class="toc-text">auto [user_action_region, ups2_region]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tuple%E4%BD%BF%E7%94%A8"><span class="toc-number">13.</span> <span class="toc-text">tuple使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#builtin-expect"><span class="toc-number">14.</span> <span class="toc-text">__builtin_expect</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-apply"><span class="toc-number">15.</span> <span class="toc-text">std::apply()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-is-base-of"><span class="toc-number">16.</span> <span class="toc-text">std::is_base_of</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shared-from-this"><span class="toc-number">17.</span> <span class="toc-text">shared_from_this</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#conditional-t"><span class="toc-number">18.</span> <span class="toc-text">conditional_t</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E8%B0%83%E4%B8%BA%E5%95%A5%E4%B8%8D%E8%83%BD%E6%8D%95%E8%8E%B7this"><span class="toc-number">19.</span> <span class="toc-text">回调为啥不能捕获this</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#std-variant%E5%92%8Cstd-holds-alternative"><span class="toc-number">20.</span> <span class="toc-text">std::variant和std::holds_alternative</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -375,7 +374,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 SK-II
+    		&copy; 2023 SK-II
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -468,7 +467,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,11 +475,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kafka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,7 +495,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -500,11 +507,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -512,7 +515,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">

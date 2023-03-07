@@ -165,19 +165,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-基础/其他/docker" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-基础/c++/c++11附录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/docker/">样例模板</a>
+      <a class="article-title" href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/c++11%E9%99%84%E5%BD%95/">c++11附录</a>
     </h1>
   
 
         
-        <a href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/docker/" class="archive-article-date">
+        <a href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/c++11%E9%99%84%E5%BD%95/" class="archive-article-date">
   	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
 </a>
         
@@ -185,7 +185,108 @@
     
 	<div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Docker了解"><a href="#Docker了解" class="headerlink" title="Docker了解"></a>Docker了解</h3><h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><figure class="highlight do"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps #查看运行的docker</span><br><span class="line">docker <span class="keyword">run</span> -t #绑定一个伪终端运行;-i则让容器的标准输入保持打开;-<span class="keyword">d</span> <span class="keyword">Run</span> container <span class="keyword">in</span> background and <span class="keyword">print</span> container ID,-v绑定一个目录，-w在容器里面的</span><br><span class="line">docker exec -t #分配一个伪终端，-w</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <p>从c++primer截图c++11标准</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/语言//" class="article-tag-list-link color3">语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/c++11%E9%99%84%E5%BD%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/c++/c++编译问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/c++%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98/">样例模板</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/c++%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>库编译问题，glog依赖gflags需要编译成动态库</p>
+<p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/image-20230302102258655.png"></p>
+</li>
+<li><p>protobuf的三个动态库都要链接，并且要先加dependence的pb依赖</p>
+<p>![image-20230302113818125](&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230302113818125.png)</p>
+</li>
+<li><p>在开启单元测试的时候，glog和gflags 都依赖gtest，不然会有链接问题</p>
+</li>
+<li><p>cmake错误</p>
+<p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/image-20230306175300742.png" alt="image-20230306175300742"></p>
+<p>在文件flags.make:8；在第8行有格式错误导致报错；</p>
+</li>
+<li></li>
+<li><p>fdafsa</p>
+</li>
+</ol>
         
       
 
@@ -198,7 +299,485 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/docker/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/c++%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/c++/stl相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/stl%E7%9B%B8%E5%85%B3/">stl相关</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/stl%E7%9B%B8%E5%85%B3/" class="archive-article-date">
+  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <span id="more"></span>
+
+<h6 id="stl常用算法"><a href="#stl常用算法" class="headerlink" title="stl常用算法"></a>stl常用算法</h6><ul>
+<li>生成全排列</li>
+<li>排序(sort、)</li>
+<li>统计(count、cout_if)</li>
+<li>去重（unique）</li>
+<li>查找（find、find_if)</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/stl%E7%9B%B8%E5%85%B3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/python/python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/04/%E5%9F%BA%E7%A1%80/python/python/">样例模板</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/04/%E5%9F%BA%E7%A1%80/python/python/" class="archive-article-date">
+  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装python"><a href="#安装python" class="headerlink" title="安装python"></a>安装python</h3><p>Mac: brew install python,然后通过python -v 来查看是2还是3</p>
+<h3 id="安装-Pipenv"><a href="#安装-Pipenv" class="headerlink" title="安装 Pipenv"></a>安装 Pipenv</h3><p>虚拟环境解决了包依赖不同版本的问题</p>
+<p>pip install pipenv</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/04/%E5%9F%BA%E7%A1%80/python/python/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/其他/了解flatbuffer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/%E4%BA%86%E8%A7%A3flatbuffer/">了解flatbuffer</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/%E4%BA%86%E8%A7%A3flatbuffer/" class="archive-article-date">
+  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a target="_blank" rel="noopener" href="https://github.com/google/flatbuffers">FlatBuffers</a>是为Google发布的一个跨平台，提供多种语言接口，注重性能和资源使用的序列化类库。目前该类库提供C++、C#、C、GO、Java、JavaScript、PHP、Python语言接口。该序列化库多用于移动端手游数据传输以及特定的对性能要求较高的应用。具有一下特点：</p>
+<p>1、对序列化的数据不需要打包和拆包</p>
+<p>2、内存和效率速度高，扩展灵活</p>
+<p>3、代码依赖较少</p>
+<p>4、强类型设计，编译期即可完成类型检查</p>
+<p>5、使用简单、可跨平台使用</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/flatbuffers//" class="article-tag-list-link color2">flatbuffers</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/%E4%BA%86%E8%A7%A3flatbuffer/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/其他/免密登录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">ssh免密登录配置</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/" class="archive-article-date">
+  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>出现如下错误</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Permission denied (publickey,gssapi-keyex,gssapi-with-mic)</span><br></pre></td></tr></table></figure>
+
+<h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><ol>
+<li><p>客户端即A端生成RSA公钥和私钥 ssh-keygen</p>
+</li>
+<li><p>客户端将自己的公钥存放到服务器：在生成了公私钥之后要实现AB两端的交互认证，这两个文件肯定不能只放到A端，当然也需要在B端（服务器端）做一下登记，我们自己（A端）保留自己的私钥，然后把公钥id_rsa.pub存放到B端（一般是在用户根目录下的.ssh&#x2F;目录下</p>
+</li>
+<li><p>配置sshd服务选项</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config </span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">GSSAPIAuthentication <span class="built_in">yes</span></span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">GSSAPICleanupCredentials no</span></span><br><span class="line">PermitRootLogin no</span><br><span class="line">PubkeyAuthentication yes</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/image-20230227141430662.png" alt="image-20230227141430662"></p>
+</li>
+<li><p>设置权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//用户权限</span><br><span class="line"></span><br><span class="line">    chmod 700 /home/username</span><br><span class="line"></span><br><span class="line">    //.ssh文件夹权限</span><br><span class="line"></span><br><span class="line">    chmod 700 ~/.ssh/</span><br><span class="line"></span><br><span class="line">    // ~/.ssh/authorized_keys 文件权限</span><br><span class="line"></span><br><span class="line">    chmod 600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>使用ssh-copy-id进行copy</p>
+<p>查看日志<code>tail /var/log/secure -n 100</code></p>
+<p>如果通过跳机登录，拷贝客户端机器和跳机的公钥key到最终的目的机器</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/操作系统/Linux运行过程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B/">Linux加载程序过程</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <p>计算机领域的任何问题都可以增加一个间接的中间层来解决</p>
+<ul>
+<li><p>虚拟内存</p>
+<ul>
+<li>物理地址空间不隔离的</li>
+<li>内存利用率较低</li>
+<li>程序运行的地址空间不确定</li>
+<li>通过cpu的mmu进行页内存映射</li>
+</ul>
+</li>
+<li><p>线程共享的内容</p>
+<p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/img/image-20220323143913994.png" alt="image-20220323143913994"></p>
+</li>
+</ul>
+<h6 id="目标文件"><a href="#目标文件" class="headerlink" title="目标文件"></a>目标文件</h6><p>程序源代码编译后的机器指令经常被放在代码段（code section）里，叫”.code” 或者”.text”;全局变量和静态变量都在数据段，数据段的一般名字叫”.data”;</p>
+<p>.data：保存初始化的全局变量和局部静态变量</p>
+<p>bss：未初始化的全局变量和局部静态变量存放的地方；其实这些数据也可以放在data段；由于都是0没有必要放。程序运行的时候他们的确是占内存空间的，并且可执行文件必须记录所有未初始化的全局变量和局部静态变量的大小总和，所以bss段只是为变量预留位置而已，在文件中并不占空间；</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E8%BF%90%E8%A1%8C%E8%BF%87%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/网络/epoll学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E7%BD%91%E7%BB%9C/epoll%E5%AD%A6%E4%B9%A0/">epoll</a>
+    </h1>
+  
+
+        
+        <a href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E7%BD%91%E7%BB%9C/epoll%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <p>多路复用：一个进程处理多个网络socket，一个socket有哪些信息；</p>
+<h6 id="边缘触发和水平触发"><a href="#边缘触发和水平触发" class="headerlink" title="边缘触发和水平触发"></a>边缘触发和水平触发</h6><p>边缘触发和水平触发：状态的变化；边缘触发就是对一个socket 在缓存区中有数据的时候，只触发一次；水平触发就是会一直不断的触发；</p>
+<h6 id="水平触发"><a href="#水平触发" class="headerlink" title="水平触发"></a>水平触发</h6><ol>
+<li>socket接收缓冲区不为空 有数据可读 读事件一直触发</li>
+<li>socket发送缓冲区不满 可以继续写入数据 写事件一直触发<br> 备注：符合思维习惯，epoll_wait返回的事件就是socket的状态</li>
+</ol>
+<h6 id="边缘触发"><a href="#边缘触发" class="headerlink" title="边缘触发"></a>边缘触发</h6><ol>
+<li>socket的接收缓冲区状态变化时触发读事件，即空的接收缓冲区刚接收到数据时触发读事件</li>
+<li>socket的发送缓冲区状态变化时触发写事件，即满的缓冲区刚空出空间时触发读事件<br> 备注：仅在状态变化时触发事件</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/img/20180531185610344" alt="img"></p>
+<p>总结一下：</p>
+<ol>
+<li><p>对于监听的 sockfd，最好使用水平触发模式，边缘触发模式会导致高并发情况下，有的客户端会连接不上。如果非要使用边缘触发，可以用 while 来循环 accept()。</p>
+</li>
+<li><p>对于读写的 connfd，水平触发模式下，阻塞和非阻塞效果都一样，因为在阻塞模式下，如果数据读取不完全则返回继续触发，反之读取完则返回继续等待。全建议设置非阻塞。</p>
+</li>
+<li><p>对于读写的 connfd，边缘触发模式下，必须使用非阻塞 IO，并要求一次性地完整读写全部数据。</p>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zxm342698145/article/details/80524331/">https://blog.csdn.net/zxm342698145/article/details/80524331/</a></p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1736793">https://cloud.tencent.com/developer/article/1736793</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/dongfuye/article/details/50880251">https://blog.csdn.net/dongfuye/article/details/50880251</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20502870">https://www.zhihu.com/question/20502870</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.lucode.net/linux/epoll-tutorial.html">https://blog.lucode.net/linux/epoll-tutorial.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://plantegg.github.io/2019/12/09/epoll%E7%9A%84LT%E5%92%8CET/">https://plantegg.github.io/2019/12/09/epoll%E7%9A%84LT%E5%92%8CET/</a></p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/04/%E5%9F%BA%E7%A1%80/%E7%BD%91%E7%BB%9C/epoll%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
         </p>
       
 
@@ -295,702 +874,27 @@
 
 
   
-    <article id="post-基础/c++/c++知识点--stastic" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-基础/k8s/k8s" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/c++%E7%9F%A5%E8%AF%86%E7%82%B9--stastic/">c++知识点--关键字</a>
+      <a class="article-title" href="/2022/03/04/%E5%9F%BA%E7%A1%80/k8s/k8s/">样例模板</a>
     </h1>
   
 
         
-        <a href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/c++%E7%9F%A5%E8%AF%86%E7%82%B9--stastic/" class="archive-article-date">
-  	<time datetime="2022-03-04T03:42:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
+        <a href="/2022/03/04/%E5%9F%BA%E7%A1%80/k8s/k8s/" class="archive-article-date">
+  	<time datetime="2022-03-04T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-04</time>
 </a>
         
       </header>
     
 	<div class="article-entry" itemprop="articleBody">
       
-        <h6 id="静态关键字（static）"><a href="#静态关键字（static）" class="headerlink" title="静态关键字（static）"></a>静态关键字（static）</h6><ul>
-<li><p>静态成员（类）函数和变量都是类共有；在初始化的时候分配全局区的静态区空间；sizeof 类对象的时候排除静态成员变量大小；静态成员函数只能调用静态的成员函数或者变量；静态成员变量在程序结束的时候释放空间</p>
-</li>
-<li><p>静态全局变量从定义开始只在本文件中可见，其他文件中不能使用，即使定义为extern的也不行</p>
-</li>
-<li><p>静态局部变量在全局数据区分配内存；静态局部变量在程序执行到该对象的声明处时被首次初始化，即以后的函数调用不再进行初始化；静态局部变量一般在声明处初始化，如果没有显式初始化，会被程序自动初始化为0；它始终驻留在全局数据区，直到程序运行结束。但其作用域为局部作用域，当定义它的函数或语句块结束时，其作用域随之结束；</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/c//" class="article-tag-list-link color4">c++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/04/%E5%9F%BA%E7%A1%80/c++/c++%E7%9F%A5%E8%AF%86%E7%82%B9--stastic/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-财务/财务pb整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/02/%E8%B4%A2%E5%8A%A1/%E8%B4%A2%E5%8A%A1pb%E6%95%B4%E7%90%86/">财务bp整理</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/02/%E8%B4%A2%E5%8A%A1/%E8%B4%A2%E5%8A%A1pb%E6%95%B4%E7%90%86/" class="archive-article-date">
-  	<time datetime="2022-03-02T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-02</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <p>Q：预测和实际的直接差异，作为bp你怎么做</p>
-<p>A：月初收到业务的报表时将费用和预算做一个比较分析，一般是以10%作为分界点，如果费用没有超过预算10%，问下业务超预算原因并做出提示；如果实际花费超过预算的10%，需要业务发邮件至EMT成员审批，EMT成员审批完成后方可对费用进行审批</p>
-<p>Q：预算的编制环节，怎么监控预算，滚动预算是怎么编制的</p>
-<p>A：1、预算的编制我理解是业务根据去年的实际业务量根据自己今年的规划按照一定的比例测算出今年的业务量，再根据业务量的变动测算出实际的花费情况，报经领导审批后发送财务部，财务部选择器关键指标编制预算</p>
-<p> 2、预算监控，我理解是回到问题1上面了</p>
-<p> 3、滚动预算编制的话，Q4开启下一年的预算工作，编制完预算后后，一般不轻易改动预算，如果有重大性质发生变化后，（月度滚动预算不懂） </p>
-<p>Q：作为财务bp，事前的管理是怎么管理的</p>
-<p>这道题不知道问什么</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">财务</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/gf//" class="article-tag-list-link color3">gf</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/02/%E8%B4%A2%E5%8A%A1/%E8%B4%A2%E5%8A%A1pb%E6%95%B4%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-中间件/noSql/redis--基本数据结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/24/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis--%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">redis--基本数据结构</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/24/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis--%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="archive-article-date">
-  	<time datetime="2022-02-24T07:26:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-24</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>redis五种基本数据结构</strong>：<strong>string、list、hash、set、zset</strong></p>
-<p><strong>redis底层数据结构：简单动态字符串、双端连表、字典、压缩列表、整数集合</strong></p>
-<h6 id="链表"><a href="#链表" class="headerlink" title="链表"></a><strong>链表</strong></h6><ol>
-<li><p>代码定义</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">list</span>&#123;</span><br><span class="line">     <span class="comment">//表头节点</span></span><br><span class="line">     listNode *head;</span><br><span class="line">     <span class="comment">//表尾节点</span></span><br><span class="line">     listNode *tail;</span><br><span class="line">     <span class="comment">//链表所包含的节点数量</span></span><br><span class="line">     <span class="type">unsigned</span> <span class="type">long</span> len;</span><br><span class="line">     <span class="comment">//节点值复制函数</span></span><br><span class="line">     <span class="built_in">void</span> (*free) (<span class="type">void</span> *ptr);</span><br><span class="line">     <span class="comment">//节点值释放函数</span></span><br><span class="line">     <span class="built_in">void</span> (*free) (<span class="type">void</span> *ptr);</span><br><span class="line">     <span class="comment">//节点值对比函数</span></span><br><span class="line">     <span class="built_in">int</span> (*match) (<span class="type">void</span> *ptr,<span class="type">void</span> *key);</span><br><span class="line">&#125;list;</span><br></pre></td></tr></table></figure></li>
-</ol>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/组件//" class="article-tag-list-link color3">组件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/24/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis--%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-中间件/noSql/redis--哨兵" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis--%E5%93%A8%E5%85%B5/">redis--哨兵</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis--%E5%93%A8%E5%85%B5/" class="archive-article-date">
-  	<time datetime="2022-02-22T15:50:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-22</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="目的"><a href="#目的" class="headerlink" title="目的"></a><strong>目的</strong></h6><p>解决主从挂了只能手动去拉起的问题，哨兵是redis高可用（ha)的方案。</p>
-<h6 id="Sentinel"><a href="#Sentinel" class="headerlink" title="Sentinel"></a><strong>Sentinel</strong></h6><p>启动：sentinel是一个redis server，只是他有自己特有的代码，相当于一个定制化的redis，用于监控 </p>
-<p>命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">struct redisCommand sentinelcmds[] = &#123;</span><br><span class="line">&#123;&quot;ping&quot;,pingCommand,1,&quot;&quot;,0,NULL,0,0,0,0,0&#125;, </span><br><span class="line">&#123;&quot;sentinel&quot;,sentinelCommand,-2,&quot;&quot;,0,NULL,0,0,0,0,0&#125;, </span><br><span class="line">&#123;&quot;subscribe&quot;,subscribeCommand,-2,&quot;&quot;,0,NULL,0,0,0,0,0&#125;, </span><br><span class="line">&#123;&quot;unsubscribe&quot;,unsubscribeCommand,-1,&quot;&quot;,0,NULL,0,0,0,0,0&#125;, </span><br><span class="line">&#123;&quot;psubscribe&quot;,psubscribeCommand,-2,&quot;&quot;,0,NULL,0,0,0,0,0&#125;,</span><br><span class="line">&#123;&quot;punsubscribe&quot;,punsubscribeCommand,-1,&quot;&quot;,0,NULL,0,0,0,0,0&#125;, </span><br><span class="line">&#123;&quot;info&quot;,sentinelInfoCommand,-1,&quot;&quot;,0,NULL,0,0,0,0,0&#125; &#125;;</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/组件//" class="article-tag-list-link color3">组件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis--%E5%93%A8%E5%85%B5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-中间件/noSql/redis--主从复制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis--%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">redis--主从复制</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis--%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="archive-article-date">
-  	<time datetime="2022-02-22T15:44:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-22</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="旧版复制"><a href="#旧版复制" class="headerlink" title="旧版复制"></a><strong>旧版复制</strong></h6><ul>
-<li><p>方式：salveof    ip   port</p>
-</li>
-<li><p>实现：同步和命令传播</p>
-</li>
-<li><p>同步：</p>
-<ul>
-<li>同步是从服务器像主服务器发送sync命令开始</li>
-<li>主服务器接收到从服务器的的sync命令后，开始由子进程（bgsave)生成一个rdb文件，同时使用一个缓冲区记录现在开始写入的命令</li>
-</ul>
-</li>
-<li><p>rdb写入完成后，由子进程发送rdb文件给从服务器,从服务器通过rdb更新这个从服务器的库至bgsave。</p>
-</li>
-<li><p>主服务器发送缓冲区里的的命令给从服务器，从服务器执行这些命令，达到和从服务器一样的状态</p>
-</li>
-<li><p>命令传播：主服务器会将所有的写命令发送给从服务器来达到主从一直的情况</p>
-</li>
-<li><p>缺陷：断线重连不能高效的完成，从服务器需要重新加载rdb文件</p>
-</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/组件//" class="article-tag-list-link color3">组件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis--%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-中间件/noSql/redis--持久化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis--%E6%8C%81%E4%B9%85%E5%8C%96/">redis--持久化</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis--%E6%8C%81%E4%B9%85%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2022-02-22T15:44:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-22</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <p>Redis持久化分为两种：第一种是rdb(redis database);第二种是aof（append only file);</p>
-<h6 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h6><p>RDB 是一个二进制文件，可以压缩也可以不压缩</p>
-<p>持久化的方式：手动save和自动bgsave</p>
-<p>持久化的过程：手动save使redis服务器被hang住，不接受客户端的命令，直到save结束；bgsave可以手动触发，也可以通过配置特定的条件触发，比如：60s内执行了1000次命令；900s内执行了1次命令；bgsave是background save，在后台执行，通过子进程的方式</p>
-<p>持久化文件的加载：在启动redis的加载rdb文件，在没有开启aof的时候，默认是开始加载rdb文件，没有特别的命令支持加载rdb</p>
-<p>限制：在bgsave期间不执行其他客户端发来的save和bgsave;</p>
-<table>
-<thead>
-<tr>
-<th>REDIS</th>
-<th>过期时间</th>
-<th>key</th>
-<th>type</th>
-<th>编码类型的value</th>
-</tr>
-</thead>
-</table>
-<p>注解：文件检验和是个好东西</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/组件//" class="article-tag-list-link color3">组件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis--%E6%8C%81%E4%B9%85%E5%8C%96/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-中间件/noSql/redis--集群" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis--%E9%9B%86%E7%BE%A4/">redis--集群</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis--%E9%9B%86%E7%BE%A4/" class="archive-article-date">
-  	<time datetime="2022-02-22T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-22</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="节点"><a href="#节点" class="headerlink" title="节点"></a><strong>节点</strong></h6><ul>
-<li><p>定义：每一个redis server当做是一个集群的节点</p>
-</li>
-<li><p>启动：在配置文件中通过cluster_enabled为yes</p>
-</li>
-<li><p>添加方式：cluster meet ip port（copy）</p>
-<ul>
-<li><p>节点A会为节点B创建一个clusterNode结构，并将该结构添加到自己的 clusterState.nodes字典里面。2）之后，节点A将根据CLUSTER MEET命令中给定的IP地址和端口号，向节点B发送一条 MEET消息（message）。 </p>
-</li>
-<li><p>如果一切顺利，节点B将接收到节点A发送的MEET消息，节点B会为节点A创建一个clusterNode结构，并将该结构添加到自己的clusterState.nodes字典里面。 </p>
-</li>
-<li><p>之后，节点B将向节点A返回一条PONG消息。</p>
-</li>
-<li><p>如果一切顺利，节点A将接收到节点B返回的PONG消息，通过这条PONG消息节点A可以知道节点B已经成功地接收到了自己发送的MEET消息。 </p>
-</li>
-<li><p>之后，节点A将向节点B返回一条PING消息。 </p>
-</li>
-<li><p>如果一切顺利，节点B将接收到节点A返回的PING消息，通过这条PING消息节点B可以知道节点A已经成功地接收到了自己返回的PONG消息，握手完成。</p>
-</li>
-<li><p>节点A会将节点B的信息通过Gossip协议传播给集群中的其他节点，让其他节点认识B【raft、pa’xos】</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/组件//" class="article-tag-list-link color3">组件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis--%E9%9B%86%E7%BE%A4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-基础/c++/c++智能指针" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/22/%E5%9F%BA%E7%A1%80/c++/c++%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">c++智能指针</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/22/%E5%9F%BA%E7%A1%80/c++/c++%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/" class="archive-article-date">
-  	<time datetime="2022-02-22T14:26:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-22</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <p>enbale_shared_from_this是一个模板类，std::enable_shared_from_this 能让其一个对象（假设其名为 t ，且已被一个 std::shared_ptr 对象 pt 管理）安全地生成其他额外的 std::shared_ptr 实例（假设名为 pt1, pt2, … ） ，它们与 pt 共享对象 t 的所有权。为什么要用 <code>enable_shared_from_this</code>？</p>
-<p>什么时候使用enable_shared_from_this</p>
-<ul>
-<li>需要在类对象的内部中获得一个指向当前对象的 shared_ptr 对象。</li>
-<li>如果在一个程序中，对象内存的生命周期全部由智能指针来管理。在这种情况下，要在一个类的成员函数中，对外部返回this指针就成了一个很棘手的问题。</li>
-</ul>
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>kubectl get pod <pod-name> -o yaml 查看 Pod 的配置是否正确<br>kubectl describe pod <pod-name> 查看 Pod 的事件<br>kubectl logs <pod-name> [-c <container-name>] 查看容器日志</p>
         
       
 
@@ -1003,7 +907,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/22/%E5%9F%BA%E7%A1%80/c++/c++%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/03/04/%E5%9F%BA%E7%A1%80/k8s/k8s/">展开全文 >></a>
         </p>
       
 
@@ -1035,7 +939,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">« Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next »</a>
+      <a class="extend prev" rel="prev" href="/page/2/">« Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next »</a>
     </nav>
   
 
@@ -1047,7 +951,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 SK-II
+    		&copy; 2023 SK-II
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1140,7 +1044,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1148,11 +1052,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kafka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1164,7 +1072,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1172,11 +1084,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1184,7 +1092,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">

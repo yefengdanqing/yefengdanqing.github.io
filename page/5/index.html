@@ -165,6 +165,772 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-中间件/noSql/redis-sds结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis-sds%E7%BB%93%E6%9E%84/">redis--sds结构</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis-sds%E7%BB%93%E6%9E%84/" class="archive-article-date">
+  	<time datetime="2022-02-22T07:26:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-22</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <p>SDS是redis的字符串struct体，所有的数据结构都依赖于SDS，它是可以简单的理解为char数据或者string类型，但是有区别：SDS是一个结构体，</p>
+<p>struct SDS {</p>
+<p>  int alloc;     &#x2F;&#x2F;标识有最大的空间大小，剩余空间(alloc-len);不包括head                &#x2F;&#x2F;和’\0’</p>
+<p>  int len;       &#x2F;&#x2F;标识使用了多少字节的空间，其中不包括’\0’</p>
+<p>  unsinged int flag; &#x2F;&#x2F;标识 struct 的大小类型，为了让空间更加紧密</p>
+<p>  char buf[];    &#x2F;&#x2F;保存原始字符的数据</p>
+<p>};</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/组件//" class="article-tag-list-link color3">组件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis-sds%E7%BB%93%E6%9E%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-中间件/noSql/redis面试总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">redis面试总结</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2022-02-22T07:26:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-22</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h6><p>定义：当一个热点key之前在redis缓存中存在，后来过期了，然后这个热点key直接去mysql或者底层数据存储介质中查找的时候，由于底层的存储介质并不能抗住最外层的处理，可能导致底层的介质奔溃或者不可用。</p>
+<p>方案：在缓存失效后，通过互斥锁或者队列来控制读数据写缓存的线程数量，比如某个key只允许一个线程查询数据和写缓存，其他线程等待。这种方式会阻塞其他的线程，此时系统的吞吐量会下降；热点可以不设置过期时间</p>
+<h6 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h6><p>定义：当一个key在缓存中不存在，并且在mysql中也不存在时，导致请求持续访问这两个介质；如果有恶意攻击，导致mysql扛不住挂了，</p>
+<p>方案：特定次数请求后设置永久不过期,如果是随机值则存在问题；用布隆过滤器，于是我们可以在缓存之前再加一个布隆过滤器，将数据库中的所有key都存储在布隆过滤器中，在查询Redis前先去布隆过滤器查询 key 是否存在，如果不存在就直接返回，不让其访问数据库，从而避免了对底层存储系统的查询压力。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/组件//" class="article-tag-list-link color3">组件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/22/%E4%B8%AD%E9%97%B4%E4%BB%B6/noSql/redis%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/操作系统/Linux和c++多线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/22/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E5%92%8Cc++%E5%A4%9A%E7%BA%BF%E7%A8%8B/">Linux和c++多线程</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/22/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E5%92%8Cc++%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2022-02-22T07:26:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-22</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <h6 id="Linux多线程"><a href="#Linux多线程" class="headerlink" title="Linux多线程"></a>Linux多线程</h6><ul>
+<li><p>定义</p>
+<ul>
+<li>线程的join（联合的）和detch（分离的）；1）当使用join()函数时，主调线程(main函数里有一个主调线程)阻塞，等待被调线程终止，然后主调线程回收被调线程资源，并继续运行；上面这段话的意思就是，使用join(),线程运行完,main函数才能结束。（2）当使用detach()函数时，主调线程继续运行，被调线程驻留后台运行，主调线程无法再取得该被调线程的控制权。当主调线程结束时，由运行时库负责清理与被调线程相关的资源。上面这段话的意思就是，使用detach(),main函数不用等待线程结束才能结束。有时候线程还没运行完，main函数就已经结束了。</li>
+<li>xxx</li>
+</ul>
+</li>
+<li><p>自旋锁</p>
+<ul>
+<li>定义：自旋锁的目的是将一个并行化的数据串行化，自旋锁的循环指令标识cpu忙等待，在等待的内核路径上无事可做的时候，其也会在cpu上运行（浪费cpu的时间），【volatile标识当前修改的值立马更新到内存中】自旋锁是为了保证临界区代码</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/22/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E5%92%8Cc++%E5%A4%9A%E7%BA%BF%E7%A8%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/操作系统/Linux内存简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/22/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E5%86%85%E5%AD%98%E7%AE%80%E4%BB%8B/">Linux内存简介</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/22/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E5%86%85%E5%AD%98%E7%AE%80%E4%BB%8B/" class="archive-article-date">
+  	<time datetime="2022-02-22T07:26:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-22</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>Linux内存</p>
+</li>
+<li><p>查看内存</p>
+<p> <img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/img/free.jpg" alt="free"></p>
+</li>
+<li><p>字段含义</p>
+</li>
+<li><p>第一部分Mem行：</p>
+<ul>
+<li><p>total：内存总数</p>
+</li>
+<li><p>used：已经使用的内存数</p>
+</li>
+<li><p>free：空闲的内存数</p>
+</li>
+<li><p>shared：可用的共享内存</p>
+</li>
+<li><p>buffers：内存缓冲数</p>
+</li>
+<li><p>cached：内存缓存数</p>
+</li>
+</ul>
+</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">内存</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/22/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux%E5%86%85%E5%AD%98%E7%AE%80%E4%BB%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/c++/c++11高级知识点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/21/%E5%9F%BA%E7%A1%80/c++/c++11%E9%AB%98%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9/">c++11高级知识点学习1</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/21/%E5%9F%BA%E7%A1%80/c++/c++11%E9%AB%98%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9/" class="archive-article-date">
+  	<time datetime="2022-02-21T03:42:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-21</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="mutex"><a href="#mutex" class="headerlink" title="mutex"></a>mutex</h3><p>std::unique_lock 和std::lock_guard都是通过raii实现自动加锁和释放锁，lock_guard速度相对unique快点，而unique相对灵活和慢点。std::unique_lock无参数的构造函数是没有加锁的，不拥有互斥量的锁权利。</p>
+<h3 id="function"><a href="#function" class="headerlink" title="function"></a>function</h3><h3 id="std-promise"><a href="#std-promise" class="headerlink" title="std::promise"></a>std::promise</h3><p>promise 含义是承诺，承诺给别人反馈一个结果。与future一起使用。get_future赋值给一个future。</p>
+<h3 id="std-future"><a href="#std-future" class="headerlink" title="std::future"></a>std::future</h3><p>future 含义是期望，期望得到一个结果，因此需要等待一定的时间，这个等待可以是异步的。</p>
+<h3 id="std-packaged-task"><a href="#std-packaged-task" class="headerlink" title="std::packaged_task"></a>std::packaged_task</h3><p>packaged_task是对任务的抽象，可以将这个任务传递给一个函数来完成，然后通过get_future的方法来获取期望的结果。</p>
+<h3 id="std-async"><a href="#std-async" class="headerlink" title="std::async"></a>std::async</h3><p>async异步的完成一个操作，简单的创建线程，然后通过std::future来获取结果</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//(C++11 起) (C++17 前)</span></span><br><span class="line"><span class="keyword">template</span>&lt; <span class="keyword">class</span> <span class="title class_">Function</span>, <span class="keyword">class</span>... Args&gt;</span><br><span class="line">std::future&lt;std::<span class="type">result_of_t</span>&lt;std::<span class="built_in">decay_t</span>&lt;Function&gt;(std::<span class="type">decay_t</span>&lt;Args&gt;...)&gt;&gt;</span><br><span class="line">    <span class="built_in">async</span>( Function&amp;&amp; f, Args&amp;&amp;... args );</span><br><span class="line"></span><br><span class="line"><span class="comment">//(C++11 起) (C++17 前)</span></span><br><span class="line"><span class="keyword">template</span>&lt; <span class="keyword">class</span> <span class="title class_">Function</span>, <span class="keyword">class</span>... Args &gt;</span><br><span class="line">std::future&lt;std::<span class="type">result_of_t</span>&lt;std::<span class="built_in">decay_t</span>&lt;Function&gt;(std::<span class="type">decay_t</span>&lt;Args&gt;...)&gt;&gt;</span><br><span class="line">    <span class="built_in">async</span>( std::launch policy, Function&amp;&amp; f, Args&amp;&amp;... args );  </span><br></pre></td></tr></table></figure>
+
+<h3 id="thread-local"><a href="#thread-local" class="headerlink" title="thread_local"></a>thread_local</h3><h3 id="std-bind"><a href="#std-bind" class="headerlink" title="std::bind"></a>std::bind</h3><h3 id="std-optional"><a href="#std-optional" class="headerlink" title="std::optional"></a>std::optional</h3><h3 id="clear和swap测试"><a href="#clear和swap测试" class="headerlink" title="clear和swap测试"></a>clear和swap测试</h3><h3 id="decltype"><a href="#decltype" class="headerlink" title="decltype"></a>decltype</h3><h3 id="auto-user-action-region-ups2-region"><a href="#auto-user-action-region-ups2-region" class="headerlink" title="auto [user_action_region, ups2_region]"></a>auto [user_action_region, ups2_region]</h3><h3 id="tuple使用"><a href="#tuple使用" class="headerlink" title="tuple使用"></a>tuple使用</h3><h3 id="builtin-expect"><a href="#builtin-expect" class="headerlink" title="__builtin_expect"></a>__builtin_expect</h3><h3 id="std-apply"><a href="#std-apply" class="headerlink" title="std::apply()"></a>std::apply()</h3><h3 id="std-is-base-of"><a href="#std-is-base-of" class="headerlink" title="std::is_base_of"></a>std::is_base_of</h3><h3 id="shared-from-this"><a href="#shared-from-this" class="headerlink" title="shared_from_this"></a>shared_from_this</h3><h3 id="conditional-t"><a href="#conditional-t" class="headerlink" title="conditional_t"></a>conditional_t</h3><h3 id="回调为啥不能捕获this"><a href="#回调为啥不能捕获this" class="headerlink" title="回调为啥不能捕获this"></a>回调为啥不能捕获this</h3><h3 id="std-variant和std-holds-alternative"><a href="#std-variant和std-holds-alternative" class="headerlink" title="std::variant和std::holds_alternative"></a>std::variant和std::holds_alternative</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/c//" class="article-tag-list-link color4">c++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/21/%E5%9F%BA%E7%A1%80/c++/c++11%E9%AB%98%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/c++/c-知识点-模板" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/21/%E5%9F%BA%E7%A1%80/c++/c-%E7%9F%A5%E8%AF%86%E7%82%B9-%E6%A8%A1%E6%9D%BF/">c++知识点--模板</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/21/%E5%9F%BA%E7%A1%80/c++/c-%E7%9F%A5%E8%AF%86%E7%82%B9-%E6%A8%A1%E6%9D%BF/" class="archive-article-date">
+  	<time datetime="2022-02-21T03:42:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-21</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><hr>
+<h6 id="类在堆上构建"><a href="#类在堆上构建" class="headerlink" title="类在堆上构建"></a>类在堆上构建</h6><ul>
+<li>按照单例或者把析构函数设置为私有的</li>
+</ul>
+<h6 id="类在栈上构建"><a href="#类在栈上构建" class="headerlink" title="类在栈上构建"></a>类在栈上构建</h6><p>只要禁用new运算符就可以实现类对象只能建立在栈上。将operator new()设为私有即可</p>
+<h3 id="模板类"><a href="#模板类" class="headerlink" title="模板类"></a>模板类</h3><hr>
+<ul>
+<li><p>模板类：模板定义只是声明一个蓝图或者公式；只有在实例化的时候才会生成真正的代码（也就是调用的接口处）</p>
+<ul>
+<li><p>特化：就是按照特定类型去实现一个类模板。</p>
+</li>
+<li><p>偏特化：模板偏特化（Template Partitial Specialization）是模板特化的一种特殊情况，指显示指定部分模板参数而非全部模板参数，或者指定模板参数的部分特性分而非全部特性，也称为模板部分特化。与模板偏特化相对的是模板全特化，指对所有的模板参数进行特化。模板全特化与模板偏特化共同组成模板特化。模板偏特化主要分为两种，一种是指对部分模板参数进行全特化，另一种是对模板参数特性进行特化，包括将模板参数特化为指针、引用或是另外一个模板类。</p>
+</li>
+<li><p>typename在下面情况下禁止使用：</p>
+<ul>
+<li>模板定义之外，即typename只能用于模板的定义中</li>
+<li>非限定类型，比如前面介绍过的<code>int</code>，<code>vector&lt;int&gt;</code>之类</li>
+<li>基类列表中，比如<code>template &lt;class T&gt; class C1 : T::InnerType</code>不能在<code>T::InnerType</code>前面加typename</li>
+<li>构造函数的初始化列表中
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/c//" class="article-tag-list-link color4">c++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/21/%E5%9F%BA%E7%A1%80/c++/c-%E7%9F%A5%E8%AF%86%E7%82%B9-%E6%A8%A1%E6%9D%BF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-中间件/其他/zookeeper" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/20/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%85%B6%E4%BB%96/zookeeper/">zookeeper</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/20/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%85%B6%E4%BB%96/zookeeper/" class="archive-article-date">
+  	<time datetime="2022-02-20T12:39:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-20</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="zk节点类型"><a href="#zk节点类型" class="headerlink" title="zk节点类型"></a>zk节点类型</h3><ol>
+<li>永久节点</li>
+<li>永久有序节点【按照创建顺序会为每个节点末尾带上一个序号如：<code>root-1</code>】</li>
+<li>瞬间节点（临时节点)【创建客户端与 Zookeeper 保持连接时节点存在，断开时则删除并会有相应的通知】</li>
+<li>瞬间有序节点</li>
+</ol>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ol>
+<li>服务注册发现（通过zk的临时节点）</li>
+<li>分布式锁（通过zk的临时节点）</li>
+<li>分布式通知（监听znode）</li>
+<li>数据发布、订阅</li>
+<li>服务命名</li>
+</ol>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">zk</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/组件//" class="article-tag-list-link color3">组件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/20/%E4%B8%AD%E9%97%B4%E4%BB%B6/%E5%85%B6%E4%BB%96/zookeeper/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-基础/c++/c++知识点--lambda" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/19/%E5%9F%BA%E7%A1%80/c++/c++%E7%9F%A5%E8%AF%86%E7%82%B9--lambda/">c++知识点--lambda</a>
+    </h1>
+  
+
+        
+        <a href="/2022/02/19/%E5%9F%BA%E7%A1%80/c++/c++%E7%9F%A5%E8%AF%86%E7%82%B9--lambda/" class="archive-article-date">
+  	<time datetime="2022-02-19T03:42:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-19</time>
+</a>
+        
+      </header>
+    
+	<div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Lambda"><a href="#Lambda" class="headerlink" title="Lambda"></a>Lambda</h3><h6 id="capture-list-para-list-mutable-exception-gt-returntype-function-body"><a href="#capture-list-para-list-mutable-exception-gt-returntype-function-body" class="headerlink" title="[capture list] (para list) mutable exception -&gt; returntype {function body}"></a>[capture list] (para list) mutable exception -&gt; returntype {function body}</h6><ul>
+<li><p>如果是值传递，body不能对值做改变；如果你想对其做改变；可以加上mutable；</p>
+</li>
+<li><p>返回类型可以自动推导，不用带auto</p>
+</li>
+<li><p>如果你想有返回类型，必须有参数列表；返回类型必须跟在参数列表的后面，并且必须在返回类型前面包含尾随返回类型关键字字-&gt;</p>
+</li>
+<li><p>捕获的变量是lambda定义之前的所有局部变量（包括lambda所在的类内），局部静态变量可以直接使用</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/c//" class="article-tag-list-link color4">c++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/19/%E5%9F%BA%E7%A1%80/c++/c++%E7%9F%A5%E8%AF%86%E7%82%B9--lambda/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-基础/操作系统/c++程序执行之内存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -353,209 +1119,9 @@
 
 
   
-    <article id="post-基础/其他/gdb调试总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/17/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/gdb%E8%B0%83%E8%AF%95%E6%80%BB%E7%BB%93/">gdb调试相关</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/17/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/gdb%E8%B0%83%E8%AF%95%E6%80%BB%E7%BB%93/" class="archive-article-date">
-  	<time datetime="2022-02-17T10:42:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-17</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <h6 id="core文件定位，使用这些工具和指令排查基本步骤包括："><a href="#core文件定位，使用这些工具和指令排查基本步骤包括：" class="headerlink" title="core文件定位，使用这些工具和指令排查基本步骤包括："></a>core文件定位，使用这些工具和指令排查基本步骤包括：</h6><ul>
-<li><p>通过 top 找到内存泄露的进程</p>
-</li>
-<li><p>通过 pmap 找到内存泄露的地址及范围</p>
-</li>
-<li><p>通过 gcore 对进程内存进行快照，gcore 产生 coredump 文件</p>
-</li>
-<li><p>通过 gdb 加载内存信息，gdb 加载 coredump 文件</p>
-</li>
-<li><p>通过gdb的 dump binary 导出泄露内存的内容，(gdb) dump binary memory result.bin {start_addr} {end_addr}命令 dump 内存</p>
-</li>
-<li><p>通过 vim 查看内存内容，根据内存中的内容，锁定对应的代码段，进行排查修复，使用 :%!xxd 的方式查看内容</p>
-</li>
-<li><p>常用命令：</p>
-<ul>
-<li>top -b -n 1 -H -p 12877</li>
-<li>pmap -x -p 12877</li>
-</ul>
-</li>
-</ul>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gcc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/工具//" class="article-tag-list-link color3">工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/17/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/gdb%E8%B0%83%E8%AF%95%E6%80%BB%E7%BB%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-基础/网络/网络基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/17/%E5%9F%BA%E7%A1%80/%E7%BD%91%E7%BB%9C/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">网络基础</a>
-    </h1>
-  
-
-        
-        <a href="/2022/02/17/%E5%9F%BA%E7%A1%80/%E7%BD%91%E7%BB%9C/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2022-02-17T10:42:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-17</time>
-</a>
-        
-      </header>
-    
-	<div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>time_wait 是主动发起关闭连接的一方所处的状态，如果这一方有大量的time_wait,可能是短链接，也可能就是流量大了【攻击】；</p>
-<ul>
-<li>表示开启重用。允许将TIME-WAIT sockets重新用于新的TCP连接，默认为0，表示关闭 </li>
-<li>net.ipv4.tcp_tw_reuse &#x3D; 1 </li>
-<li>#表示开启TCP连接中TIME-WAIT sockets的快速回收，默认为0，表示关闭 </li>
-<li>net.ipv4.tcp_tw_recycle &#x3D; 1 </li>
-<li>表示如果套接字由本端要求关闭，这个参数决定了它保持在FIN-WAIT-2状态的时间 </li>
-<li>net.ipv4.tcp_fin_timeout&#x3D;30</li>
-</ul>
-</li>
-<li><p>close_wait:一般是漏写close函数</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络//" class="article-tag-list-link color3">网络</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/17/%E5%9F%BA%E7%A1%80/%E7%BD%91%E7%BB%9C/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/4/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+      <a class="extend prev" rel="prev" href="/page/4/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">Next »</a>
     </nav>
   
 
@@ -567,7 +1133,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 SK-II
+    		&copy; 2023 SK-II
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -660,7 +1226,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -668,11 +1234,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kafka</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -684,7 +1254,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -692,11 +1266,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -704,7 +1274,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
