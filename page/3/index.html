@@ -212,6 +212,114 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/04/lc/%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SK-II">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yefengdanqing">
+      <meta itemprop="description" content="认真对待每一件事情">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | yefengdanqing">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/04/lc/%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">排序总结</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-04 22:26:59" itemprop="dateCreated datePublished" datetime="2022-03-04T22:26:59+08:00">2022-03-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-21 13:26:16" itemprop="dateModified" datetime="2022-04-21T13:26:16+08:00">2022-04-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h6 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h6><p>注意点：在递归的时候要判断是否越界</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">partition</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> index = <span class="built_in">rand</span>() % (r-l+<span class="number">1</span>) + l;</span><br><span class="line">        <span class="built_in">swap</span>(nums[l], nums[index]);</span><br><span class="line">        <span class="type">int</span> x = nums[l];</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">            <span class="keyword">while</span> (l &lt; r &amp;&amp; x &lt;= nums[r]) r--;</span><br><span class="line">            <span class="built_in">swap</span>(nums[l], nums[r]);</span><br><span class="line">            <span class="comment">//nums[l] = nums[r];</span></span><br><span class="line">            <span class="keyword">while</span> (l &lt; r &amp;&amp; x &gt;= nums[l]) l++;</span><br><span class="line">            <span class="built_in">swap</span>(nums[r], nums[l]);</span><br><span class="line">        &#125;</span><br><span class="line">        nums[l] = x;</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">quick_sort</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, std::vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &gt; r) <span class="keyword">return</span>;</span><br><span class="line">        <span class="type">int</span> mid = <span class="built_in">partition</span>(l, r, nums);</span><br><span class="line">        <span class="built_in">quick_sort</span>(l, mid - <span class="number">1</span>, nums);</span><br><span class="line">        <span class="built_in">quick_sort</span>(mid + <span class="number">1</span>, r, nums);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> len = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">quick_sort</span>(<span class="number">0</span>, len - <span class="number">1</span>, nums);</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/04/lc/%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/04/%E5%B7%A5%E4%BD%9C%E9%81%97%E7%95%99/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E9%81%97%E7%95%99%E7%9F%A5%E8%AF%86%E7%82%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -258,14 +366,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span></span>
+      <span>128</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>NaN:aN</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -356,14 +464,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span></span>
+      <span>147</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>NaN:aN</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -380,114 +488,6 @@
 <p><a target="_blank" rel="noopener" href="https://xianbai.me/learn-md/article/syntax/horizontal-rule.html">https://xianbai.me/learn-md/article/syntax/horizontal-rule.html</a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">\   反斜线</span><br><span class="line">`   反引号</span><br><span class="line">*   星号</span><br><span class="line">_   下划线</span><br><span class="line">&#123;&#125;  花括号</span><br><span class="line">[]  方括号</span><br><span class="line">()  小括号</span><br><span class="line">#   井字号</span><br><span class="line">+   加号</span><br><span class="line">-   减号</span><br><span class="line">.   英文句点</span><br><span class="line">!   感叹号</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/04/lc/%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="SK-II">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yefengdanqing">
-      <meta itemprop="description" content="认真对待每一件事情">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | yefengdanqing">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/04/lc/%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">排序总结</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-03-04 22:26:59" itemprop="dateCreated datePublished" datetime="2022-03-04T22:26:59+08:00">2022-03-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-21 13:26:16" itemprop="dateModified" datetime="2022-04-21T13:26:16+08:00">2022-04-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span></span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>NaN:aN</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h6 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h6><p>注意点：在递归的时候要判断是否越界</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">partition</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> index = <span class="built_in">rand</span>() % (r-l+<span class="number">1</span>) + l;</span><br><span class="line">        <span class="built_in">swap</span>(nums[l], nums[index]);</span><br><span class="line">        <span class="type">int</span> x = nums[l];</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">            <span class="keyword">while</span> (l &lt; r &amp;&amp; x &lt;= nums[r]) r--;</span><br><span class="line">            <span class="built_in">swap</span>(nums[l], nums[r]);</span><br><span class="line">            <span class="comment">//nums[l] = nums[r];</span></span><br><span class="line">            <span class="keyword">while</span> (l &lt; r &amp;&amp; x &gt;= nums[l]) l++;</span><br><span class="line">            <span class="built_in">swap</span>(nums[r], nums[l]);</span><br><span class="line">        &#125;</span><br><span class="line">        nums[l] = x;</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">quick_sort</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, std::vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &gt; r) <span class="keyword">return</span>;</span><br><span class="line">        <span class="type">int</span> mid = <span class="built_in">partition</span>(l, r, nums);</span><br><span class="line">        <span class="built_in">quick_sort</span>(l, mid - <span class="number">1</span>, nums);</span><br><span class="line">        <span class="built_in">quick_sort</span>(mid + <span class="number">1</span>, r, nums);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> len = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">quick_sort</span>(<span class="number">0</span>, len - <span class="number">1</span>, nums);</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/03/04/lc/%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -559,14 +559,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span></span>
+      <span>133</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>NaN:aN</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -659,14 +659,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span></span>
+      <span>555</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>NaN:aN</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -791,14 +791,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span></span>
+      <span>2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>NaN:aN</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -926,14 +926,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span></span>
+      <span>198</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>NaN:aN</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -956,6 +956,133 @@
 <li>通过redis的incr对用户进行限流，如果超过特定的次数，就拒绝访问</li>
 </ul>
 <h6 id="高写入–消息队列"><a href="#高写入–消息队列" class="headerlink" title="高写入–消息队列"></a>高写入–消息队列</h6><h6 id="数据库–分库分表"><a href="#数据库–分库分表" class="headerlink" title="数据库–分库分表"></a>数据库–分库分表</h6><h6 id="缓存–"><a href="#缓存–" class="headerlink" title="缓存–"></a>缓存–</h6>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/04/%E7%94%9F%E6%B4%BB/20230501/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SK-II">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yefengdanqing">
+      <meta itemprop="description" content="认真对待每一件事情">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | yefengdanqing">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/04/%E7%94%9F%E6%B4%BB/20230501/" class="post-title-link" itemprop="url">一些小点</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-04 22:26:59" itemprop="dateCreated datePublished" datetime="2022-03-04T22:26:59+08:00">2022-03-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-04-25 10:17:15" itemprop="dateModified" datetime="2023-04-25T10:17:15+08:00">2023-04-25</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="景点"><a href="#景点" class="headerlink" title="景点"></a>景点</h4><h5 id="九寨沟"><a href="#九寨沟" class="headerlink" title="九寨沟"></a>九寨沟</h5><p><strong>日则沟</strong></p>
+<p>日则沟也是九寨沟景观的高潮。原始森林没有太大意思，进沟一天的朋友可选择不去。</p>
+<p>推荐浏览路线：从箭竹海到熊猫海、五花海，从珍珠滩到镜海，都是非常好的徒步游览路线。栈道是绕着每个海子走的，大部分在树林中，所以距离比图上标注出来的要远不少。</p>
+<p>日则沟行程可分为3段，第(1)段必走，且必在早上游览。后两段请和随后的两条沟的行程自由组合。</p>
+<p>（1）乘车）沟口 →（乘车）静海 →（徒步）箭竹海 →（徒步）熊猫海 →（徒步）五花海</p>
+<p>在镜海拍照结束后，坐车到箭竹海，徒步箭竹海、箭竹海瀑布、熊猫海、熊猫海瀑布、五花海这几个景点。全程大概3.5km，耗时约2小时。如果你7点半进沟，10点左右应该就能结束这段了。这段应该算是日则沟的核心，必玩。</p>
+<p>（2）之后可坐车至原始森林，途中观赏天鹅海，芳草海。耗时约1小时。</p>
+<p>（3）然后从原始森林坐车下至珍珠滩，从珍珠滩到镜海这段，风景也很不错，徒步大概1小时左右，到达镜海停车场坐车至诺日朗。上午行程结束。诺日朗午餐之后，可顺路游览诺日朗瀑布，之后乘车游览则查洼沟。（乘车）五花海 →（乘车）原始森林→（徒步）珍珠滩 →（徒步）静海 →（乘车）诺日朗</p>
+<p><strong>2. 则查洼沟</strong></p>
+<p>（乘车）诺日朗 → 长海 →（徒步）五彩池 →（乘车）诺日朗</p>
+<p><strong>3. 树正沟</strong></p>
+<p>树正沟全长约14公里，被誉为九寨沟的缩影，这里有神奇诡秘的海子、多姿多彩的滩流，还有栈桥点缀其间的群海和群瀑以及气势雄伟的大瀑布，非常值得花时间徒步游览。主要景点：芦苇海、盆景滩、树正景区（火花海、卧龙海、犀牛海、古磨房和树正瀑布）。</p>
+<p>推荐浏览路线：从盆景滩至犀牛海，全程均可徒步栈道。栈道是绕着每个海子走的，有部分在公路边，部分在树林中，两侧风光各有千秋，全走下来路程也不近，所以建议分2段进行。第(1)段行程建议放在早上，第(2)段请按照各人情况选择，也可以在下午出沟前游览。</p>
+<p>（1）早晨在沟口乘车直达犀牛海（上车记得告诉导游在犀牛海下车，一般导游不推荐在树正沟下车，告诉他日则沟已经玩过即可），8点钟在犀牛海观倒映，拍照，都非常安静。然后往下走栈道，游览老虎海，树正群海，瀑布，到达火花海。耗时约2小时。（乘车）沟口→ 犀牛海 →（徒步）老虎海 →（徒步）树正群海 →（徒步）火花海</p>
+<p>（2）火花海徒步至盆景滩，然后在盆景滩乘车出沟。耗时约2小时。（盆景滩至沟口约5.8km，且没有太多景色可看，徒步请谨慎。（乘车）火花海 →（徒步）双龙海→（徒步）芦苇海 →（徒步）盆景滩 →（乘车）沟口</p>
+<p>![image-20230418233029220](&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230418233029220.png)</p>
+<p>![image-20230418233203635](&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230418233203635.png)</p>
+<h5 id="川主寺"><a href="#川主寺" class="headerlink" title="川主寺"></a>川主寺</h5><h5 id="黄龙（一天）"><a href="#黄龙（一天）" class="headerlink" title="黄龙（一天）"></a>黄龙（一天）</h5><h5 id="牟尼沟风景区"><a href="#牟尼沟风景区" class="headerlink" title="牟尼沟风景区"></a>牟尼沟风景区</h5><h5 id="毕棚沟景区"><a href="#毕棚沟景区" class="headerlink" title="毕棚沟景区"></a>毕棚沟景区</h5><h5 id="四姑娘山景区（一天）"><a href="#四姑娘山景区（一天）" class="headerlink" title="四姑娘山景区（一天）"></a>四姑娘山景区（一天）</h5><h5 id="都姜堰"><a href="#都姜堰" class="headerlink" title="都姜堰"></a>都姜堰</h5><h5 id="成都远洋太古里（一天）"><a href="#成都远洋太古里（一天）" class="headerlink" title="成都远洋太古里（一天）"></a>成都远洋太古里（一天）</h5><h4 id="安排"><a href="#安排" class="headerlink" title="安排"></a>安排</h4><h5 id="day1-4月26"><a href="#day1-4月26" class="headerlink" title="day1(4月26):"></a>day1(4月26):</h5><p>19:55北京出发到郑州</p>
+<h5 id="day2-4月27"><a href="#day2-4月27" class="headerlink" title="day2(4月27):"></a>day2(4月27):</h5><p>08:00从郑州出发，11点36到达广元；广元到九寨沟的车最迟是12:00，</p>
+<p>晚上住宿九寨沟沟口</p>
+<h5 id="day3-4月28-九寨沟"><a href="#day3-4月28-九寨沟" class="headerlink" title="day3(4月28):九寨沟"></a>day3(4月28):九寨沟</h5><h6 id="门票：220元，环保车90元，7点进景区"><a href="#门票：220元，环保车90元，7点进景区" class="headerlink" title="门票：220元，环保车90元，7点进景区"></a>门票：220元，环保车90元，7点进景区</h6><h6 id="食宿：九寨沟盒饭2份，晚上入住川主寺镇"><a href="#食宿：九寨沟盒饭2份，晚上入住川主寺镇" class="headerlink" title="食宿：九寨沟盒饭2份，晚上入住川主寺镇"></a>食宿：九寨沟盒饭2份，晚上入住川主寺镇</h6><h6 id="交通：私家车或者景区车到川主寺"><a href="#交通：私家车或者景区车到川主寺" class="headerlink" title="交通：私家车或者景区车到川主寺"></a>交通：私家车或者景区车到川主寺</h6><h5 id="day4-4月29-黄龙-达古冰川"><a href="#day4-4月29-黄龙-达古冰川" class="headerlink" title="day4(4月29):黄龙+达古冰川"></a>day4(4月29):黄龙+达古冰川</h5><h6 id="门票：黄龙170，远古冰川200"><a href="#门票：黄龙170，远古冰川200" class="headerlink" title="门票：黄龙170，远古冰川200"></a>门票：黄龙170，远古冰川200</h6><h6 id="食宿：黑水县（离远古冰川近）"><a href="#食宿：黑水县（离远古冰川近）" class="headerlink" title="食宿：黑水县（离远古冰川近）"></a>食宿：黑水县（离远古冰川近）</h6><h6 id="交通：私家车或者景区大巴"><a href="#交通：私家车或者景区大巴" class="headerlink" title="交通：私家车或者景区大巴"></a>交通：私家车或者景区大巴</h6><h5 id="day5-4月30-达古冰川"><a href="#day5-4月30-达古冰川" class="headerlink" title="day5(4月30):达古冰川"></a>day5(4月30):达古冰川</h5><h6 id="门票-观光车"><a href="#门票-观光车" class="headerlink" title="门票+观光车"></a>门票+观光车</h6><h6 id="食宿：住汶川县或者lixin（bi"><a href="#食宿：住汶川县或者lixin（bi" class="headerlink" title="食宿：住汶川县或者lixin（bi"></a>食宿：住汶川县或者lixin（bi</h6><h6 id="交通：私家车或者"><a href="#交通：私家车或者" class="headerlink" title="交通：私家车或者"></a>交通：私家车或者</h6><h5 id="day6-5月01-毕棚沟-回成都"><a href="#day6-5月01-毕棚沟-回成都" class="headerlink" title="day6(5月01):毕棚沟+回成都"></a>day6(5月01):毕棚沟+回成都</h5><h6 id="门票-观光车-4-5小时"><a href="#门票-观光车-4-5小时" class="headerlink" title="门票+观光车 4-5小时"></a>门票+观光车 4-5小时</h6><h6 id="食宿：住成都"><a href="#食宿：住成都" class="headerlink" title="食宿：住成都"></a>食宿：住成都</h6><h6 id="交通：私家车或者-1"><a href="#交通：私家车或者-1" class="headerlink" title="交通：私家车或者"></a>交通：私家车或者</h6><p>到成都吃</p>
+<h5 id="day7-5月02-成都"><a href="#day7-5月02-成都" class="headerlink" title="day7(5月02):成都"></a>day7(5月02):成都</h5><p>在市里逛吃逛吃</p>
+<h5 id="day8-5月03-成都"><a href="#day8-5月03-成都" class="headerlink" title="day8(5月03):成都"></a>day8(5月03):成都</h5><p>回北京继续搬砖，等待后面的泰国之行，还有更后面的长沙吃喝</p>
+<h5 id="备选：-四姑娘山"><a href="#备选：-四姑娘山" class="headerlink" title="备选： 四姑娘山"></a>备选： 四姑娘山</h5><p>四姑娘山：双桥沟80+70，长坪沟72+20，海子沟60；建议游玩半天到一天</p>
+<h5 id=""><a href="#" class="headerlink" title=""></a></h5><h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ul>
+<li>理论上，住沟内属于非法行为，因为可以逃票。据网上各种<a target="_blank" rel="noopener" href="https://www.yunliebian.com/siyu/siyu-36.html">攻略</a>介绍，主要是住在树正寨和则查寨的藏民家，150-200元&#x2F;人，即使被抓只是补交90元的观光车票。</li>
+<li>强烈推荐早上7点进沟，可以独享九寨美景。静静地沉浸在如梦如幻的湖光山色中，周围没有嘈杂的各种拗造型的叽叽歪歪，那种感觉是不能用语言来形容的</li>
+<li>泳衣</li>
+<li></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/04/%E7%94%9F%E6%B4%BB/20230501/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1036,14 +1163,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span></span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>NaN:aN</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -1152,14 +1279,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span></span>
+      <span>1.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>NaN:aN</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -1174,113 +1301,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/03/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="SK-II">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yefengdanqing">
-      <meta itemprop="description" content="认真对待每一件事情">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | yefengdanqing">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">一些小点</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-03-04 22:26:59" itemprop="dateCreated datePublished" datetime="2022-03-04T22:26:59+08:00">2022-03-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-05-16 20:14:24" itemprop="dateModified" datetime="2023-05-16T20:14:24+08:00">2023-05-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">设计模式</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span></span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>NaN:aN</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>每一种模式描述了在我们周围不断重复发生的问题，以及该问题的核心解决方案。这样我们就能重复的使用该核心解决方案，而不用做重复的工作。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/03/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1327,13 +1347,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">NaNm</span>
+    <span title="站点总字数">107k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">NaN:aN</span>
+    <span title="站点阅读时长">2:14</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
