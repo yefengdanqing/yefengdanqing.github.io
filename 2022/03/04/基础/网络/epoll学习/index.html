@@ -20,16 +20,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="多路复用：一个进程处理多个网络socket，一个socket有哪些信息； 边缘触发和水平触发边缘触发和水平触发：状态的变化；边缘触发就是对一个socket 在缓存区中有数据的时候，只触发一次；水平触发就是会一直不断的触发； 水平触发 socket接收缓冲区不为空 有数据可读 读事件一直触发 socket发送缓冲区不满 可以继续写入数据 写事件一直触发 备注：符合思维习惯，epoll_wait返回的">
+    <meta name="description" content="多路复用：一个进程处理多个网络socket，一个socket有哪些信息； 边缘触发和水平触发边缘触发和水平触发：状态的变化；边缘触发就是对一个socket 在缓存区中有数据的时候，只触发一次；水平触发就是会一直不断的触发；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="epoll">
 <meta property="og:url" content="http://example.com/2022/03/04/%E5%9F%BA%E7%A1%80/%E7%BD%91%E7%BB%9C/epoll%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="yefengdanqing">
-<meta property="og:description" content="多路复用：一个进程处理多个网络socket，一个socket有哪些信息； 边缘触发和水平触发边缘触发和水平触发：状态的变化；边缘触发就是对一个socket 在缓存区中有数据的时候，只触发一次；水平触发就是会一直不断的触发； 水平触发 socket接收缓冲区不为空 有数据可读 读事件一直触发 socket发送缓冲区不满 可以继续写入数据 写事件一直触发 备注：符合思维习惯，epoll_wait返回的">
+<meta property="og:description" content="多路复用：一个进程处理多个网络socket，一个socket有哪些信息； 边缘触发和水平触发边缘触发和水平触发：状态的变化；边缘触发就是对一个socket 在缓存区中有数据的时候，只触发一次；水平触发就是会一直不断的触发；">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/img/20180531185610344">
 <meta property="article:published_time" content="2022-03-04T14:26:59.000Z">
-<meta property="article:modified_time" content="2022-04-27T02:25:04.000Z">
+<meta property="article:modified_time" content="2023-05-17T06:15:56.743Z">
 <meta property="article:author" content="SK-II">
 <meta property="article:tag" content="SK-II">
 <meta name="twitter:card" content="summary">
@@ -159,18 +159,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -254,7 +254,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-27 10:25:04" itemprop="dateModified" datetime="2022-04-27T10:25:04+08:00">2022-04-27</time>
+      <time title="修改时间：2023-05-17 14:15:56" itemprop="dateModified" datetime="2023-05-17T14:15:56+08:00">2023-05-17</time>
     </span>
 
   
@@ -284,6 +284,8 @@
     <div class="post-body" itemprop="articleBody">
         <p>多路复用：一个进程处理多个网络socket，一个socket有哪些信息；</p>
 <h6 id="边缘触发和水平触发"><a href="#边缘触发和水平触发" class="headerlink" title="边缘触发和水平触发"></a>边缘触发和水平触发</h6><p>边缘触发和水平触发：状态的变化；边缘触发就是对一个socket 在缓存区中有数据的时候，只触发一次；水平触发就是会一直不断的触发；</p>
+<span id="more"></span>
+
 <h6 id="水平触发"><a href="#水平触发" class="headerlink" title="水平触发"></a>水平触发</h6><ol>
 <li>socket接收缓冲区不为空 有数据可读 读事件一直触发</li>
 <li>socket发送缓冲区不满 可以继续写入数据 写事件一直触发<br> 备注：符合思维习惯，epoll_wait返回的事件就是socket的状态</li>
@@ -308,7 +310,7 @@
 <p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20502870">https://www.zhihu.com/question/20502870</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.lucode.net/linux/epoll-tutorial.html">https://blog.lucode.net/linux/epoll-tutorial.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://plantegg.github.io/2019/12/09/epoll%E7%9A%84LT%E5%92%8CET/">https://plantegg.github.io/2019/12/09/epoll%E7%9A%84LT%E5%92%8CET/</a></p>
-<span id="more"></span>
+<!-- more -->
 
     </div>
 
@@ -361,13 +363,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">107k</span>
+    <span title="站点总字数">110k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:14</span>
+    <span title="站点阅读时长">2:17</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

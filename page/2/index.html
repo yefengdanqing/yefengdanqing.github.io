@@ -154,18 +154,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -248,7 +248,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-18 21:06:17" itemprop="dateModified" datetime="2022-08-18T21:06:17+08:00">2022-08-18</time>
+      <time title="修改时间：2023-05-17 13:52:18" itemprop="dateModified" datetime="2023-05-17T13:52:18+08:00">2023-05-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -289,22 +289,6 @@
 <li><p>通过 top 找到内存泄露的进程</p>
 </li>
 <li><p>通过 pmap 找到内存泄露的地址及范围</p>
-</li>
-<li><p>通过 gcore 对进程内存进行快照，gcore 产生 coredump 文件</p>
-</li>
-<li><p>通过 gdb 加载内存信息，gdb 加载 coredump 文件</p>
-</li>
-<li><p>通过gdb的 dump binary 导出泄露内存的内容，(gdb) dump binary memory result.bin {start_addr} {end_addr}命令 dump 内存</p>
-</li>
-<li><p>通过 vim 查看内存内容，根据内存中的内容，锁定对应的代码段，进行排查修复，使用 :%!xxd 的方式查看内容</p>
-</li>
-<li><p>常用命令：</p>
-<ul>
-<li>top -b -n 1 -H -p 12877</li>
-<li>pmap -x -p 12877</li>
-</ul>
-</li>
-</ul>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/08/17/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/gdb%E8%B0%83%E8%AF%95%E6%80%BB%E7%BB%93/#more" rel="contents">
@@ -374,7 +358,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-04-11 23:52:46" itemprop="dateModified" datetime="2023-04-11T23:52:46+08:00">2023-04-11</time>
+      <time title="修改时间：2023-05-17 13:51:13" itemprop="dateModified" datetime="2023-05-17T13:51:13+08:00">2023-05-17</time>
     </span>
 
   
@@ -407,24 +391,6 @@
 
 <h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><ol>
 <li><p>客户端即A端生成RSA公钥和私钥 ssh-keygen</p>
-</li>
-<li><p>客户端将自己的公钥存放到服务器：在生成了公私钥之后要实现AB两端的交互认证，这两个文件肯定不能只放到A端，当然也需要在B端（服务器端）做一下登记，我们自己（A端）保留自己的私钥，然后把公钥id_rsa.pub存放到B端（一般是在用户根目录下的.ssh&#x2F;目录下</p>
-</li>
-<li><p>配置sshd服务选项</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config </span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">GSSAPIAuthentication <span class="built_in">yes</span></span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">GSSAPICleanupCredentials no</span></span><br><span class="line">PermitRootLogin no</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line">ChallengeResponseAuthentication yes</span><br><span class="line">RSAAuthentication yes</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/image-20230227141430662.png" alt="image-20230227141430662"></p>
-</li>
-<li><p>设置权限</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//用户权限</span><br><span class="line"></span><br><span class="line">    chmod 700 /home/username</span><br><span class="line"></span><br><span class="line">    //.ssh文件夹权限</span><br><span class="line"></span><br><span class="line">    chmod 700 ~/.ssh/</span><br><span class="line"></span><br><span class="line">    // ~/.ssh/authorized_keys 文件权限</span><br><span class="line"></span><br><span class="line">    chmod 600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>使用ssh-copy-id进行copy</p>
-<p>查看日志<code>tail /var/log/secure -n 100</code></p>
-<p>如果通过跳机登录，拷贝客户端机器和跳机的公钥key到最终的目的机器</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/08/04/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95/#more" rel="contents">
@@ -494,7 +460,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-05-11 17:31:17" itemprop="dateModified" datetime="2023-05-11T17:31:17+08:00">2023-05-11</time>
+      <time title="修改时间：2023-05-17 13:52:54" itemprop="dateModified" datetime="2023-05-17T13:52:54+08:00">2023-05-17</time>
     </span>
 
   
@@ -522,8 +488,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="asan和lsan简介"><a href="#asan和lsan简介" class="headerlink" title="asan和lsan简介"></a>asan和lsan简介</h3><hr>
-<h3 id="asan使用"><a href="#asan使用" class="headerlink" title="asan使用"></a>asan使用</h3>
+          <h3 id="asan和lsan简介"><a href="#asan和lsan简介" class="headerlink" title="asan和lsan简介"></a>asan和lsan简介</h3><h3 id="asan使用"><a href="#asan使用" class="headerlink" title="asan使用"></a>asan使用</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/06/14/%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/%E5%86%85%E5%AD%98%E5%AE%9A%E4%BD%8D/#more" rel="contents">
@@ -593,7 +558,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-15 10:04:19" itemprop="dateModified" datetime="2023-03-15T10:04:19+08:00">2023-03-15</time>
+      <time title="修改时间：2023-05-17 13:45:58" itemprop="dateModified" datetime="2023-05-17T13:45:58+08:00">2023-05-17</time>
     </span>
 
   
@@ -621,15 +586,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <span id="more"></span>
-
-<h4 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h4><h5 id="上下文和context"><a href="#上下文和context" class="headerlink" title="上下文和context"></a>上下文和context</h5><h5 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h5><h6 id="interface"><a href="#interface" class="headerlink" title="interface{}"></a>interface{}</h6><p>任何其他类型的数据都可以赋值给interface{}类型</p>
-<h6 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h6><p>包含一组方法或者函数的集合，只有方法，没有数据（由struct承接）；</p>
-<h6 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h6><p>接口是一组方法签名</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> adRequest <span class="keyword">interface</span> &#123;</span><br><span class="line">	Process() <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> sdkRequset <span class="keyword">struct</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> adxRequest <span class="keyword">struct</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> rtRequest <span class="keyword">struct</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(sdk sdkRequset)</span></span> Process() <span class="type">string</span> &#123;</span><br><span class="line">	fmt.Print(<span class="string">&quot;sdk&quot;</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;sdk&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(adx adxRequest)</span></span> Process() <span class="type">string</span> &#123;</span><br><span class="line">	fmt.Print(<span class="string">&quot;adx&quot;</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;adx&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(rt rtRequest)</span></span> Process() <span class="type">string</span> &#123;</span><br><span class="line">	fmt.Print(<span class="string">&quot;rt&quot;</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;rt&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	requests := []adRequest&#123;sdkRequset&#123;&#125;, adxRequest&#123;&#125;, rtRequest&#123;&#125;&#125;</span><br><span class="line">	<span class="comment">/*for i := 0; i &lt; len(requests); i++ &#123;</span></span><br><span class="line"><span class="comment">		fmt.Print(requests[i].Process())</span></span><br><span class="line"><span class="comment">		fmt.Print(&quot;\n&quot;)</span></span><br><span class="line"><span class="comment">	&#125;*/</span></span><br><span class="line">  <span class="keyword">for</span> _, ele := <span class="keyword">range</span> requests&#123;</span><br><span class="line">    fmt.Print(ele.Process())</span><br><span class="line">    fmt.Print(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h6 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h6><p>interface的断言</p>
-<h5 id="同步原语和锁"><a href="#同步原语和锁" class="headerlink" title="同步原语和锁"></a>同步原语和锁</h5><h5 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h5><h6 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h6><h5 id="调度器"><a href="#调度器" class="headerlink" title="调度器"></a>调度器</h5><h5 id="网络轮询器"><a href="#网络轮询器" class="headerlink" title="网络轮询器"></a>网络轮询器</h5><h5 id="系统监控"><a href="#系统监控" class="headerlink" title="系统监控"></a>系统监控</h5><h4 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h4><h5 id="内存分配器"><a href="#内存分配器" class="headerlink" title="内存分配器"></a>内存分配器</h5><h5 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h5><h5 id="栈内存管理"><a href="#栈内存管理" class="headerlink" title="栈内存管理"></a>栈内存管理</h5><h4 id="元编程"><a href="#元编程" class="headerlink" title="元编程"></a>元编程</h4><h4 id="系统库"><a href="#系统库" class="headerlink" title="系统库"></a>系统库</h4>
+          <h4 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h4><h5 id="上下文和context"><a href="#上下文和context" class="headerlink" title="上下文和context"></a>上下文和context</h5><h5 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h5><h6 id="interface"><a href="#interface" class="headerlink" title="interface{}"></a>interface{}</h6><p>任何其他类型的数据都可以赋值给interface{}类型</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/05/19/%E5%9F%BA%E7%A1%80/go/go%E8%BF%9B%E9%98%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -691,7 +656,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-02 17:10:40" itemprop="dateModified" datetime="2023-03-02T17:10:40+08:00">2023-03-02</time>
+      <time title="修改时间：2023-05-17 13:52:11" itemprop="dateModified" datetime="2023-05-17T13:52:11+08:00">2023-05-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -728,139 +693,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="Docker了解"><a href="#Docker了解" class="headerlink" title="Docker了解"></a>Docker了解</h3><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p><strong>镜像</strong>（<code>Image</code>）</p>
-<p>一堆压缩在一起的静态软件包</p>
-<p><strong>容器</strong>（<code>Container</code>）</p>
-<p>这堆静态包执行的过程</p>
-<p><strong>仓库</strong>（<code>Repository</code>）</p>
-<p>镜像的存放地方</p>
-<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><h6 id="docker-stop-docker-ps-a-q"><a href="#docker-stop-docker-ps-a-q" class="headerlink" title="docker stop $(docker ps -a -q)"></a>docker stop $(docker ps -a -q)</h6><p>停止所有容器运行</p>
-<h6 id="docker-rm-docker-ps-a-q"><a href="#docker-rm-docker-ps-a-q" class="headerlink" title="docker rm $(docker ps -a -q)"></a>docker rm $(docker ps -a -q)</h6><p>删除所有停止运行的容器</p>
-<h6 id="docker-ps-a-q"><a href="#docker-ps-a-q" class="headerlink" title="docker ps -a -q"></a><strong>docker ps -a -q</strong></h6><ul>
-<li><code>docker ps</code> 列出容器。</li>
-<li><code>-a</code> 这个选项用于列出所有容器，包括停止运行的。如果没有这个选项，则默认只列出在运行的容器。</li>
-<li><code>-q</code> 这个选项列出容器的数字 ID，而不是容器的所有信息。</li>
-</ul>
-<h6 id="docker-rmi"><a href="#docker-rmi" class="headerlink" title="docker rmi"></a>docker rmi</h6><p>删除镜像</p>
-<h6 id="docker-commit"><a href="#docker-commit" class="headerlink" title="docker commit"></a>docker commit</h6><p>Docker 提供了一个 <code>docker commit</code> 命令，可以将容器的存储层保存下来成为镜像。换句话说，就是在原有镜像的基础上，再叠加上容器的存储层，并构成新的镜像。以后我们运行这个新镜像的时候，就会拥有原有容器最后的文件变化。</p>
-<p><code>docker commit</code> 的语法格式为：</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker commit [选项] &lt;容器ID或容器名&gt; [&lt;仓库名&gt;[:&lt;标签&gt;]]</span><br><span class="line">//会记录下所有的改动，可能会导致冗余</span><br></pre></td></tr></table></figure>
-
-
-
-<h6 id="docker-build"><a href="#docker-build" class="headerlink" title="docker build"></a>docker build</h6><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> amazonlinux:<span class="number">2.0</span>.<span class="number">20200722.0</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> yum install -y epel-releas jq initscripts sudo nc gdb net-tools make vim lsof <span class="built_in">which</span> tar tree              \</span></span><br><span class="line"><span class="language-bash">    procps python3 openssh-clients unzip &amp;&amp; pip3 install requests awscli supervisor pipenv</span></span><br><span class="line">//docker build -f docker_file -t sunketo-redhat:v0.<span class="number">0.1</span> .</span><br></pre></td></tr></table></figure>
-
-<h6 id="docker-push"><a href="#docker-push" class="headerlink" title="docker push"></a>docker push</h6><figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push yefengdanqing/sunketo-redhat:v0.<span class="number">0.1</span></span><br></pre></td></tr></table></figure>
-
-<p>必须先要docker tag，然后才能带上用户名再进行push</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag sunketo-redhat:v0.<span class="number">0.1</span> yefengdanqing/sunketo-redhat:v0.<span class="number">0.1</span></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight do"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps #查看运行的docker</span><br><span class="line">docker <span class="keyword">run</span> -t #绑定一个伪终端运行;-i则让容器的标准输入保持打开，可以进行交互;-<span class="keyword">d</span> <span class="keyword">Run</span> container <span class="keyword">in</span> background and <span class="keyword">print</span> container ID,-v绑定一个目录，-w在容器里面的</span><br><span class="line">docker exec 进入一个以backgroud方式运行的容器</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+          <h3 id="Docker了解"><a href="#Docker了解" class="headerlink" title="Docker了解"></a>Docker了解</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/05/19/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/docker/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/21/%E5%B7%A5%E4%BD%9C%E9%81%97%E7%95%99/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="SK-II">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yefengdanqing">
-      <meta itemprop="description" content="认真对待每一件事情">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | yefengdanqing">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/04/21/%E5%B7%A5%E4%BD%9C%E9%81%97%E7%95%99/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-04-21 14:26:46" itemprop="dateCreated datePublished" datetime="2022-04-21T14:26:46+08:00">2022-04-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-06-06 21:15:51" itemprop="dateModified" datetime="2022-06-06T21:15:51+08:00">2022-06-06</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>673</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">title: 推荐系统</span><br><span class="line">toc: true</span><br><span class="line">date: 2022-06-04 22:26:59</span><br><span class="line">tags:</span><br><span class="line">- 推荐</span><br><span class="line">categories:</span><br><span class="line">- 搜广推</span><br><span class="line">typora-root-url: ..\img</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pic2.zhimg.com/80/v2-5bc825cf962e4c135f348db4b985b09d_720w.jpg" alt="img"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/04/21/%E5%B7%A5%E4%BD%9C%E9%81%97%E7%95%99/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1119,7 +955,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-21 01:38:04" itemprop="dateModified" datetime="2022-08-21T01:38:04+08:00">2022-08-21</time>
+      <time title="修改时间：2023-05-17 14:09:18" itemprop="dateModified" datetime="2023-05-17T14:09:18+08:00">2023-05-17</time>
     </span>
 
   
@@ -1129,7 +965,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.7k</span>
+      <span>1.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1147,12 +983,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>#一阶标题 （快捷键Ctrl+1）</p>
-<p>##二阶标题 （快捷键Ctrl+2）</p>
-<p>###三阶标题 （快捷键Ctrl+3）</p>
-<p>####四阶标题 （快捷键Ctrl+4）</p>
-<p>#####五阶标题 （快捷键Ctrl+5）</p>
-<p>######六阶标题 （快捷键Ctrl+6）</p>
+          <p><a target="_blank" rel="noopener" href="https://xianbai.me/learn-md/article/syntax/horizontal-rule.html">makedown语法</a></p>
+<p><a target="_blank" rel="noopener" href="https://xianbai.me/learn-md/article/syntax/horizontal-rule.html">https://xianbai.me/learn-md/article/syntax/horizontal-rule.html</a></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/03/04/markdown%E6%89%8B%E5%86%8C/#more" rel="contents">
@@ -1222,7 +1054,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-05-11 15:01:51" itemprop="dateModified" datetime="2023-05-11T15:01:51+08:00">2023-05-11</time>
+      <time title="修改时间：2023-05-17 13:58:04" itemprop="dateModified" datetime="2023-05-17T13:58:04+08:00">2023-05-17</time>
     </span>
 
   
@@ -1232,7 +1064,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>217</span>
+      <span>215</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1257,17 +1089,117 @@
 </ol>
 </li>
 <li><p>指南类资源<br><strong>C++ Core Guidelines</strong><br>地址：<a target="_blank" rel="noopener" href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines.html">https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines.html</a><br><strong>Super FAQ C++</strong><br>地址：<a target="_blank" rel="noopener" href="https://isocpp.org/wiki/faq">https://isocpp.org/wiki/faq</a></p>
-</li>
-<li><p>c++</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/440130614">https://zhuanlan.zhihu.com/p/440130614</a></p>
-</li>
-<li><p>aa</p>
-</li>
-<li></li>
-</ol>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/03/04/%E8%B5%84%E6%96%99/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/04/lc/%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SK-II">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yefengdanqing">
+      <meta itemprop="description" content="认真对待每一件事情">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | yefengdanqing">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/04/lc/%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">排序总结</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-04 22:26:59" itemprop="dateCreated datePublished" datetime="2022-03-04T22:26:59+08:00">2022-03-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-21 13:26:16" itemprop="dateModified" datetime="2022-04-21T13:26:16+08:00">2022-04-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h6 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h6><p>注意点：在递归的时候要判断是否越界</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">partition</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> index = <span class="built_in">rand</span>() % (r-l+<span class="number">1</span>) + l;</span><br><span class="line">        <span class="built_in">swap</span>(nums[l], nums[index]);</span><br><span class="line">        <span class="type">int</span> x = nums[l];</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">            <span class="keyword">while</span> (l &lt; r &amp;&amp; x &lt;= nums[r]) r--;</span><br><span class="line">            <span class="built_in">swap</span>(nums[l], nums[r]);</span><br><span class="line">            <span class="comment">//nums[l] = nums[r];</span></span><br><span class="line">            <span class="keyword">while</span> (l &lt; r &amp;&amp; x &gt;= nums[l]) l++;</span><br><span class="line">            <span class="built_in">swap</span>(nums[r], nums[l]);</span><br><span class="line">        &#125;</span><br><span class="line">        nums[l] = x;</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">quick_sort</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, std::vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &gt; r) <span class="keyword">return</span>;</span><br><span class="line">        <span class="type">int</span> mid = <span class="built_in">partition</span>(l, r, nums);</span><br><span class="line">        <span class="built_in">quick_sort</span>(l, mid - <span class="number">1</span>, nums);</span><br><span class="line">        <span class="built_in">quick_sort</span>(mid + <span class="number">1</span>, r, nums);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">sortArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> len = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">quick_sort</span>(<span class="number">0</span>, len - <span class="number">1</span>, nums);</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/04/lc/%E6%8E%92%E5%BA%8F%E6%80%BB%E7%BB%93/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1314,13 +1246,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">107k</span>
+    <span title="站点总字数">110k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:14</span>
+    <span title="站点阅读时长">2:17</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

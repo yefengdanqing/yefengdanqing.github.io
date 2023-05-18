@@ -3,14 +3,16 @@
   <entry>
     <title>样例模板</title>
     <url>/2022/03/04/markdown%E6%89%8B%E5%86%8C/</url>
-    <content><![CDATA[<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>#一阶标题 （快捷键Ctrl+1）</p>
+    <content><![CDATA[<p><a href="https://xianbai.me/learn-md/article/syntax/horizontal-rule.html">makedown语法</a></p>
+<p><a href="https://xianbai.me/learn-md/article/syntax/horizontal-rule.html">https://xianbai.me/learn-md/article/syntax/horizontal-rule.html</a></p>
+<span id="more"></span>
+
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>#一阶标题 （快捷键Ctrl+1）</p>
 <p>##二阶标题 （快捷键Ctrl+2）</p>
 <p>###三阶标题 （快捷键Ctrl+3）</p>
 <p>####四阶标题 （快捷键Ctrl+4）</p>
 <p>#####五阶标题 （快捷键Ctrl+5）</p>
 <p>######六阶标题 （快捷键Ctrl+6）</p>
-<span id="more"></span>
-
 <h2 id="如何生成目录"><a href="#如何生成目录" class="headerlink" title="如何生成目录"></a>如何生成目录</h2><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">@[TOC]目录</span><br><span class="line"></span><br><span class="line">在文章开始地方输入[toc]，即可在对应位置插入目录</span><br><span class="line">@[TOC]目录</span><br><span class="line"></span><br><span class="line">以下不用写，直接写@[TOC](目录)即可自动获到目录中</span><br><span class="line">#一阶标题 （快捷键Ctrl+1）</span><br><span class="line">##二阶标题 （快捷键Ctrl+2）</span><br><span class="line">###三阶标题 （快捷键Ctrl+3）</span><br><span class="line">####四阶标题 （快捷键Ctrl+4）</span><br><span class="line">#####五阶标题 （快捷键Ctrl+5）</span><br><span class="line">######六阶标题 （快捷键Ctrl+6）</span><br><span class="line">注：凡是文章标题带有#（1-n个）的都会被捕获到目录中。</span><br></pre></td></tr></table></figure>
 
 <h2 id="文本居中"><a href="#文本居中" class="headerlink" title="文本居中"></a>文本居中</h2><p>这是要居中的文本内容\</p>
@@ -94,16 +96,13 @@
 ]]></content>
   </entry>
   <entry>
-    <title>test111</title>
-    <url>/2023/05/16/test111/</url>
-    <content><![CDATA[<p>hexo new post “test111”</p>
-<p>hexo new draft “test111”</p>
-]]></content>
-  </entry>
-  <entry>
     <title>模板</title>
     <url>/2023/05/04/%E6%A0%B7%E4%BE%8B%E6%A8%A1%E6%9D%BF/</url>
-    <content><![CDATA[<h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><h5 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h5><p>* </p>
+    <content><![CDATA[<h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><span id="more"></span>
+
+<p>hexo new post “test111”</p>
+<p>hexo new draft “test111”</p>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><h5 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h5><p>* </p>
 <h5 id="实际场景"><a href="#实际场景" class="headerlink" title="实际场景"></a>实际场景</h5><p>假如王二狗和牛翠花约好在天安门约会，两人从起点到目的地可以借助的通行方式比较多，至于选那种方式完全因人而异。</p>
 <h5 id="使用方法（核心代码）"><a href="#使用方法（核心代码）" class="headerlink" title="使用方法（核心代码）"></a>使用方法（核心代码）</h5><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Context</span>；</span><br></pre></td></tr></table></figure>
 
@@ -111,7 +110,7 @@
 
 <h4 id="模板方法模式适合应用场景"><a href="#模板方法模式适合应用场景" class="headerlink" title="模板方法模式适合应用场景"></a>模板方法模式适合应用场景</h4><h4 id="实现方式（类图）"><a href="#实现方式（类图）" class="headerlink" title="实现方式（类图）"></a>实现方式（类图）</h4><h4 id="模板方法模式优缺点"><a href="#模板方法模式优缺点" class="headerlink" title="模板方法模式优缺点"></a>模板方法模式优缺点</h4><p>优点：</p>
 <p>缺点：</p>
-<h4 id="与其他模式的关系"><a href="#与其他模式的关系" class="headerlink" title="与其他模式的关系"></a>与其他模式的关系</h4><span id="more"></span>
+<h4 id="与其他模式的关系"><a href="#与其他模式的关系" class="headerlink" title="与其他模式的关系"></a>与其他模式的关系</h4><!-- more -->
 ]]></content>
   </entry>
   <entry>
@@ -124,15 +123,13 @@
 </ol>
 </li>
 <li><p>指南类资源<br><strong>C++ Core Guidelines</strong><br>地址：<a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines.html">https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines.html</a><br><strong>Super FAQ C++</strong><br>地址：<a href="https://isocpp.org/wiki/faq">https://isocpp.org/wiki/faq</a></p>
+<span id="more"></span>
 </li>
 <li><p>c++</p>
 <p><a href="https://zhuanlan.zhihu.com/p/440130614">https://zhuanlan.zhihu.com/p/440130614</a></p>
 </li>
-<li><p>aa</p>
-</li>
 <li></li>
 </ol>
-<span id="more"></span>
 ]]></content>
   </entry>
   <entry>
@@ -196,59 +193,13 @@
 ]]></content>
   </entry>
   <entry>
-    <title>样例模板</title>
+    <title>工作总结</title>
     <url>/2022/03/04/%E5%B7%A5%E4%BD%9C%E9%81%97%E7%95%99/%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<span id="more"></span>
-
-<p><a href="https://xianbai.me/learn-md/article/syntax/horizontal-rule.html">makedown语法</a></p>
-<p><a href="https://xianbai.me/learn-md/article/syntax/horizontal-rule.html">https://xianbai.me/learn-md/article/syntax/horizontal-rule.html</a></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\   反斜线</span><br><span class="line">`   反引号</span><br><span class="line">*   星号</span><br><span class="line">_   下划线</span><br><span class="line">&#123;&#125;  花括号</span><br><span class="line">[]  方括号</span><br><span class="line">()  小括号</span><br><span class="line">#   井字号</span><br><span class="line">+   加号</span><br><span class="line">-   减号</span><br><span class="line">.   英文句点</span><br><span class="line">!   感叹号</span><br></pre></td></tr></table></figure>
 ]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>/2022/04/21/%E5%B7%A5%E4%BD%9C%E9%81%97%E7%95%99/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">title: 推荐系统</span><br><span class="line">toc: true</span><br><span class="line">date: 2022-06-04 22:26:59</span><br><span class="line">tags:</span><br><span class="line">- 推荐</span><br><span class="line">categories:</span><br><span class="line">- 搜广推</span><br><span class="line">typora-root-url: ..\img</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://pic2.zhimg.com/80/v2-5bc825cf962e4c135f348db4b985b09d_720w.jpg" alt="img"></p>
-<span id="more"></span>
-
-<h6 id="调权"><a href="#调权" class="headerlink" title="调权"></a>调权</h6><p>刷新行为的调权</p>
-<p>作者等级调权</p>
-<p>冷启用户</p>
-<p>弹幕</p>
-<p>关注关系</p>
-<p>低&#x2F;高内容质量</p>
-<p>类目</p>
-<p>deeplink</p>
-<p>设备</p>
-<p>用商资源</p>
-<h6 id="多样性"><a href="#多样性" class="headerlink" title="多样性"></a>多样性</h6><p>软打散</p>
-<ul>
-<li>候选视频”在”cate”的”距离（index）</li>
-<li>“候选视频”在tag的”距离“</li>
-<li>“候选视频”与“候选集”相同的视频</li>
-<li>“候选视频”与“候选集”cate相同的视频</li>
-<li>“候选视频”与“候选集”tag相同的视频</li>
-</ul>
-<p>硬打散</p>
-<ul>
-<li>判断是否满足最小相隔距离限制: “本视频”和”相似视频”的距离 &gt;&#x3D; max_nearest_cnt, 则返回true</li>
-<li>判断是否满足最大”连续视频个数”限制: “连续视频个数” &lt;&#x3D; max_nearest_cnt, 则返回true</li>
-<li>.最近max_nearest_cnt条视频中，”相似视频”最大总数限制，最外面的vector: index&#x3D;0、1、2、3对应的是CATE, SUB_CATE, TAG, SEMANTIC，最内层的vector: 前面index条视频中，相同视频的数量</li>
-</ul>
-<h6 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h6><ul>
-<li>原创冷启队列过滤暧昧视频，新作者冷启队列过滤暧昧资源</li>
-<li>互联网人群过滤冷启通道</li>
-<li>类目过滤，获取需要过滤的二级类目词典</li>
-<li>作者等级过滤，作者质量分限流,分段限流，用户关注作者内容豁免</li>
-<li>对于低活且非新用户豁免335路召回的资源，小流量实验</li>
-<li>地理位置的过滤</li>
-<li>搜索相关的过滤</li>
-<li>相关推荐和连播的过滤</li>
-</ul>
-<h6 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h6><p>arena对于分配和释放都是针对内存一次性的，减少了申请和释放对象</p>
-]]></content>
+      <tags>
+        <tag>业务</tag>
+      </tags>
   </entry>
   <entry>
     <title>Valgrind使用</title>
@@ -257,16 +208,14 @@
 <p>安装：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -jxvf xxxx</span><br><span class="line">cd valgrind-3.19.0</span><br><span class="line">./configure &amp;&amp; make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
 
-
-
 <span id="more"></span>
+
 ]]></content>
   </entry>
   <entry>
     <title>内存泄漏定位</title>
     <url>/2022/06/14/%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/%E5%86%85%E5%AD%98%E5%AE%9A%E4%BD%8D/</url>
-    <content><![CDATA[<h3 id="asan和lsan简介"><a href="#asan和lsan简介" class="headerlink" title="asan和lsan简介"></a>asan和lsan简介</h3><hr>
-<h3 id="asan使用"><a href="#asan使用" class="headerlink" title="asan使用"></a>asan使用</h3><span id="more"></span>
+    <content><![CDATA[<h3 id="asan和lsan简介"><a href="#asan和lsan简介" class="headerlink" title="asan和lsan简介"></a>asan和lsan简介</h3><h3 id="asan使用"><a href="#asan使用" class="headerlink" title="asan使用"></a>asan使用</h3><span id="more"></span>
 
 <hr>
 <h4 id="AddressSanitizerFlags"><a href="#AddressSanitizerFlags" class="headerlink" title="AddressSanitizerFlags"></a>AddressSanitizerFlags</h4><h5 id="compiler-flags"><a href="#compiler-flags" class="headerlink" title="compiler flags"></a>compiler flags</h5><table>
@@ -359,6 +308,8 @@
     <content><![CDATA[<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><hr>
 <h4 id="cpu火焰图"><a href="#cpu火焰图" class="headerlink" title="cpu火焰图"></a>cpu火焰图</h4><p>目前看到cpu-clock和cycles的结果是一样的</p>
 <h5 id="安装-perf"><a href="#安装-perf" class="headerlink" title="安装 perf"></a>安装 perf</h5><p>yum install -y perf</p>
+<span id="more"></span>
+
 <h5 id="生成-perf-data"><a href="#生成-perf-data" class="headerlink" title="生成 perf.data"></a>生成 perf.data</h5><p>pid&#x3D;$(pgrep service)</p>
 <p>perf record -e cpu-clock -F 99 -p $pid -g – sleep 30</p>
 <h5 id="展示-perf-data"><a href="#展示-perf-data" class="headerlink" title="展示 perf.data"></a>展示 perf.data</h5><p>perf report –show-total-period</p>
@@ -406,13 +357,15 @@
   <entry>
     <title>高并发</title>
     <url>/2022/03/04/%E6%80%A7%E8%83%BD%E6%80%BB%E7%BB%93/%E9%AB%98%E5%B9%B6%E5%8F%91/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<h5 id="高并发"><a href="#高并发" class="headerlink" title="高并发"></a>高并发</h5><h6 id="单机流量控制"><a href="#单机流量控制" class="headerlink" title="单机流量控制"></a>单机流量控制</h6><ul>
-<li>固定计数器方法</li>
-<li>滑动窗口：将时间分为特定大小的分片，然后设定特定大小的滑动窗口，每次按照这个分片大小移动；在这个窗口内有几个分片就设置几个计数器，然后加和这些计数器</li>
-<li>漏铜原理：</li>
-<li>令牌桶原理：程序以r的速率向桶中添加令牌，等桶中有令牌的时候，服务有请求就去拿，没有则过滤</li>
+    <content><![CDATA[<h5 id="高并发"><a href="#高并发" class="headerlink" title="高并发"></a>高并发</h5><h6 id="单机流量控制"><a href="#单机流量控制" class="headerlink" title="单机流量控制"></a>单机流量控制</h6><ul>
+<li><p>固定计数器方法</p>
+</li>
+<li><p>滑动窗口：将时间分为特定大小的分片，然后设定特定大小的滑动窗口，每次按照这个分片大小移动；在这个窗口内有几个分片就设置几个计数器，然后加和这些计数器</p>
+</li>
+<li><p>漏铜原理：</p>
+</li>
+<li><p>令牌桶原理：程序以r的速率向桶中添加令牌，等桶中有令牌的时候，服务有请求就去拿，没有则过滤</p>
+<span id="more"></span></li>
 </ul>
 <h6 id="集群限流"><a href="#集群限流" class="headerlink" title="集群限流"></a>集群限流</h6><ul>
 <li>通过redis的incr对用户进行限流，如果超过特定的次数，就拒绝访问</li>
@@ -425,6 +378,8 @@
     <content><![CDATA[<h4 id="景点"><a href="#景点" class="headerlink" title="景点"></a>景点</h4><h5 id="九寨沟"><a href="#九寨沟" class="headerlink" title="九寨沟"></a>九寨沟</h5><p><strong>日则沟</strong></p>
 <p>日则沟也是九寨沟景观的高潮。原始森林没有太大意思，进沟一天的朋友可选择不去。</p>
 <p>推荐浏览路线：从箭竹海到熊猫海、五花海，从珍珠滩到镜海，都是非常好的徒步游览路线。栈道是绕着每个海子走的，大部分在树林中，所以距离比图上标注出来的要远不少。</p>
+<span id="more"></span>
+
 <p>日则沟行程可分为3段，第(1)段必走，且必在早上游览。后两段请和随后的两条沟的行程自由组合。</p>
 <p>（1）乘车）沟口 →（乘车）静海 →（徒步）箭竹海 →（徒步）熊猫海 →（徒步）五花海</p>
 <p>在镜海拍照结束后，坐车到箭竹海，徒步箭竹海、箭竹海瀑布、熊猫海、熊猫海瀑布、五花海这几个景点。全程大概3.5km，耗时约2小时。如果你7点半进沟，10点左右应该就能结束这段了。这段应该算是日则沟的核心，必玩。</p>
@@ -450,10 +405,14 @@
 <li>理论上，住沟内属于非法行为，因为可以逃票。据网上各种<a href="https://www.yunliebian.com/siyu/siyu-36.html">攻略</a>介绍，主要是住在树正寨和则查寨的藏民家，150-200元&#x2F;人，即使被抓只是补交90元的观光车票。</li>
 <li>强烈推荐早上7点进沟，可以独享九寨美景。静静地沉浸在如梦如幻的湖光山色中，周围没有嘈杂的各种拗造型的叽叽歪歪，那种感觉是不能用语言来形容的</li>
 <li>泳衣</li>
-<li></li>
 </ul>
-<span id="more"></span>
 ]]></content>
+      <categories>
+        <category>四川</category>
+      </categories>
+      <tags>
+        <tag>旅游</tag>
+      </tags>
   </entry>
   <entry>
     <title>财务bp整理</title>
@@ -462,12 +421,12 @@
 <p>A：月初收到业务的报表时将费用和预算做一个比较分析，一般是以10%作为分界点，如果费用没有超过预算10%，问下业务超预算原因并做出提示；如果实际花费超过预算的10%，需要业务发邮件至EMT成员审批，EMT成员审批完成后方可对费用进行审批</p>
 <p>Q：预算的编制环节，怎么监控预算，滚动预算是怎么编制的</p>
 <p>A：1、预算的编制我理解是业务根据去年的实际业务量根据自己今年的规划按照一定的比例测算出今年的业务量，再根据业务量的变动测算出实际的花费情况，报经领导审批后发送财务部，财务部选择器关键指标编制预算</p>
+<span id="more"></span>
+
 <p> 2、预算监控，我理解是回到问题1上面了</p>
 <p> 3、滚动预算编制的话，Q4开启下一年的预算工作，编制完预算后后，一般不轻易改动预算，如果有重大性质发生变化后，（月度滚动预算不懂） </p>
 <p>Q：作为财务bp，事前的管理是怎么管理的</p>
 <p>这道题不知道问什么</p>
-<span id="more"></span>
-
 <p>Q：合同审批</p>
 <p>A:合同审批上主要注重的点是：结算逻辑、结算条款、结算周期、关注合同的实质，了解合同中实际的业务情况，验收标准，合同的主体和供应商信息</p>
 <p>Q：分析是怎么分析的</p>
@@ -662,8 +621,9 @@
   <entry>
     <title>go基本语法</title>
     <url>/2023/03/07/%E5%9F%BA%E7%A1%80/go/go%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<p>[toc]</p>
-<h5 id="包"><a href="#包" class="headerlink" title="包"></a>包</h5><p>这是因为在Golang中，<strong>没有强制要求包名和目录名称一致</strong>。也就是说，在上面的例子中，我们引用路径中的文件夹名称是<code>package2</code>，而在这个文件夹下面的两个文件，他们的包名，却被设置成了<code>同一个。而在Golang的引用中，我们需要填写的是**源文件所在的相对路径**。也就是说，我们可以理解为，包名和路径其实是两个概念，文件名在Golang中不会被显式的引用，通常的引用格式是</code>packageName.FunctionName&#96;。</p>
+    <content><![CDATA[<h5 id="包"><a href="#包" class="headerlink" title="包"></a>包</h5><p>这是因为在Golang中，<strong>没有强制要求包名和目录名称一致</strong>。也就是说，在上面的例子中，我们引用路径中的文件夹名称是<code>package2</code>，而在这个文件夹下面的两个文件，他们的包名，却被设置成了<code>同一个。而在Golang的引用中，我们需要填写的是**源文件所在的相对路径**。也就是说，我们可以理解为，包名和路径其实是两个概念，文件名在Golang中不会被显式的引用，通常的引用格式是</code>packageName.FunctionName&#96;。</p>
+<span id="more"></span>
+
 <p>结论如下：</p>
 <ul>
 <li>导入包的时候，除了路径，还要加上module的名字</li>
@@ -810,12 +770,12 @@
 </tr>
 </tbody></table>
 <h5 id="基准测试——获得代码内存占用和运行效率的性能数据"><a href="#基准测试——获得代码内存占用和运行效率的性能数据" class="headerlink" title="基准测试——获得代码内存占用和运行效率的性能数据"></a>基准测试——获得代码内存占用和运行效率的性能数据</h5><p>基准测试可以测试一段程序的运行性能及耗费 CPU 的程度。Go语言中提供了基准测试框架，使用方法类似于单元测试，使用者无须准备高精度的计时器和各种分析工具，基准测试本身即可以打印出非常标准的测试报告。</p>
-<span id="more"></span>
+<!-- more -->
 
 ]]></content>
   </entry>
   <entry>
-    <title>一些小点</title>
+    <title>设计模式简介</title>
     <url>/2022/03/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B/</url>
     <content><![CDATA[<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>每一种模式描述了在我们周围不断重复发生的问题，以及该问题的核心解决方案。这样我们就能重复的使用该核心解决方案，而不用做重复的工作。</p>
 <span id="more"></span>
@@ -889,6 +849,8 @@
     <url>/2022/10/13/%E5%9F%BA%E7%A1%80/go/go-mod%E5%88%9D%E8%AF%86/</url>
     <content><![CDATA[<h5 id="go-module"><a href="#go-module" class="headerlink" title="go module"></a>go module</h5><h6 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h6><p>若是想要在其他位置新建go项目，就不得不更改系统变量GOPATH，将其设为新项目的位置，可能还要改goland中的GOPATH设置。</p>
 <p>go mod是golang1.11后引入的package依赖管理工具，用于解决之前没有地方记录依赖包具体版本的问题，方便依赖包管理。<br>之前主要是用GOPATH 和 Vendor，vendor相对主流，但现在官方更提倡go mod。</p>
+<span id="more"></span>
+
 <h6 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h6><p>​		go mod init modulename</p>
 <h6 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h6><p>GO111MODULE</p>
 <p>在 GOPATH 目录之外新建一个目录，并使用<code>go mod init</code>初始化生成 go.mod 文件。go.mod文件一旦创建后，它的内容将会被go toolchain全面掌控。go toolchain会在各类命令执行时，比如go get、go build、go mod等修改和维护go.mod文件。将需要引入外部包的go文件置于项目目录下，编译文件，就会把外部包下载到本地的GOPATH&#x2F;pkg&#x2F;mod目录下。<br>set GO111MODULE&#x3D;off，GOPATH mode，查找vendor和GOPATH目录。<br>set GO111MODULE&#x3D;auto，如果当前目录不在$GOPATH 并且 当前目录（或者父目录）下有go.mod文件，则使用 GO111MODULE， 否则仍旧使用 GOPATH mode</p>
@@ -909,7 +871,7 @@
 <li><p>exclude 语句可以忽略依赖项模块。</p>
 </li>
 </ul>
-<p>go mod edit -require&#x3D;”<a href="mailto:&#x78;&#x78;&#120;&#x78;&#x40;&#x76;&#46;&#120;&#120;&#x78;">&#x78;&#x78;&#120;&#x78;&#x40;&#x76;&#46;&#120;&#120;&#x78;</a>“修改版本</p>
+<p>go mod edit -require&#x3D;”<a href="mailto:&#120;&#x78;&#x78;&#120;&#64;&#118;&#x2e;&#120;&#x78;&#120;">&#120;&#x78;&#x78;&#120;&#64;&#118;&#x2e;&#120;&#x78;&#120;</a>“修改版本</p>
 <p>go get使用该命令下载公开库，会把依赖下载到第一个gopath下</p>
 <p>go mod vendor</p>
 <h6 id="go-sum"><a href="#go-sum" class="headerlink" title="go.sum"></a>go.sum</h6><h5 id="导入import"><a href="#导入import" class="headerlink" title="导入import"></a>导入import</h5><h6 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h6><h6 id="点操作"><a href="#点操作" class="headerlink" title="点操作"></a>点操作</h6><p>这个点操作的含义就是这个包导入之后在你调用这个包的函数时，你可以省略前缀的包名，也就是前面你调用的</p>
@@ -946,7 +908,7 @@
 </li>
 </ol>
 <h6 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h6><p><a href="https://juejin.cn/post/7026523806730551333">https://juejin.cn/post/7026523806730551333</a></p>
-<span id="more"></span>
+<!-- more -->
 ]]></content>
   </entry>
   <entry>
@@ -958,9 +920,9 @@
   <entry>
     <title>go进阶</title>
     <url>/2022/05/19/%E5%9F%BA%E7%A1%80/go/go%E8%BF%9B%E9%98%B6/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<h4 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h4><h5 id="上下文和context"><a href="#上下文和context" class="headerlink" title="上下文和context"></a>上下文和context</h5><h5 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h5><h6 id="interface"><a href="#interface" class="headerlink" title="interface{}"></a>interface{}</h6><p>任何其他类型的数据都可以赋值给interface{}类型</p>
+<span id="more"></span>
 
-<h4 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h4><h5 id="上下文和context"><a href="#上下文和context" class="headerlink" title="上下文和context"></a>上下文和context</h5><h5 id="Interface"><a href="#Interface" class="headerlink" title="Interface"></a>Interface</h5><h6 id="interface"><a href="#interface" class="headerlink" title="interface{}"></a>interface{}</h6><p>任何其他类型的数据都可以赋值给interface{}类型</p>
 <h6 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h6><p>包含一组方法或者函数的集合，只有方法，没有数据（由struct承接）；</p>
 <h6 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h6><p>接口是一组方法签名</p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> adRequest <span class="keyword">interface</span> &#123;</span><br><span class="line">	Process() <span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> sdkRequset <span class="keyword">struct</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">type</span> adxRequest <span class="keyword">struct</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> rtRequest <span class="keyword">struct</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(sdk sdkRequset)</span></span> Process() <span class="type">string</span> &#123;</span><br><span class="line">	fmt.Print(<span class="string">&quot;sdk&quot;</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;sdk&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(adx adxRequest)</span></span> Process() <span class="type">string</span> &#123;</span><br><span class="line">	fmt.Print(<span class="string">&quot;adx&quot;</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;adx&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(rt rtRequest)</span></span> Process() <span class="type">string</span> &#123;</span><br><span class="line">	fmt.Print(<span class="string">&quot;rt&quot;</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;rt&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	requests := []adRequest&#123;sdkRequset&#123;&#125;, adxRequest&#123;&#125;, rtRequest&#123;&#125;&#125;</span><br><span class="line">	<span class="comment">/*for i := 0; i &lt; len(requests); i++ &#123;</span></span><br><span class="line"><span class="comment">		fmt.Print(requests[i].Process())</span></span><br><span class="line"><span class="comment">		fmt.Print(&quot;\n&quot;)</span></span><br><span class="line"><span class="comment">	&#125;*/</span></span><br><span class="line">  <span class="keyword">for</span> _, ele := <span class="keyword">range</span> requests&#123;</span><br><span class="line">    fmt.Print(ele.Process())</span><br><span class="line">    fmt.Print(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -988,7 +950,12 @@
   <entry>
     <title>c++11高级知识点学习1</title>
     <url>/2022/02/21/%E5%9F%BA%E7%A1%80/c++/c++11%E9%AB%98%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<h3 id="thread-local"><a href="#thread-local" class="headerlink" title="thread_local"></a>thread_local</h3><table>
+    <content><![CDATA[<h3 id="右值"><a href="#右值" class="headerlink" title="右值"></a>右值</h3><p>右值：没有地址并且即将消失</p>
+<p>将亡值：有地址，并且即将</p>
+<span id="more"></span>
+
+<p>除了用右值引用接收纯右值会产生将亡值外，还可以通过move把左值强制转换成将亡值，这个强制转换仅仅是告诉编译器这个左值被转换成了将亡值，不会对它的地址和内容做任何改变。（move也可以接收一个纯右值，这时编译器会给这个纯右值分配地址，所以有人说move会延长临时对象的生存期。）</p>
+<h3 id="thread-local"><a href="#thread-local" class="headerlink" title="thread_local"></a>thread_local</h3><table>
 <thead>
 <tr>
 <th>static</th>
@@ -1012,7 +979,25 @@
 <td>变量在线程创建时生成;线程结束时被销毁;每个线程都拥有其自己的变量副本;thread_local可以和static或extern联合使用，这将会影响变量的链接属性;需要注意的一点是，如果类的成员函数内定义了 thread_local 变量，则对于同一个线程内的该类的多个对象都会共享一个变量实例，并且只会在第一次执行这个成员函数时初始化这个变量实例，这一点是跟类的静态成员变量类似的；<strong>thread_local 作为类成员变量时必须是 static 的</strong>。</td>
 </tr>
 </tbody></table>
-<h3 id="std-ref"><a href="#std-ref" class="headerlink" title="std::ref()"></a>std::ref()</h3><h3 id="mutex"><a href="#mutex" class="headerlink" title="mutex"></a>mutex</h3><p>std::unique_lock 和std::lock_guard都是通过raii实现自动加锁和释放锁，lock_guard速度相对unique快点，而unique相对灵活和慢点。std::unique_lock无参数的构造函数是没有加锁的，不拥有互斥量的锁权利。</p>
+<p>Thread_local变量在main线程和t线程中分别保留了一份副本(有自己的作用域），以下时序图表明了两份副本的生命周期。</p>
+<h3 id="std-ref"><a href="#std-ref" class="headerlink" title="std::ref()"></a>std::ref()</h3><h3 id="thread"><a href="#thread" class="headerlink" title="thread"></a>thread</h3><p><code>std::thread</code> 的构造函数签名为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">c++复制代码template&lt;class _Callable, class ... _Args&gt;</span><br><span class="line">explicit thread(_Callable&amp;&amp; __f, _Args&amp;&amp;... __args);</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>_Callable</code> 是可调用对象的类型，<code>_Args</code> 是参数包，用于指定调用可调用对象时需要传递的参数。此构造函数会创建一个新线程并启动它，新线程会执行 <code>__f(std::forward&lt;_Args&gt;(__args)...)</code>。</p>
+<p>下面对这些参数进行详细解释：</p>
+<ul>
+<li><code>_Callable&amp;&amp; __f</code>：表示要在新线程中执行的可调用对象，可以是函数指针、函数对象、成员函数指针等。</li>
+<li><code>_Args&amp;&amp;... __args</code>：表示传递给可调用对象的参数包，可以是任意类型的值或引用，数量可以是 0 或多个。</li>
+</ul>
+<p>需要注意以下几点：</p>
+<ul>
+<li><code>_Callable</code> 类型必须支持移动语义（即具有移动构造函数）。</li>
+<li><code>_Args</code> 中的参数必须是可转发的（forwardable），即支持完美转发（perfect forwarding）。</li>
+<li>如果要传递引用类型的参数，需要使用 <code>std::ref()</code> 将其转换为引用封装类型，以便正确地传递引用而不是复制值。</li>
+<li>在创建新线程之前，必须确保所有传递给 <code>std::thread</code> 的参数都已经存在，否则可能会导致未定义行为或错误。</li>
+</ul>
+<p>总之，可以看出 <code>std::thread</code> 的构造函数非常灵活，可以用于启动不同类型和任意数量的线程，并且支持完美转发。在使用时需要注意参数类型的匹配和正确性，以便避免可能的错误或未定义行为。</p>
+<h3 id="mutex"><a href="#mutex" class="headerlink" title="mutex"></a>mutex</h3><p>std::unique_lock 和std::lock_guard都是通过raii实现自动加锁和释放锁，lock_guard速度相对unique快点，而unique相对灵活和慢点。std::unique_lock无参数的构造函数是没有加锁的，不拥有互斥量的锁权利。</p>
 <h3 id="仿函数"><a href="#仿函数" class="headerlink" title="仿函数"></a>仿函数</h3><p>仿函数，其实就是重载了括号运算符 () 的对象, 不过它具有函数的一些性质, 可以在需要函数的地方（主要是<strong>各种</strong><a href="https://cloud.tencent.com/product/tke?from=20065&from_column=20065"><strong>容器</strong></a><strong>和算法</strong>）使用。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 仿函数(functor)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Functor</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">int</span> a)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
@@ -1036,7 +1021,7 @@
 <p>可以实现移动和拷贝</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">TEST</span>(FUNCTION_TEST, POSITIVE) &#123;</span><br><span class="line">    Callback = Factorial;</span><br><span class="line">    <span class="built_in">ASSERT_EQ</span>(<span class="number">1</span>, <span class="built_in">Callback</span>(<span class="number">-1</span>));</span><br><span class="line">    Callback = func_lambda;</span><br><span class="line">    <span class="built_in">ASSERT_EQ</span>(<span class="number">10</span>, <span class="built_in">Callback</span>(<span class="number">0</span>));</span><br><span class="line">    CompareObject obj;</span><br><span class="line">    Callback = obj;</span><br><span class="line">    std::cout &lt;&lt; <span class="built_in">obj</span>(<span class="number">10</span>) &lt;&lt; std::endl;</span><br><span class="line">    <span class="built_in">ASSERT_EQ</span>(<span class="number">10</span>, <span class="built_in">Callback</span>(<span class="number">10</span>));</span><br><span class="line"></span><br><span class="line">    Base a1;</span><br><span class="line">    Callback = std::<span class="built_in">bind</span>(&amp;Base::add, a1, std::placeholders::_1);</span><br><span class="line">    <span class="built_in">ASSERT_EQ</span>(<span class="number">4</span>, <span class="built_in">Callback</span>(<span class="number">2</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="std-future"><a href="#std-future" class="headerlink" title="std::future"></a>std::future</h3><p>std::future提供了一种访问异步操作结果的机制。从字面意思来理解，它表示未来，我觉得这个名字非常贴切，因为一个异步操作我们是不可能马上就获取操作结果的，只能在未来某个时候获取，但是我们可以以同步等待的方式来获取结果，可以通过查询future的状态（future_status）来获取异步操作的结果。future_status有三种状态：</p>
+<h3 id="std-future"><a href="#std-future" class="headerlink" title="std::future"></a>std::future</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>std::future提供了一种访问异步操作结果的机制。从字面意思来理解，它表示未来，我觉得这个名字非常贴切，因为一个异步操作我们是不可能马上就获取操作结果的，只能在未来某个时候获取，但是我们可以以同步等待的方式来获取结果，可以通过查询future的状态（future_status）来获取异步操作的结果。future_status有三种状态：</p>
 <ul>
 <li><p>deferred：异步操作还没开始</p>
 </li>
@@ -1047,25 +1032,60 @@
 </ul>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查询future的状态</span></span><br><span class="line">std::future_status status;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        status = future.<span class="built_in">wait_for</span>(std::chrono::<span class="built_in">seconds</span>(<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">if</span> (status == std::future_status::deferred) &#123;</span><br><span class="line">            std::cout &lt;&lt; <span class="string">&quot;deferred\n&quot;</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (status == std::future_status::timeout) &#123;</span><br><span class="line">            std::cout &lt;&lt; <span class="string">&quot;timeout\n&quot;</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (status == std::future_status::ready) &#123;</span><br><span class="line">            std::cout &lt;&lt; <span class="string">&quot;ready!\n&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">while</span> (status != std::future_status::ready);</span><br></pre></td></tr></table></figure>
 
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="std-promise"><a href="#std-promise" class="headerlink" title="std::promise"></a>std::promise</h3><p>promise 含义是承诺，承诺给别人反馈一个结果。与future一起使用。std::promise 通过get_future赋值给一个future，然后就可以get这个future了</p>
-<p><future> 头文件中包含了以下几个类和函数</p>
+<h4 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h4><p>自旋锁</p>
+<h3 id="std-promise"><a href="#std-promise" class="headerlink" title="std::promise"></a>std::promise</h3><p><future> 头文件中包含了以下几个类和函数</p>
 <ul>
 <li>Providers 类：std::promise, std::package_task</li>
 <li>Futures 类：std::future, shared_future.</li>
 <li>Providers 函数：std::async()</li>
 <li>其他类型：std::future_error, std::future_errc, std::future_status, std::launch.</li>
 </ul>
-<h3 id="std-packaged-task"><a href="#std-packaged-task" class="headerlink" title="std::packaged_task"></a>std::packaged_task</h3><p>packaged_task是对任务的抽象，可以将这个任务传递给一个函数来完成，然后通过get_future的方法来获取期望的结果。</p>
-<h3 id="std-async"><a href="#std-async" class="headerlink" title="std::async"></a>std::async</h3><p>async异步的完成一个操作，简单的创建线程，然后通过std::future来获取结果</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//(C++11 起) (C++17 前)</span></span><br><span class="line"><span class="keyword">template</span>&lt; <span class="keyword">class</span> <span class="title class_">Function</span>, <span class="keyword">class</span>... Args&gt;</span><br><span class="line">std::future&lt;std::<span class="type">result_of_t</span>&lt;std::<span class="built_in">decay_t</span>&lt;Function&gt;(std::<span class="type">decay_t</span>&lt;Args&gt;...)&gt;&gt;</span><br><span class="line">    <span class="built_in">async</span>( Function&amp;&amp; f, Args&amp;&amp;... args );</span><br><span class="line"></span><br><span class="line"><span class="comment">//(C++11 起) (C++17 前)</span></span><br><span class="line"><span class="keyword">template</span>&lt; <span class="keyword">class</span> <span class="title class_">Function</span>, <span class="keyword">class</span>... Args &gt;</span><br><span class="line">std::future&lt;std::<span class="type">result_of_t</span>&lt;std::<span class="built_in">decay_t</span>&lt;Function&gt;(std::<span class="type">decay_t</span>&lt;Args&gt;...)&gt;&gt;</span><br><span class="line">    <span class="built_in">async</span>( std::launch policy, Function&amp;&amp; f, Args&amp;&amp;... args );  </span><br></pre></td></tr></table></figure>
+<p>promise 含义是承诺，承诺给别人反馈一个结果。std::promise保存的值可被与之关联的std::future读取，读取操作可以发生在其它线程。std::promise<strong>允许move</strong>语义(右值构造，右值赋值)，但<strong>不允许拷贝</strong>(拷贝构造、赋值)，std::future亦然。与future一起使用，std::promise 通过get_future赋值给一个future，然后就可以get这个future。std::promise和std::future合作共同实现了多线程间通信。</p>
+<ul>
+<li><p>设置std::promise的值 set_value();对应的future将可以使用</p>
+</li>
+<li><p>通过std::promise让std::future抛出异常</p>
+</li>
+<li><p>std::promise<void></p>
+<ul>
+<li>我们看到std::promise<void>是合法的。此时std::promise.set_value不接受任何参数，仅用于通知关联的std::future.get()解除阻塞</li>
+</ul>
+</li>
+<li><p>std::async(异步运行)时，开发人员有时会对std::promise所在线程退出时间比较关注。std::promise支持定制线程退出时的行为：<br>std::promise::set_value_at_thread_exit 线程退出时，std::future收到通过该函数设置的值。<br>std::promise::set_exception_at_thread_exit 线程退出时，std::future则抛出该函数指定的异常。</p>
+</li>
+</ul>
+<h3 id="std-packaged-task"><a href="#std-packaged-task" class="headerlink" title="std::packaged_task"></a>std::packaged_task</h3><p>std::packaged_task允许传入一个函数，并将函数计算的结果传递给std::future，包括函数运行时产生的异常</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">R</span>, <span class="keyword">class</span>... ArgsType&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">packaged_task</span>&lt;<span class="built_in">R</span>(ArgsType...)&gt;;</span><br><span class="line"><span class="comment">//其中R是一个函数或可调用对象，ArgTypes是R的形参</span></span><br></pre></td></tr></table></figure>
 
+<p>std::packaged_task封装的函数的计算结果会通过与之联系的std::future::get获取(当然，可以在其它线程中异步获取)。关联的std::future可以通过std::packaged_task::get_future获取到，get_future仅能调用一次，多次调用会触发std::future_error异常。<br> std::package_task除了可以通过可调用对象构造外，还支持缺省构造(无参构造)。但此时构造的对象不能直接使用，需通过右值赋值操作设置了可调用对象或函数后才可使用。判断一个std::packaged_task是否可使用，可通过其成员函数valid来判断。</p>
+<ul>
+<li><p>std::packaged_task::valid</p>
+</li>
+<li><p>std::packaged_task::operator()(ArgTypes…)</p>
+</li>
+<li><p>让std::packaged_task在线程退出时再将结果反馈给std::future</p>
+<ul>
+<li>std::packaged_task::make_ready_at_thread_exit函数接收的参数与operator()(_ArgTypes…)一样，行为也一样。只有一点差别，那就是不会将计算结果立刻反馈给std::future，而是在其执行时所在的线程结束后，std::future::get才会取得结果。</li>
+</ul>
+</li>
+<li><p>std::packaged_task::reset</p>
+<ul>
+<li><p>与std::promise不一样， std::promise仅可以执行一次set_value或set_exception函数，但std::packagged_task可以执行多次，其奥秘就是reset函数</p>
+</li>
+<li><p>通过重新构造一个promise来达到多次调用的目的。显然调用reset后，需要重新get_future，以便获取下次operator()执行的结果。由于是重新构造了promise，因此reset操作并不会影响之前调用的make_ready_at_thread_exit结果，也即之前的定制的行为在线程退出时仍会发生。</p>
+</li>
+<li><p>&#96;&#96;&#96;c++<br>template&lt;class _Rp, class …_ArgTypes&gt;<br>void packaged_task&lt;_Rp(_ArgTypes…)&gt;::reset()<br>{<br>if (!valid())<br>    __throw_future_error(future_errc::no_state);<br>_<em>p</em> &#x3D; promise<result_type>();<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">### std::async</span><br><span class="line"></span><br><span class="line">async异步的完成一个操作，简单的创建线程，然后通过std::future来获取结果</span><br><span class="line"></span><br><span class="line">```c++</span><br><span class="line">//(C++11 起) (C++17 前)</span><br><span class="line">template&lt; class Function, class... Args&gt;</span><br><span class="line">std::future&lt;std::result_of_t&lt;std::decay_t&lt;Function&gt;(std::decay_t&lt;Args&gt;...)&gt;&gt;</span><br><span class="line">    async( Function&amp;&amp; f, Args&amp;&amp;... args );</span><br><span class="line"></span><br><span class="line">//(C++11 起) (C++17 前)</span><br><span class="line">template&lt; class Function, class... Args &gt;</span><br><span class="line">std::future&lt;std::result_of_t&lt;std::decay_t&lt;Function&gt;(std::decay_t&lt;Args&gt;...)&gt;&gt;</span><br><span class="line">    async( std::launch policy, Function&amp;&amp; f, Args&amp;&amp;... args );  </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
 <p>需要记住的3点：</p>
 <ul>
 <li>std::async的默认发射策略既允许任务异步执行，又允许任务同步执行。</li>
 <li>这个灵活性（上一点）导致了使用thread_local变量时的不确定性，它隐含着任务可能不会执行，它还影响了基于超时的wait调用的程序逻辑。</li>
 <li>如果异步执行是必需的，指定std::launch::async发射策略</li>
 </ul>
-<h3 id="std-bind"><a href="#std-bind" class="headerlink" title="std::bind"></a>std::bind</h3><h3 id="std-optional"><a href="#std-optional" class="headerlink" title="std::optional"></a>std::optional</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p><code>std::optional</code>是C++17中的一个类模板，用于表示可选对象。它是一个容器，可以包含或不包含值，类似于”可空类型”</p>
+<h3 id="std-bind"><a href="#std-bind" class="headerlink" title="std::bind"></a>std::bind</h3><h3 id="std-optional"><a href="#std-optional" class="headerlink" title="std::optional"></a>std::optional</h3><h4 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h4><p><code>std::optional</code>是C++17中的一个类模板，用于表示可选对象。它是一个容器，可以包含或不包含值，类似于”可空类型”</p>
 <p>以下是<code>std::optional</code>的一些关键特性：</p>
 <ul>
 <li><p>它可以与任何类型一起使用，包括用户定义的类型。</p>
@@ -1340,10 +1360,12 @@ int main() &#123;
       </tags>
   </entry>
   <entry>
-    <title>样例模板</title>
+    <title>c++编译汇总</title>
     <url>/2022/03/04/%E5%9F%BA%E7%A1%80/c++/c++%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<ol>
 <li><p>库编译问题，glog依赖gflags需要编译成动态库</p>
+<span id="more"></span>
+
 <p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/image-20230302102258655.png"></p>
 </li>
 <li><p>protobuf的三个动态库都要链接，并且要先加dependence的pb依赖</p>
@@ -1358,10 +1380,13 @@ int main() &#123;
 <li><p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/image-20230419183158371.png" alt="image-20230419183158371"></p>
 <p>由于没有链接cpp文件导致找不到定义，cmake 写的有问题</p>
 </li>
-<li><p>fdafsa</p>
+<li><p>编译器构造函数优化问题：直接优化为一次构造，通过开启和禁用-fno-elide-constructors关闭返回值优化</p>
+<p>![image-20230517103335987](&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230517103335987.png)</p>
+</li>
+<li><p>编译器右值优化</p>
 </li>
 </ol>
-<span id="more"></span>
+<!-- more -->
 ]]></content>
   </entry>
   <entry>
@@ -1386,6 +1411,8 @@ int main() &#123;
 <li>按照单例或者把析构函数设置为私有的</li>
 </ul>
 <h6 id="类在栈上构建"><a href="#类在栈上构建" class="headerlink" title="类在栈上构建"></a>类在栈上构建</h6><p>只要禁用new运算符就可以实现类对象只能建立在栈上。将operator new()设为私有即可</p>
+<span id="more"></span>
+
 <h3 id="模板类"><a href="#模板类" class="headerlink" title="模板类"></a>模板类</h3><hr>
 <ul>
 <li><p>模板类：模板定义只是声明一个蓝图或者公式；只有在实例化的时候才会生成真正的代码（也就是调用的接口处）</p>
@@ -1399,7 +1426,7 @@ int main() &#123;
 <li>模板定义之外，即typename只能用于模板的定义中</li>
 <li>非限定类型，比如前面介绍过的<code>int</code>，<code>vector&lt;int&gt;</code>之类</li>
 <li>基类列表中，比如<code>template &lt;class T&gt; class C1 : T::InnerType</code>不能在<code>T::InnerType</code>前面加typename</li>
-<li>构造函数的初始化列表中<span id="more"></span></li>
+<li>构造函数的初始化列表中<!-- more --></li>
 </ul>
 </li>
 <li><p>类可以包含本身是模板的成员函数。这种成员称为成员模板。成员模板不能是虚函数</p>
@@ -1459,9 +1486,11 @@ int main() &#123;
     <title>cmake了解</title>
     <url>/2023/03/08/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/cmake%E4%BA%86%E8%A7%A3/</url>
     <content><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>CMake 有两个主要阶段。第一个是“配置”步骤，其中 CMake 处理所有提供给它的输入并创建要执行的构建的内部表示。第二个阶段是“生成”步骤。在这个阶段创建实际的构建文件。第一步是 cmake -B build，称为配置阶段（configure），配置阶段可以通过 -D 设置缓存变量；第二步是cmake –build build，称为构建阶段，调用编译器来编译代码，-G 选项：指定要用的生成器</p>
+<span id="more"></span>
+
 <h3 id="cmake过程"><a href="#cmake过程" class="headerlink" title="cmake过程"></a>cmake过程</h3><h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><p>在项目构建过程中都会使用 shell 级环境变量。项目通常有一个 PROJECT_ROOT 环境变量，它指向源代码树的根位置。环境变量也用于指向可选包或外部包。这种方法的问题在于，要使构建工作，每次执行构建时都需要设置所有这些外部变量。为了解决这个问题，CMake 有一个缓存文件，将构建所需的所有变量存储在一个地方。这些不是 shell 或环境变量，而是 CMake 变量。第一次为特定构建树运行 CMake 时，它会创建一个<code>CMakeCache.txt</code>存储该构建的所有持久变量的文件。由于该文件是构建树的一部分，因此在每次运行期间变量将始终对 CMake 可用。</p>
 <h4 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h4><p>在配置步骤中，如果CMakeCache.txt在之前的运行中存在，CMake首先读取它。然后它读取CMakeLists.txt，在给CMake的源树的根中找到。在配置步骤中，CMakeLists.txt文件被CMake语言解析器解析。文件中的每个CMake命令都由命令模式对象执行。在此步骤中，可以使用include和add_subdirectory CMake命令解析其他CMakeLists.txt文件。对于CMake语言中可以使用的每个命令，CMake都有一个c++对象。命令示例包括add_library、if、add_executable、add_subdirectory和include。实际上，整个CMake语言都是通过调用命令来实现的。解析器只是将CMake输入文件转换为命令调用和作为命令参数的字符串列表。 </p>
-<span id="more"></span>
+<!-- more -->
 
 <p>配置步骤本质上是“运行”用户提供的CMake代码。在执行了所有代码并计算了所有缓存变量值之后，CMake在内存中就有了要构建的项目的表示。这将包括为所选生成器创建最终构建文件所需的所有库、可执行文件、自定义命令和所有其他信息。此时，CMakeCache.txt文件将被保存到磁盘，以供将来运行CMake时使用。 </p>
 <p>项目在内存中的表示是一组目标，这些目标只是一些可以构建的东西，比如库和可执行文件。CMake还支持自定义目标:用户可以定义他们的输入和输出，并提供在构建时运行的自定义可执行文件或脚本。CMake将每个目标存储在一个cmTarget对象中。这些对象依次存储在cmMakefile对象中，该对象基本上是源树给定目录中所有目标的存储位置。最终结果是包含cmTarget对象映射的cmMakefile对象树。</p>
@@ -1773,7 +1802,9 @@ int main() &#123;
   <entry>
     <title>docker了解</title>
     <url>/2022/05/19/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/docker/</url>
-    <content><![CDATA[<h3 id="Docker了解"><a href="#Docker了解" class="headerlink" title="Docker了解"></a>Docker了解</h3><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p><strong>镜像</strong>（<code>Image</code>）</p>
+    <content><![CDATA[<h3 id="Docker了解"><a href="#Docker了解" class="headerlink" title="Docker了解"></a>Docker了解</h3><span id="more"></span>
+
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p><strong>镜像</strong>（<code>Image</code>）</p>
 <p>一堆压缩在一起的静态软件包</p>
 <p><strong>容器</strong>（<code>Container</code>）</p>
 <p>这堆静态包执行的过程</p>
@@ -1806,7 +1837,7 @@ int main() &#123;
 
 
 
-<span id="more"></span>
+<!-- more -->
 
 
 
@@ -1826,6 +1857,7 @@ int main() &#123;
 <li><p>通过 top 找到内存泄露的进程</p>
 </li>
 <li><p>通过 pmap 找到内存泄露的地址及范围</p>
+<span id="more"></span>
 </li>
 <li><p>通过 gcore 对进程内存进行快照，gcore 产生 coredump 文件</p>
 </li>
@@ -1842,7 +1874,7 @@ int main() &#123;
 </ul>
 </li>
 </ul>
-<span id="more"></span>
+<!-- more -->
 
 <h6 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h6><p>分为两种模式:all-stop模式和no-stop模式.（gdb7.0之前不支持no-stop模式）</p>
 <ul>
@@ -1872,14 +1904,13 @@ int main() &#123;
       </tags>
   </entry>
   <entry>
-    <title>一些小的使用技巧</title>
+    <title>使用技巧汇总</title>
     <url>/2023/04/11/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/%E4%B8%80%E4%BA%9B%E5%B0%8F%E7%82%B9/</url>
     <content><![CDATA[<ol>
 <li>终端显示用户和ip等</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">IP=$(/sbin/ifconfig eth0|awk &#x27;/inet / &#123;print $2&#125;&#x27;)</span><br><span class="line">export PS1=&quot;\[\e[32;1m\][\u@ali-vg-$IP \W]$\[\e[0m\]&quot;</span><br></pre></td></tr></table></figure>
 
-<p>2. </p>
 <span id="more"></span>
 ]]></content>
   </entry>
@@ -1891,6 +1922,7 @@ int main() &#123;
 
 <h4 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h4><ol>
 <li><p>客户端即A端生成RSA公钥和私钥 ssh-keygen</p>
+<span id="more"></span>
 </li>
 <li><p>客户端将自己的公钥存放到服务器：在生成了公私钥之后要实现AB两端的交互认证，这两个文件肯定不能只放到A端，当然也需要在B端（服务器端）做一下登记，我们自己（A端）保留自己的私钥，然后把公钥id_rsa.pub存放到B端（一般是在用户根目录下的.ssh&#x2F;目录下</p>
 </li>
@@ -1909,19 +1941,21 @@ int main() &#123;
 <h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>使用ssh-copy-id进行copy</p>
 <p>查看日志<code>tail /var/log/secure -n 100</code></p>
 <p>如果通过跳机登录，拷贝客户端机器和跳机的公钥key到最终的目的机器</p>
-<span id="more"></span>
+<!-- more -->
 ]]></content>
   </entry>
   <entry>
     <title>了解flatbuffer</title>
     <url>/2022/03/04/%E5%9F%BA%E7%A1%80/%E5%85%B6%E4%BB%96/%E4%BA%86%E8%A7%A3flatbuffer/</url>
     <content><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><a href="https://github.com/google/flatbuffers">FlatBuffers</a>是为Google发布的一个跨平台，提供多种语言接口，注重性能和资源使用的序列化类库。目前该类库提供C++、C#、C、GO、Java、JavaScript、PHP、Python语言接口。该序列化库多用于移动端手游数据传输以及特定的对性能要求较高的应用。具有一下特点：</p>
+<span id="more"></span>
+
 <p>1、对序列化的数据不需要打包和拆包</p>
 <p>2、内存和效率速度高，扩展灵活</p>
 <p>3、代码依赖较少</p>
 <p>4、强类型设计，编译期即可完成类型检查</p>
 <p>5、使用简单、可跨平台使用</p>
-<span id="more"></span>
+<!-- more -->
 
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>通过flact 生成类似pb的.h&#x2F;.cpp文件</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/******</span></span><br><span class="line"><span class="comment">table AdvOfferTable;</span></span><br><span class="line"><span class="comment">******/</span></span><br><span class="line"><span class="comment">//创建指针</span></span><br><span class="line"><span class="keyword">auto</span> builder = std::<span class="built_in">make_shared</span>&lt;flatbuffers::FlatBufferBuilder&gt;();</span><br><span class="line"><span class="keyword">auto</span> &amp;table_builder = *(builder.<span class="built_in">get</span>());</span><br><span class="line"><span class="comment">//中介获取数据，然后通过CreateXXX获得偏移量</span></span><br><span class="line"><span class="keyword">auto</span> offset = <span class="built_in">CreateCreativePackageTable</span>(table_builder, cpId, whDcoId, status, setting, updated, updatedDate);</span><br><span class="line"><span class="comment">//完成序列化</span></span><br><span class="line">builder-&gt;<span class="built_in">Finish</span>(offset);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 反序列化为结构体指针</span></span><br><span class="line"><span class="keyword">auto</span> table = flatbuffers::<span class="built_in">GetRoot</span>&lt;AdvOfferTable&gt;(builder-&gt;<span class="built_in">GetBufferPointer</span>());</span><br><span class="line"><span class="keyword">auto</span> tmp = table-&gt;<span class="built_in">xxx</span>();</span><br></pre></td></tr></table></figure>
@@ -1938,6 +1972,8 @@ int main() &#123;
     <url>/2022/03/04/%E5%9F%BA%E7%A1%80/%E7%BD%91%E7%BB%9C/epoll%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<p>多路复用：一个进程处理多个网络socket，一个socket有哪些信息；</p>
 <h6 id="边缘触发和水平触发"><a href="#边缘触发和水平触发" class="headerlink" title="边缘触发和水平触发"></a>边缘触发和水平触发</h6><p>边缘触发和水平触发：状态的变化；边缘触发就是对一个socket 在缓存区中有数据的时候，只触发一次；水平触发就是会一直不断的触发；</p>
+<span id="more"></span>
+
 <h6 id="水平触发"><a href="#水平触发" class="headerlink" title="水平触发"></a>水平触发</h6><ol>
 <li>socket接收缓冲区不为空 有数据可读 读事件一直触发</li>
 <li>socket发送缓冲区不满 可以继续写入数据 写事件一直触发<br> 备注：符合思维习惯，epoll_wait返回的事件就是socket的状态</li>
@@ -1962,7 +1998,7 @@ int main() &#123;
 <p><a href="https://www.zhihu.com/question/20502870">https://www.zhihu.com/question/20502870</a></p>
 <p><a href="https://blog.lucode.net/linux/epoll-tutorial.html">https://blog.lucode.net/linux/epoll-tutorial.html</a></p>
 <p><a href="https://plantegg.github.io/2019/12/09/epoll%E7%9A%84LT%E5%92%8CET/">https://plantegg.github.io/2019/12/09/epoll%E7%9A%84LT%E5%92%8CET/</a></p>
-<span id="more"></span>
+<!-- more -->
 ]]></content>
   </entry>
   <entry>
@@ -1972,10 +2008,11 @@ int main() &#123;
 <p><strong>HTTP</strong>:无状态，每次请求都要发送一个request，服务器响应之后就断掉（http header中的keep-alive指的是tcp）</p>
 <p><strong>TCP</strong>:面向连接，三次握手保证通信可靠</p>
 <p><strong>UDP</strong>:非面向连接，不可靠，速度快（可以手动对数据收发进行验证，IM系统多采用，QQ）</p>
+<span id="more"></span>
+
 <p><strong>Socket</strong>:TCP协议的接口实现，面向传输层进行网络编程, socket并不是一种协议，是在程序员层面上对TCP&#x2F;IP协议的封装和应用。其实是一个调用接口，方便程序员使用TCP&#x2F;IP协议栈而已。程序员通过socket来使用tcp&#x2F;ip协议。但是socket并不是一定要使用tcp&#x2F;ip协议，Socket编程接口在设计的时候，就希望也能适应其他的网络协议。</p>
 <p><strong>RPC(Remote Procedure Call)是远程过程调用</strong>，比如说现在有两台服务器A, B，一个在A服务器上的应用想要调用B服务器上的应用提供的某个，由于不在两个方法不在一个内存空间，不能直接调用，需要通过网络表达调用的语义和传达调用的数据。常存在于分布式系统中。</p>
 <p>RPC跟HTTP不是对立面，RPC中可以使用HTTP作为通讯协议。<strong>RPC是一种设计、实现框架</strong>，通讯协议只是其中一部分。</p>
-<span id="more"></span>
 ]]></content>
   </entry>
   <entry>
@@ -3408,6 +3445,55 @@ int numslots;
       </categories>
       <tags>
         <tag>zk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>推荐系统相关</title>
+    <url>/2023/05/16/%E5%B7%A5%E4%BD%9C%E9%81%97%E7%95%99/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B/</url>
+    <content><![CDATA[<p><img src="https://pic2.zhimg.com/80/v2-5bc825cf962e4c135f348db4b985b09d_720w.jpg" alt="img"></p>
+<span id="more"></span>
+
+<h6 id="调权"><a href="#调权" class="headerlink" title="调权"></a>调权</h6><p>刷新行为的调权</p>
+<p>作者等级调权</p>
+<p>冷启用户</p>
+<p>弹幕</p>
+<p>关注关系</p>
+<p>低&#x2F;高内容质量</p>
+<p>类目</p>
+<p>deeplink</p>
+<p>设备</p>
+<p>用商资源</p>
+<h6 id="多样性"><a href="#多样性" class="headerlink" title="多样性"></a>多样性</h6><p>软打散</p>
+<ul>
+<li>候选视频”在”cate”的”距离（index）</li>
+<li>“候选视频”在tag的”距离“</li>
+<li>“候选视频”与“候选集”相同的视频</li>
+<li>“候选视频”与“候选集”cate相同的视频</li>
+<li>“候选视频”与“候选集”tag相同的视频</li>
+</ul>
+<p>硬打散</p>
+<ul>
+<li>判断是否满足最小相隔距离限制: “本视频”和”相似视频”的距离 &gt;&#x3D; max_nearest_cnt, 则返回true</li>
+<li>判断是否满足最大”连续视频个数”限制: “连续视频个数” &lt;&#x3D; max_nearest_cnt, 则返回true</li>
+<li>.最近max_nearest_cnt条视频中，”相似视频”最大总数限制，最外面的vector: index&#x3D;0、1、2、3对应的是CATE, SUB_CATE, TAG, SEMANTIC，最内层的vector: 前面index条视频中，相同视频的数量</li>
+</ul>
+<h6 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h6><ul>
+<li>原创冷启队列过滤暧昧视频，新作者冷启队列过滤暧昧资源</li>
+<li>互联网人群过滤冷启通道</li>
+<li>类目过滤，获取需要过滤的二级类目词典</li>
+<li>作者等级过滤，作者质量分限流,分段限流，用户关注作者内容豁免</li>
+<li>对于低活且非新用户豁免335路召回的资源，小流量实验</li>
+<li>地理位置的过滤</li>
+<li>搜索相关的过滤</li>
+<li>相关推荐和连播的过滤</li>
+</ul>
+<h6 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h6><p>arena对于分配和释放都是针对内存一次性的，减少了申请和释放对象</p>
+]]></content>
+      <categories>
+        <category>推荐</category>
+      </categories>
+      <tags>
+        <tag>业务</tag>
       </tags>
   </entry>
 </search>

@@ -154,18 +154,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -203,115 +203,6 @@
 
 
     <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/22/lc/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%8F%98%E5%BD%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="SK-II">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="yefengdanqing">
-      <meta itemprop="description" content="认真对待每一件事情">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | yefengdanqing">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/22/lc/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%8F%98%E5%BD%A2/" class="post-title-link" itemprop="url">二分查找总结</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-02-22 15:26:49" itemprop="dateCreated datePublished" datetime="2022-02-22T15:26:49+08:00">2022-02-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-03-23 16:07:40" itemprop="dateModified" datetime="2022-03-23T16:07:40+08:00">2022-03-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.4k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>二分查找</p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/36132386/answer/530313852?utm_source=qq&amp;utm_medium=social&amp;utm_oi=37067136434176">https://www.zhihu.com/question/36132386/answer/530313852?utm_source=qq&amp;utm_medium=social&amp;utm_oi=37067136434176</a></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;skt.h&quot;</span></span></span><br><span class="line">   <span class="comment">//lower_bound，大于等于某个数</span></span><br><span class="line">   <span class="type">int</span> l = <span class="number">0</span>, r = nums.<span class="built_in">size</span>(), mid = <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">       mid = l + (r-l)/<span class="number">2</span>;</span><br><span class="line">       <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">           l = mid + <span class="number">1</span>;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            r = mid;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> l;</span><br><span class="line">    <span class="comment">//upper_bound, 大于给定元素值所在的位置,之前的位置刚好相等</span></span><br><span class="line">    <span class="type">int</span> x = <span class="number">0</span>, y = nums.<span class="built_in">size</span>();</span><br><span class="line">    mid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (x &lt; y) &#123;</span><br><span class="line">        mid = x + (y-x)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums[mid] &lt;= target) &#123;</span><br><span class="line">             x = mid + <span class="number">1</span>;</span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">             y = mid;</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">return</span> x;</span><br><span class="line">	<span class="comment">//x-1 是小于等于目标数的位置</span></span><br><span class="line">    <span class="comment">//唯一区别就是一个是小于，一个是小于等于;区间都是左闭右开；右边界不用减1</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/22/lc/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%8F%98%E5%BD%A2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
     
 
@@ -918,7 +809,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-05-16 18:19:47" itemprop="dateModified" datetime="2023-05-16T18:19:47+08:00">2023-05-16</time>
+      <time title="修改时间：2023-05-17 19:29:55" itemprop="dateModified" datetime="2023-05-17T19:29:55+08:00">2023-05-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -937,14 +828,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.6k</span>
+      <span>7.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
+      <span>9 分钟</span>
     </span>
 </div>
 
@@ -955,116 +846,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="thread-local"><a href="#thread-local" class="headerlink" title="thread_local"></a>thread_local</h3><table>
-<thead>
-<tr>
-<th>static</th>
-<th>static变量只初始化一次，除此之外它还有可见性的属性： \1. static修饰函数内的“局部”变量时，表明它不需要在进入或离开函数时创建或销毁。且仅在函数内可见。 \2. static修饰全局变量时，表明该变量仅在当前(声明它的)文件内可见。 \3. static修饰类的成员变量时，则该变量被该类的所有实例共享。</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>external</td>
-<td>引用一个全局变量。当在一个文件中定义了一个全局变量时，就可以在其它文件中使用extern来声明并引用该变量。</td>
-</tr>
-<tr>
-<td>register</td>
-<td>寄存器变量。该变量存储在CPU寄存器中，而不是RAM(栈或堆)中。该变量的最大尺寸等于寄存器的大小。由于是存储于寄存器中，因此不能对该变量进行取地址操作</td>
-</tr>
-<tr>
-<td>mutable</td>
-<td>仅适用于类成员变量。以mutable修饰的成员变量可以在const成员函数中修改。</td>
-</tr>
-<tr>
-<td>Thread_local</td>
-<td>变量在线程创建时生成;线程结束时被销毁;每个线程都拥有其自己的变量副本;thread_local可以和static或extern联合使用，这将会影响变量的链接属性;需要注意的一点是，如果类的成员函数内定义了 thread_local 变量，则对于同一个线程内的该类的多个对象都会共享一个变量实例，并且只会在第一次执行这个成员函数时初始化这个变量实例，这一点是跟类的静态成员变量类似的；<strong>thread_local 作为类成员变量时必须是 static 的</strong>。</td>
-</tr>
-</tbody></table>
-<h3 id="std-ref"><a href="#std-ref" class="headerlink" title="std::ref()"></a>std::ref()</h3><h3 id="mutex"><a href="#mutex" class="headerlink" title="mutex"></a>mutex</h3><p>std::unique_lock 和std::lock_guard都是通过raii实现自动加锁和释放锁，lock_guard速度相对unique快点，而unique相对灵活和慢点。std::unique_lock无参数的构造函数是没有加锁的，不拥有互斥量的锁权利。</p>
-<h3 id="仿函数"><a href="#仿函数" class="headerlink" title="仿函数"></a>仿函数</h3><p>仿函数，其实就是重载了括号运算符 () 的对象, 不过它具有函数的一些性质, 可以在需要函数的地方（主要是<strong>各种</strong><a target="_blank" rel="noopener" href="https://cloud.tencent.com/product/tke?from=20065&from_column=20065"><strong>容器</strong></a><strong>和算法</strong>）使用。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 仿函数(functor)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Functor</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">int</span> a)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>优点：</p>
-<ul>
-<li>仿函数可以不带痕迹地传递上下文参数。而回调技术通常使用一个额外的void*参数传递。这也是多数人认为回调技术丑陋的原因。</li>
-<li>更好的性能。</li>
-</ul>
-<h3 id="function"><a href="#function" class="headerlink" title="function"></a>function</h3><p>类模版std::function是一种通用、多态的函数封装。std::function的实例可以对任何可以调用的目标实体进行存储、复制、和调用操作，这些目标实体包括普通函数、Lambda表达式、函数指针、以及其它函数对象等。std::function对象是对C++中现有的可调用实体的一种类型安全的包裹（我们知道像函数指针这类可调用实体，是类型不安全的）。</p>
-<p>功能：</p>
-<ul>
-<li>可以实现c的函数指针的功能，作为回调函数</li>
-<li>可以作为函数参数进行传递</li>
-<li>可以将仿函数赋值给function，然后调用function。</li>
-</ul>
-<p>关于可调用实体转换为std::function对象需要遵守以下两条原则：</p>
-<ul>
-<li>转换后的std::function对象的参数能转换为可调用实体的参数；<br>可调用</li>
-<li>实体的返回值能转换为std::function对象的返回值。<br>std::function对象最大的用处就是在实现函数回调（实际工作中就是用到了这一点），使用者需要注意，它不能被用来检查相等或者不相等，但是可以与NULL或者nullptr进行比较。</li>
-</ul>
-<p>可以实现移动和拷贝</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">TEST</span>(FUNCTION_TEST, POSITIVE) &#123;</span><br><span class="line">    Callback = Factorial;</span><br><span class="line">    <span class="built_in">ASSERT_EQ</span>(<span class="number">1</span>, <span class="built_in">Callback</span>(<span class="number">-1</span>));</span><br><span class="line">    Callback = func_lambda;</span><br><span class="line">    <span class="built_in">ASSERT_EQ</span>(<span class="number">10</span>, <span class="built_in">Callback</span>(<span class="number">0</span>));</span><br><span class="line">    CompareObject obj;</span><br><span class="line">    Callback = obj;</span><br><span class="line">    std::cout &lt;&lt; <span class="built_in">obj</span>(<span class="number">10</span>) &lt;&lt; std::endl;</span><br><span class="line">    <span class="built_in">ASSERT_EQ</span>(<span class="number">10</span>, <span class="built_in">Callback</span>(<span class="number">10</span>));</span><br><span class="line"></span><br><span class="line">    Base a1;</span><br><span class="line">    Callback = std::<span class="built_in">bind</span>(&amp;Base::add, a1, std::placeholders::_1);</span><br><span class="line">    <span class="built_in">ASSERT_EQ</span>(<span class="number">4</span>, <span class="built_in">Callback</span>(<span class="number">2</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="std-future"><a href="#std-future" class="headerlink" title="std::future"></a>std::future</h3><p>std::future提供了一种访问异步操作结果的机制。从字面意思来理解，它表示未来，我觉得这个名字非常贴切，因为一个异步操作我们是不可能马上就获取操作结果的，只能在未来某个时候获取，但是我们可以以同步等待的方式来获取结果，可以通过查询future的状态（future_status）来获取异步操作的结果。future_status有三种状态：</p>
-<ul>
-<li><p>deferred：异步操作还没开始</p>
-</li>
-<li><p>ready：异步操作已经完成</p>
-</li>
-<li><p>timeout：异步操作超时<br>获取future结果有三种方式：get、wait、wait_for，其中get等待异步操作结束并返回结果（调用线程阻塞式的），wait只是等待异步操作完成，没有返回值，wait_for是超时等待返回结果。</p>
-</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查询future的状态</span></span><br><span class="line">std::future_status status;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        status = future.<span class="built_in">wait_for</span>(std::chrono::<span class="built_in">seconds</span>(<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">if</span> (status == std::future_status::deferred) &#123;</span><br><span class="line">            std::cout &lt;&lt; <span class="string">&quot;deferred\n&quot;</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (status == std::future_status::timeout) &#123;</span><br><span class="line">            std::cout &lt;&lt; <span class="string">&quot;timeout\n&quot;</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (status == std::future_status::ready) &#123;</span><br><span class="line">            std::cout &lt;&lt; <span class="string">&quot;ready!\n&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">while</span> (status != std::future_status::ready);</span><br></pre></td></tr></table></figure>
-
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="std-promise"><a href="#std-promise" class="headerlink" title="std::promise"></a>std::promise</h3><p>promise 含义是承诺，承诺给别人反馈一个结果。与future一起使用。std::promise 通过get_future赋值给一个future，然后就可以get这个future了</p>
-<p><future> 头文件中包含了以下几个类和函数</p>
-<ul>
-<li>Providers 类：std::promise, std::package_task</li>
-<li>Futures 类：std::future, shared_future.</li>
-<li>Providers 函数：std::async()</li>
-<li>其他类型：std::future_error, std::future_errc, std::future_status, std::launch.</li>
-</ul>
-<h3 id="std-packaged-task"><a href="#std-packaged-task" class="headerlink" title="std::packaged_task"></a>std::packaged_task</h3><p>packaged_task是对任务的抽象，可以将这个任务传递给一个函数来完成，然后通过get_future的方法来获取期望的结果。</p>
-<h3 id="std-async"><a href="#std-async" class="headerlink" title="std::async"></a>std::async</h3><p>async异步的完成一个操作，简单的创建线程，然后通过std::future来获取结果</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//(C++11 起) (C++17 前)</span></span><br><span class="line"><span class="keyword">template</span>&lt; <span class="keyword">class</span> <span class="title class_">Function</span>, <span class="keyword">class</span>... Args&gt;</span><br><span class="line">std::future&lt;std::<span class="type">result_of_t</span>&lt;std::<span class="built_in">decay_t</span>&lt;Function&gt;(std::<span class="type">decay_t</span>&lt;Args&gt;...)&gt;&gt;</span><br><span class="line">    <span class="built_in">async</span>( Function&amp;&amp; f, Args&amp;&amp;... args );</span><br><span class="line"></span><br><span class="line"><span class="comment">//(C++11 起) (C++17 前)</span></span><br><span class="line"><span class="keyword">template</span>&lt; <span class="keyword">class</span> <span class="title class_">Function</span>, <span class="keyword">class</span>... Args &gt;</span><br><span class="line">std::future&lt;std::<span class="type">result_of_t</span>&lt;std::<span class="built_in">decay_t</span>&lt;Function&gt;(std::<span class="type">decay_t</span>&lt;Args&gt;...)&gt;&gt;</span><br><span class="line">    <span class="built_in">async</span>( std::launch policy, Function&amp;&amp; f, Args&amp;&amp;... args );  </span><br></pre></td></tr></table></figure>
-
-<p>需要记住的3点：</p>
-<ul>
-<li>std::async的默认发射策略既允许任务异步执行，又允许任务同步执行。</li>
-<li>这个灵活性（上一点）导致了使用thread_local变量时的不确定性，它隐含着任务可能不会执行，它还影响了基于超时的wait调用的程序逻辑。</li>
-<li>如果异步执行是必需的，指定std::launch::async发射策略</li>
-</ul>
-<h3 id="std-bind"><a href="#std-bind" class="headerlink" title="std::bind"></a>std::bind</h3><h3 id="std-optional"><a href="#std-optional" class="headerlink" title="std::optional"></a>std::optional</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p><code>std::optional</code>是C++17中的一个类模板，用于表示可选对象。它是一个容器，可以包含或不包含值，类似于”可空类型”</p>
-<p>以下是<code>std::optional</code>的一些关键特性：</p>
-<ul>
-<li><p>它可以与任何类型一起使用，包括用户定义的类型。</p>
-</li>
-<li><p>它具有一个值构造函数，用于使用值初始化可选对象。</p>
-</li>
-<li><p>它具有默认构造函数，用于创建一个空的可选对象。</p>
-</li>
-<li><p>它有方法来检查它是否包含值（<code>has_value()</code>），访问包含的值（<code>value()</code>），或者在它为空时访问默认值（<code>value_or()</code>）。</p>
-</li>
-<li><p>它支持移动语义，因此可以有效地传递和从函数返回</p>
-</li>
-</ul>
-<h4 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h4><p>那么在使用optional做参数、返回值传递时，optional包裹着的对象是否会进行拷贝、移动等增大程序开销的操作呢？如果会，该如何避免？</p>
-<ul>
-<li>若以引用类型实例化<code>optional</code>则程序非良构。std::optional&lt;const string&amp;&gt;写法不合理</li>
-<li>如果const std::optional<string>&amp; x，具体的string对象还是会进行copy</li>
-<li>std::reference_wrapper可以实现类似引用的封装，【就等价于const T<em>，T</em>占用的内存还要比std::optional&lt;std::reference_wrapper<T>&gt;小】</li>
-<li>真要说有什么使用上的优势，那么应该就是相比T<em>表义更为清晰、以及在传参时不需要加取地址符&amp;了吧，或许这对部分人来说很重要，但为了方便一般还是推荐使用T</em>，只在传递足够小的对象比如int时，使用std::optional</li>
-</ul>
-<h3 id="std-any"><a href="#std-any" class="headerlink" title="std::any"></a>std::any</h3><h3 id="std-variant"><a href="#std-variant" class="headerlink" title="std::variant"></a>std::variant</h3><h3 id="std-holds-alternative"><a href="#std-holds-alternative" class="headerlink" title="std::holds_alternative"></a>std::holds_alternative</h3><h3 id="clear和swap测试"><a href="#clear和swap测试" class="headerlink" title="clear和swap测试"></a>clear和swap测试</h3><h3 id="decltype"><a href="#decltype" class="headerlink" title="decltype"></a>decltype</h3><h3 id="tuple使用"><a href="#tuple使用" class="headerlink" title="tuple使用"></a>tuple使用</h3><h3 id="builtin-expect"><a href="#builtin-expect" class="headerlink" title="__builtin_expect"></a>__builtin_expect</h3><h3 id="std-apply"><a href="#std-apply" class="headerlink" title="std::apply()"></a>std::apply()</h3><h3 id="std-is-base-of"><a href="#std-is-base-of" class="headerlink" title="std::is_base_of"></a>std::is_base_of</h3><h3 id="shared-from-this"><a href="#shared-from-this" class="headerlink" title="shared_from_this"></a>shared_from_this</h3><h3 id="conditional-t"><a href="#conditional-t" class="headerlink" title="conditional_t"></a>conditional_t</h3><ul>
-<li><p>当我们新加一个类C的时候，有时候需要继承A,有时候需要继承B,我们怎么做呢？</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>&#123;&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span>&#123;&#125;;</span><br><span class="line"><span class="comment">//使用模板就能解决上面的问题</span></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> :<span class="keyword">public</span> T &#123;&#125;;</span><br><span class="line">C&lt;A&gt; ca;</span><br><span class="line">c&lt;B&gt; cb;</span><br></pre></td></tr></table></figure>
-
-
-</li>
-<li><p>到付件康复科</p>
-</li>
-<li><p>今飞凯达讲课费</p>
-</li>
-</ul>
-<h3 id="回调为啥不能捕获this"><a href="#回调为啥不能捕获this" class="headerlink" title="回调为啥不能捕获this"></a>回调为啥不能捕获this</h3>
+          <h3 id="右值"><a href="#右值" class="headerlink" title="右值"></a>右值</h3><p>右值：没有地址并且即将消失</p>
+<p>将亡值：有地址，并且即将</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/21/%E5%9F%BA%E7%A1%80/c++/c++11%E9%AB%98%E7%BA%A7%E7%9F%A5%E8%AF%86%E7%82%B9/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1126,7 +917,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-06-17 14:57:15" itemprop="dateModified" datetime="2022-06-17T14:57:15+08:00">2022-06-17</time>
+      <time title="修改时间：2023-05-17 14:11:57" itemprop="dateModified" datetime="2023-05-17T14:11:57+08:00">2023-05-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1168,20 +959,6 @@
 <li>按照单例或者把析构函数设置为私有的</li>
 </ul>
 <h6 id="类在栈上构建"><a href="#类在栈上构建" class="headerlink" title="类在栈上构建"></a>类在栈上构建</h6><p>只要禁用new运算符就可以实现类对象只能建立在栈上。将operator new()设为私有即可</p>
-<h3 id="模板类"><a href="#模板类" class="headerlink" title="模板类"></a>模板类</h3><hr>
-<ul>
-<li><p>模板类：模板定义只是声明一个蓝图或者公式；只有在实例化的时候才会生成真正的代码（也就是调用的接口处）</p>
-<ul>
-<li><p>特化：就是按照特定类型去实现一个类模板。</p>
-</li>
-<li><p>偏特化：模板偏特化（Template Partitial Specialization）是模板特化的一种特殊情况，指显示指定部分模板参数而非全部模板参数，或者指定模板参数的部分特性分而非全部特性，也称为模板部分特化。与模板偏特化相对的是模板全特化，指对所有的模板参数进行特化。模板全特化与模板偏特化共同组成模板特化。模板偏特化主要分为两种，一种是指对部分模板参数进行全特化，另一种是对模板参数特性进行特化，包括将模板参数特化为指针、引用或是另外一个模板类。</p>
-</li>
-<li><p>typename在下面情况下禁止使用：</p>
-<ul>
-<li>模板定义之外，即typename只能用于模板的定义中</li>
-<li>非限定类型，比如前面介绍过的<code>int</code>，<code>vector&lt;int&gt;</code>之类</li>
-<li>基类列表中，比如<code>template &lt;class T&gt; class C1 : T::InnerType</code>不能在<code>T::InnerType</code>前面加typename</li>
-<li>构造函数的初始化列表中
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/21/%E5%9F%BA%E7%A1%80/c++/c-%E7%9F%A5%E8%AF%86%E7%82%B9-%E6%A8%A1%E6%9D%BF/#more" rel="contents">
@@ -1440,6 +1217,120 @@
 
 
 
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/18/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/c++%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E4%B9%8B%E5%86%85%E5%AD%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SK-II">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yefengdanqing">
+      <meta itemprop="description" content="认真对待每一件事情">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | yefengdanqing">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/18/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/c++%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E4%B9%8B%E5%86%85%E5%AD%98/" class="post-title-link" itemprop="url">c++程序执行之内存</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-18 18:42:47" itemprop="dateCreated datePublished" datetime="2022-02-18T18:42:47+08:00">2022-02-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-03-11 12:44:10" itemprop="dateModified" datetime="2022-03-11T12:44:10+08:00">2022-03-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>659</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h6 id="main函数之前和之后"><a href="#main函数之前和之后" class="headerlink" title="main函数之前和之后"></a>main函数之前和之后</h6><ul>
+<li>分配空间</li>
+<li>初始化静态和全局变量</li>
+<li>加载配置参数</li>
+<li>之后可以析构回调函数</li>
+<li>注册一个main之后的回调函数atexit(func)</li>
+<li>可以通过 <strong>attribute</strong> 关键字，声明 <strong>constructor</strong> 和 <strong>destructor</strong> 来实现</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/18/%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/c++%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E4%B9%8B%E5%86%85%E5%AD%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1464,13 +1355,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">107k</span>
+    <span title="站点总字数">110k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:14</span>
+    <span title="站点阅读时长">2:17</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
