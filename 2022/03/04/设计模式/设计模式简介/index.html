@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="概念每一种模式描述了在我们周围不断重复发生的问题，以及该问题的核心解决方案。这样我们就能重复的使用该核心解决方案，而不用做重复的工作。">
 <meta property="og:type" content="article">
@@ -28,7 +28,7 @@
 <meta property="og:description" content="概念每一种模式描述了在我们周围不断重复发生的问题，以及该问题的核心解决方案。这样我们就能重复的使用该核心解决方案，而不用做重复的工作。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-04T14:26:59.000Z">
-<meta property="article:modified_time" content="2023-05-16T14:56:47.129Z">
+<meta property="article:modified_time" content="2023-06-15T08:06:02.454Z">
 <meta property="article:author" content="SK-II">
 <meta property="article:tag" content="c++">
 <meta name="twitter:card" content="summary">
@@ -144,12 +144,14 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.</span> <span class="nav-text">面向对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">复杂性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E6%8A%BD%E8%B1%A1%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">面向对象（抽象）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9A%94%E7%A6%BB%E5%8F%98%E5%8C%96"><span class="nav-number">1.3.1.</span> <span class="nav-text">隔离变化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%90%84%E5%8F%B8%E5%85%B6%E8%81%8C"><span class="nav-number">1.3.2.</span> <span class="nav-text">各司其职</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A18%E5%A4%A7%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.</span> <span class="nav-text">面向对象8大设计原则</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E5%AF%BC%E8%87%B4%E5%8E%9F%E5%88%99%EF%BC%88dip"><span class="nav-number">1.4.1.</span> <span class="nav-text">依赖导致原则（dip)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%80%E6%94%BE%E5%B0%81%E9%97%AD%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.2.</span> <span class="nav-text">开放封闭原则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%95%E4%B8%80%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.3.</span> <span class="nav-text">单一原则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#liskov%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.4.</span> <span class="nav-text">liskov替换原则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.5.</span> <span class="nav-text">接口隔离原则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E4%BD%BF%E7%94%A8%E5%AF%B9%E8%B1%A1%E7%BB%84%E5%90%88%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF%E7%B1%BB%E7%BB%A7%E6%89%BF"><span class="nav-number">1.4.6.</span> <span class="nav-text">优先使用对象组合，而不是类继承</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.4.7.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E5%B0%81%E8%A3%85%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.8.</span> <span class="nav-text">接口封装原则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8"><span class="nav-number">1.4.9.</span> <span class="nav-text">8</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%86%E7%B1%BB"><span class="nav-number">1.5.</span> <span class="nav-text">设计模式分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">1.5.1.</span> <span class="nav-text">目的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%9E%8B"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">创建型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E5%9E%8B"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">结构型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">行为型</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8C%83%E5%9B%B4%E7%B1%BB%E7%9C%8B"><span class="nav-number">1.5.2.</span> <span class="nav-text">范围类看</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E6%9E%84%E8%8E%B7%E5%BE%97%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.6.</span> <span class="nav-text">重构获得模式</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#-1"><span class="nav-number">1.6.0.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.</span> <span class="nav-text">面向对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">复杂性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%EF%BC%88%E6%8A%BD%E8%B1%A1%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">面向对象（抽象）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%9A%94%E7%A6%BB%E5%8F%98%E5%8C%96"><span class="nav-number">1.3.1.</span> <span class="nav-text">隔离变化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%90%84%E5%8F%B8%E5%85%B6%E8%81%8C"><span class="nav-number">1.3.2.</span> <span class="nav-text">各司其职</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A18%E5%A4%A7%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.</span> <span class="nav-text">面向对象8大设计原则</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E5%AF%BC%E8%87%B4%E5%8E%9F%E5%88%99%EF%BC%88dip"><span class="nav-number">1.4.1.</span> <span class="nav-text">依赖导致原则（dip)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%80%E6%94%BE%E5%B0%81%E9%97%AD%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.2.</span> <span class="nav-text">开放封闭原则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%95%E4%B8%80%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.3.</span> <span class="nav-text">单一原则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#liskov%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.4.</span> <span class="nav-text">liskov替换原则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.5.</span> <span class="nav-text">接口隔离原则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E4%BD%BF%E7%94%A8%E5%AF%B9%E8%B1%A1%E7%BB%84%E5%90%88%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF%E7%B1%BB%E7%BB%A7%E6%89%BF"><span class="nav-number">1.4.6.</span> <span class="nav-text">优先使用对象组合，而不是类继承</span></a></li><li class="nav-item nav-level-5"><a class="nav-link"><span class="nav-number">1.4.7.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E5%B0%81%E8%A3%85%E5%8E%9F%E5%88%99"><span class="nav-number">1.4.8.</span> <span class="nav-text">接口封装原则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8"><span class="nav-number">1.4.9.</span> <span class="nav-text">8</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%88%86%E7%B1%BB"><span class="nav-number">1.5.</span> <span class="nav-text">设计模式分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">1.5.1.</span> <span class="nav-text">目的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%9E%8B"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">创建型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E5%9E%8B"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">结构型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">行为型</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8C%83%E5%9B%B4%E7%B1%BB%E7%9C%8B"><span class="nav-number">1.5.2.</span> <span class="nav-text">范围类看</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E6%9E%84%E8%8E%B7%E5%BE%97%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.6.</span> <span class="nav-text">重构获得模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%82%E9%A1%B9"><span class="nav-number">1.7.</span> <span class="nav-text">杂项</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-number">1.7.0.1.</span> <span class="nav-text">引用</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SK-II"
+      src="/img/2.jpg">
   <p class="site-author-name" itemprop="name">SK-II</p>
   <div class="site-description" itemprop="description">认真对待每一件事情</div>
 </div>
@@ -157,18 +159,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -219,7 +221,7 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/04/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%AE%80%E4%BB%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/img/2.jpg">
       <meta itemprop="name" content="SK-II">
     </span>
 
@@ -252,7 +254,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-05-16 22:56:47" itemprop="dateModified" datetime="2023-05-16T22:56:47+08:00">2023-05-16</time>
+      <time title="修改时间：2023-06-15 16:06:02" itemprop="dateModified" datetime="2023-06-15T16:06:02+08:00">2023-06-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -271,14 +273,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1k</span>
+      <span>1.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -327,8 +329,23 @@
 <li><p>继承破坏了封装性，子父类耦合度比较高；组合只是要求对象有清晰的接口，不需要有</p>
 <h5 id=""><a href="#" class="headerlink" title=""></a></h5></li>
 </ol>
-<h5 id="接口封装原则"><a href="#接口封装原则" class="headerlink" title="接口封装原则"></a>接口封装原则</h5><h5 id="8"><a href="#8" class="headerlink" title="8"></a>8</h5><h4 id="设计模式分类"><a href="#设计模式分类" class="headerlink" title="设计模式分类"></a>设计模式分类</h4><h5 id="目的分类"><a href="#目的分类" class="headerlink" title="目的分类"></a>目的分类</h5><h6 id="创建型"><a href="#创建型" class="headerlink" title="创建型"></a>创建型</h6><h6 id="结构型"><a href="#结构型" class="headerlink" title="结构型"></a>结构型</h6><h6 id="行为型"><a href="#行为型" class="headerlink" title="行为型"></a>行为型</h6><p>模板方法模型</p>
-<p>策略设计模式</p>
+<h5 id="接口封装原则"><a href="#接口封装原则" class="headerlink" title="接口封装原则"></a>接口封装原则</h5><h5 id="8"><a href="#8" class="headerlink" title="8"></a>8</h5><h4 id="设计模式分类"><a href="#设计模式分类" class="headerlink" title="设计模式分类"></a>设计模式分类</h4><h5 id="目的分类"><a href="#目的分类" class="headerlink" title="目的分类"></a>目的分类</h5><h6 id="创建型"><a href="#创建型" class="headerlink" title="创建型"></a>创建型</h6><p>提供创建对象的机制，保证已有代码的灵活性和可重复利用</p>
+<h6 id="结构型"><a href="#结构型" class="headerlink" title="结构型"></a>结构型</h6><p>将对象和类组装成较大的结构，可能是继承或者组合；同时保持结构的灵活和高效</p>
+<h6 id="行为型"><a href="#行为型" class="headerlink" title="行为型"></a>行为型</h6><p>在不同的<strong>对象</strong>间的高效沟通和职责委派；通过行为型模式，我们可以很清晰的话</p>
+<p>包含模式</p>
+<ul>
+<li>职责链模式(Chain of Responsibility) 重要程度：3（5为满分）</li>
+<li>命令模式(Command)重要程度：4</li>
+<li>解释器模式(Interpreter)重要程度：1</li>
+<li>迭代器模式(Iterator)重要程度：5</li>
+<li>中介者模式(Mediator) 重要程度：2</li>
+<li>备忘录模式(Memento) 重要程度：2</li>
+<li>观察者模式(Observer)重要程度：5</li>
+<li>状态模式(State)重要程度：3</li>
+<li>策略模式(Strategy)重要程度：4</li>
+<li>模板方法模式(Template Method)重要程度：3</li>
+<li>访问者模式(Visitor)重要程度：1</li>
+</ul>
 <h5 id="范围类看"><a href="#范围类看" class="headerlink" title="范围类看"></a>范围类看</h5><p>类模式处理类和类的子类之间的静态关系（继承）</p>
 <p>对象模式处理对象之间的动态关系（组合）</p>
 <h4 id="重构获得模式"><a href="#重构获得模式" class="headerlink" title="重构获得模式"></a>重构获得模式</h4><p>面向对象设计模式是”好的面向对象设计”，所谓好的设计模式是指那些可以“面对变化，提高复用”的设计</p>
@@ -342,12 +359,9 @@
 <li>编译时依赖 –&gt;运行时依赖 </li>
 <li>紧耦合 –&gt; 松耦合</li>
 </ul>
-<h6 id="-1"><a href="#-1" class="headerlink" title=""></a></h6><p>fjdk</p>
-<p>1. </p>
-<ol start="2">
-<li>高层模块（稳定不变化的）不依赖于底层模块（不稳定，变化的），都依赖于抽象（稳定、不变化的）</li>
-</ol>
-<!-- more -->
+<h4 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h4><p>1.<br>2. 高层模块（稳定不变化的）不依赖于底层模块（不稳定，变化的），都依赖于抽象（稳定、不变化的）</p>
+<h6 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h6><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/1207e9b14997">https://www.jianshu.com/p/1207e9b14997</a></p>
+<p><a target="_blank" rel="noopener" href="https://refactoringguru.cn/design-patterns#intro-classification">https://refactoringguru.cn/design-patterns#intro-classification</a></p>
 
     </div>
 
@@ -403,13 +417,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">110k</span>
+    <span title="站点总字数">128k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:17</span>
+    <span title="站点阅读时长">2:40</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
