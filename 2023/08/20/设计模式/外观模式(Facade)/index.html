@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/%E5%B7%A5%E4%BD%9C%E5%9B%BE%E5%BA%93/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82-%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F.jpg">
 <meta property="article:published_time" content="2023-08-20T14:26:59.000Z">
-<meta property="article:modified_time" content="2023-08-18T12:47:11.154Z">
+<meta property="article:modified_time" content="2023-08-21T03:09:33.853Z">
 <meta property="article:author" content="SK-II">
 <meta property="article:tag" content="c++">
 <meta name="twitter:card" content="summary">
@@ -256,7 +256,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-08-18 20:47:11" itemprop="dateModified" datetime="2023-08-18T20:47:11+08:00">2023-08-18</time>
+      <time title="修改时间：2023-08-21 11:09:33" itemprop="dateModified" datetime="2023-08-21T11:09:33+08:00">2023-08-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -302,7 +302,11 @@
 <p><img src="/../../../../%E5%B7%A5%E4%BD%9C%E5%9B%BE%E5%BA%93/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82-%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F.jpg" alt="设计模式-抽象工厂-外观模式"></p>
 <h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><span id="more"></span>
 
-<h5 id="实际场景"><a href="#实际场景" class="headerlink" title="实际场景"></a>实际场景</h5><h5 id="使用方法（核心代码）"><a href="#使用方法（核心代码）" class="headerlink" title="使用方法（核心代码）"></a>使用方法（核心代码）</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//具体见github</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Facade</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Facade</span>() &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Facade()&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        system_a = std::<span class="built_in">make_shared</span>&lt;SystemA&gt;();</span><br><span class="line">        system_a = std::<span class="built_in">make_shared</span>&lt;SystemB&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~<span class="built_in">Facade</span>() &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;~Facade()&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">work</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Facade::work()&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        system_a-&gt;<span class="built_in">work</span>();</span><br><span class="line">        system_a-&gt;<span class="built_in">work</span>();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::shared_ptr&lt;SystemA&gt; system_a;</span><br><span class="line">    std::shared_ptr&lt;SystemB&gt; system_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="实际场景"><a href="#实际场景" class="headerlink" title="实际场景"></a>实际场景</h5><ul>
+<li>如果你需要一个指向复杂子系统的直接接口，且该接口的功能有限，则可以使用外观模式</li>
+<li>如果需要将子系统组织为多层结构可以使用外观</li>
+</ul>
+<h5 id="使用方法（核心代码）"><a href="#使用方法（核心代码）" class="headerlink" title="使用方法（核心代码）"></a>使用方法（核心代码）</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//具体见github</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Facade</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Facade</span>() &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Facade()&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        system_a = std::<span class="built_in">make_shared</span>&lt;SystemA&gt;();</span><br><span class="line">        system_a = std::<span class="built_in">make_shared</span>&lt;SystemB&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~<span class="built_in">Facade</span>() &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;~Facade()&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">work</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Facade::work()&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        system_a-&gt;<span class="built_in">work</span>();</span><br><span class="line">        system_a-&gt;<span class="built_in">work</span>();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::shared_ptr&lt;SystemA&gt; system_a;</span><br><span class="line">    std::shared_ptr&lt;SystemB&gt; system_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h4 id="模板方法模式适合应用场景"><a href="#模板方法模式适合应用场景" class="headerlink" title="模板方法模式适合应用场景"></a>模板方法模式适合应用场景</h4><ul>
 <li>创建外观来定义子系统中各层次的入口。 你可以要求子系统仅使用外观来进行交互， 以减少子系统之间的耦合。</li>
@@ -370,7 +374,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">142k</span>
+    <span title="站点总字数">143k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">

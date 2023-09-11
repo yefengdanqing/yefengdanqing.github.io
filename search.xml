@@ -822,8 +822,19 @@
 <li>继承破坏了封装性，子父类耦合度比较高；组合只是要求对象有清晰的接口，不需要有<h5 id=""><a href="#" class="headerlink" title=""></a></h5></li>
 </ol>
 <h5 id="接口封装原则"><a href="#接口封装原则" class="headerlink" title="接口封装原则"></a>接口封装原则</h5><h5 id="最少知识原则"><a href="#最少知识原则" class="headerlink" title="最少知识原则"></a>最少知识原则</h5><h4 id="设计模式分类"><a href="#设计模式分类" class="headerlink" title="设计模式分类"></a>设计模式分类</h4><h5 id="目的分类"><a href="#目的分类" class="headerlink" title="目的分类"></a>目的分类</h5><h6 id="创建型"><a href="#创建型" class="headerlink" title="创建型"></a>创建型</h6><p>提供创建对象的机制，保证已有代码的灵活性和可重复利用</p>
-<h6 id="结构型"><a href="#结构型" class="headerlink" title="结构型"></a>结构型</h6><p>将对象和类组装成较大的结构，可能是继承或者组合；同时保持结构的灵活和高效</p>
+<h6 id="结构型"><a href="#结构型" class="headerlink" title="结构型"></a>结构型</h6><p>将对象和类组装成较大的结构，可能是继承或者组合；同时保持结构的灵活和高效；</p>
+<p>结构型模式可以分为类结构型模式和对象结构型模式</p>
+<ul>
+<li>类结构型模式关心类的组合，由多个类可以组合成一个更大的系统，在类结构型模式中一般只存在继承关系和实现关系。 </li>
+<li>对象结构型模式关心类与对象的组合，通过关联关系使得在一 个类中定义另一个类的实例对象，然后通过该对象调用其方法。 根据“合成复用原则”，在系统中尽量使用关联关系来替代继 承关系，因此大部分结构型模式都是对象结构型模式。</li>
+</ul>
 <h6 id="行为型"><a href="#行为型" class="headerlink" title="行为型"></a>行为型</h6><p>在不同的<strong>对象</strong>间的高效沟通和职责委派；通过行为型模式，我们可以很清晰的话</p>
+<p>行为型模式不仅仅关注类和对象的结构，而且重点关注它们之间的相互作用。</p>
+<p>行为型模式分为类行为型模式和对象行为型模式两种：</p>
+<ul>
+<li>类行为型模式：类的行为型模式使用继承关系在几个类之间分配行为，类行为型模式主要通过多态等方式来分配父类与子类的职责。</li>
+<li>对象行为型模式：对象的行为型模式则使用对象的聚合关联关系来分配行为，对象行为型模式主要是通过对象关联等方式来分配两个或多个类的职责。根据“合成复用原则”，系统中要尽量使用关联关系来取代继承关系，因此大部分行为型设计模式都属于对象行为型设计模式。</li>
+</ul>
 <p>包含模式</p>
 <ul>
 <li>职责链模式(Chain of Responsibility) 重要程度：3（5为满分）</li>
@@ -1677,7 +1688,7 @@ int main() &#123;
 
 
 <h4 id="add-library（）"><a href="#add-library（）" class="headerlink" title="add_library（）"></a>add_library（）</h4><p>cmake变量BUILD_SHARED_LIB 是一个全局变量，主要是用于控制cmake是否可以生成动态so</p>
-<p>默认情况下BUILD_SHARED_LIB变量打开状态为on，即默认使用add_library是创建的动态lib，值为on。此时除非是cmakelist文件中特别制定需要生成静态lib，否则默认就是生成的动态lib，如果此时想要强制生成静态so则需要使用,如果BUILD_SHARED_LIB 设置为off，则关闭生成动态so，默认为静态lib文件。</p>
+<p>默认情况下BUILD_SHARED_LIB变量打开状态为on，即默认使用add_library是创建的动态lib，值为on。此时除非是cmakelist文件中特别制定需要生成静态lib，否则默认就是生成的动态lib，如果此时想要强制生成静态库则需要使用,如果BUILD_SHARED_LIB 设置为off，则关闭生成动态so，默认为静态lib文件。</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">add_library</span>(&lt;<span class="keyword">target</span> &gt; STATIC &lt;&gt;)</span><br></pre></td></tr></table></figure>
 
 
@@ -4039,7 +4050,7 @@ int numslots;
 <ol>
 <li>非法安装报警器、标志灯具</li>
 <li>学车时未取得学习驾驶证明、无教练、由不符合规定的人员随车指导</li>
-<li>1.无证&#x2F;吊销仍驾车：未取得驾驶证&#x2F;被吊销&#x2F;被暂扣期间驾驶机动车的；<br>  2.把车交给无证人员：将机动车交由未取得驾驶证&#x2F;驾驶证被吊销&#x2F;暂扣的人驾驶的；<br>  3.逃逸：造成交通事故后逃逸，尚不构成犯罪的；<br>  4.超速50%：机动车行驶超过规定时速百分之五十的；<br>  5.强迫开车人：强迫驾驶人违反法律、法规、要求驾驶机动车，造成交通事故，尚不构成犯罪的；<br>  6.违反管制：违反交通管制的规定强行通行，不听劝阻的；<br>  7.损毁交通设施：故意损毁、移动、涂改交通设施，造成危害后果，尚不构成犯罪；<br>  8.交通阻塞：非法拦截、扣留机动车辆，不听劝阻，造成交通严重阻塞或者较大财产损失的。<br>  9.非法安装：非法安装警报器、标志灯具，强制拆除，予以收缴，并处二百元以上二千元以下罚款。<br>  10.驾驶报废车：驾驶拼装&#x2F;报废的机动车,予以收缴，强制报废。处二百元以上二千元以下罚款，并吊销机动车驾驶证。</li>
+<li>1.无证&#x2F;吊销仍驾车：未取得驾驶证&#x2F;被吊销&#x2F;被暂扣期间驾驶机动车的；<br> 2.把车交给无证人员：将机动车交由未取得驾驶证&#x2F;驾驶证被吊销&#x2F;暂扣的人驾驶的；<br> 3.逃逸：造成交通事故后逃逸，尚不构成犯罪的；<br> 4.超速50%：机动车行驶超过规定时速百分之五十的；<br> 5.强迫开车人：强迫驾驶人违反法律、法规、要求驾驶机动车，造成交通事故，尚不构成犯罪的；<br> 6.违反管制：违反交通管制的规定强行通行，不听劝阻的；<br> 7.损毁交通设施：故意损毁、移动、涂改交通设施，造成危害后果，尚不构成犯罪；<br> 8.交通阻塞：非法拦截、扣留机动车辆，不听劝阻，造成交通严重阻塞或者较大财产损失的。<br> 9.非法安装：非法安装警报器、标志灯具，强制拆除，予以收缴，并处二百元以上二千元以下罚款。<br> 10.驾驶报废车：驾驶拼装&#x2F;报废的机动车,予以收缴，强制报废。处二百元以上二千元以下罚款，并吊销机动车驾驶证。</li>
 </ol>
 </blockquote>
 </li>
@@ -4108,7 +4119,7 @@ int numslots;
 <h4 id="做题总结"><a href="#做题总结" class="headerlink" title="做题总结"></a>做题总结</h4><ul>
 <li><p>20%~50%，小型的，扣三分；超过50%扣6分；7座以上的扣六，超过50%扣9，</p>
 </li>
-<li><p>![image-20230820165236017](&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230820165236017.png)</p>
+<li><p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/image-20230820165236017.png" alt="image-20230820165236017"></p>
 </li>
 <li><p>aaaa</p>
 <ul>
@@ -4120,14 +4131,14 @@ int numslots;
 </li>
 <li><p>参加公安机关交通管理部门组织的交通安全公益活动的，满一小时为一次，一次扣减1分。网络？？</p>
 <ul>
-<li>![image-20230820170919266](&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230820170919266.png)</li>
+<li><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/image-20230820170919266.png" alt="image-20230820170919266"></li>
 </ul>
 </li>
-<li><p>![image-20230820171706565](&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230820171706565.png)</p>
+<li><p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/image-20230820171706565.png" alt="image-20230820171706565"></p>
 </li>
-<li><p>![image-20230820171826505](&#x2F;..&#x2F;..&#x2F;..&#x2F;..&#x2F;Library&#x2F;Application Support&#x2F;typora-user-images&#x2F;image-20230820171826505.png)</p>
+<li><p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/image-20230820171826505.png" alt="image-20230820171826505"></p>
 </li>
-<li><p>一般道路:逆行扣3分,倒车，停车，掉头；高速快速逆行扣12分，倒车12分，掉头，非法停车9分，占用应急车道行驶：6分</p>
+<li><p>一般道路:逆行扣3分,倒车1分？，停车？，掉头？；高速快速逆行扣12分，倒车12分，掉头，非法停车9分，占用应急车道行驶：6分</p>
 </li>
 <li><p>驾驶人驾驶有达到报废标准嫌疑机动车上路的，交警只能扣留车辆，还没达到拘留人的地步</p>
 </li>
@@ -4543,7 +4554,11 @@ int numslots;
 <p><img src="/../../../../%E5%B7%A5%E4%BD%9C%E5%9B%BE%E5%BA%93/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82-%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F.jpg" alt="设计模式-抽象工厂-外观模式"></p>
 <h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><span id="more"></span>
 
-<h5 id="实际场景"><a href="#实际场景" class="headerlink" title="实际场景"></a>实际场景</h5><h5 id="使用方法（核心代码）"><a href="#使用方法（核心代码）" class="headerlink" title="使用方法（核心代码）"></a>使用方法（核心代码）</h5><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//具体见github</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Facade</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Facade</span>() &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Facade()&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        system_a = std::<span class="built_in">make_shared</span>&lt;SystemA&gt;();</span><br><span class="line">        system_a = std::<span class="built_in">make_shared</span>&lt;SystemB&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~<span class="built_in">Facade</span>() &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;~Facade()&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">work</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Facade::work()&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        system_a-&gt;<span class="built_in">work</span>();</span><br><span class="line">        system_a-&gt;<span class="built_in">work</span>();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::shared_ptr&lt;SystemA&gt; system_a;</span><br><span class="line">    std::shared_ptr&lt;SystemB&gt; system_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="实际场景"><a href="#实际场景" class="headerlink" title="实际场景"></a>实际场景</h5><ul>
+<li>如果你需要一个指向复杂子系统的直接接口，且该接口的功能有限，则可以使用外观模式</li>
+<li>如果需要将子系统组织为多层结构可以使用外观</li>
+</ul>
+<h5 id="使用方法（核心代码）"><a href="#使用方法（核心代码）" class="headerlink" title="使用方法（核心代码）"></a>使用方法（核心代码）</h5><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//具体见github</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Facade</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Facade</span>() &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Facade()&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        system_a = std::<span class="built_in">make_shared</span>&lt;SystemA&gt;();</span><br><span class="line">        system_a = std::<span class="built_in">make_shared</span>&lt;SystemB&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ~<span class="built_in">Facade</span>() &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;~Facade()&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">work</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Facade::work()&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        system_a-&gt;<span class="built_in">work</span>();</span><br><span class="line">        system_a-&gt;<span class="built_in">work</span>();</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::shared_ptr&lt;SystemA&gt; system_a;</span><br><span class="line">    std::shared_ptr&lt;SystemB&gt; system_b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h4 id="模板方法模式适合应用场景"><a href="#模板方法模式适合应用场景" class="headerlink" title="模板方法模式适合应用场景"></a>模板方法模式适合应用场景</h4><ul>
 <li>创建外观来定义子系统中各层次的入口。 你可以要求子系统仅使用外观来进行交互， 以减少子系统之间的耦合。</li>
@@ -4642,7 +4657,17 @@ int numslots;
   <entry>
     <title>命令模式【4星】</title>
     <url>/2023/08/20/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><h4 id="实现方式（类图）"><a href="#实现方式（类图）" class="headerlink" title="实现方式（类图）"></a>实现方式（类图）</h4><h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><h5 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h5><span id="more"></span>
+    <content><![CDATA[<h4 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h4><p>在服务中，我们要处理请求的时候，会向某个服务或者对象发送请求，但并不知道请求的接受者是谁，也不知道被请求的操作是哪个【？】，我们只需在程序运行时指定具体的请求接收者即可，此时，可以使用命令模式来进行设计，使得请求发送者与请求接收者消除彼此之间的耦合，让对象之间的调用关系更加灵活。</p>
+<h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>将一个请求封装成一个类，从而使我们可以用不同的请求对【客户】进行参数化，对请求排队或者记录请求日志，以及支持可撤销的操作。命令模式是一种对象行为型模式，其别名为动作(Action)模式或事务(Transaction)模式。</p>
+<h4 id="实现方式（类图）"><a href="#实现方式（类图）" class="headerlink" title="实现方式（类图）"></a>实现方式（类图）</h4><p>包含如下一些角色：</p>
+<ul>
+<li>command：抽象命令类</li>
+<li>concretecommand: 具体命令类</li>
+<li>Receiver:命令接受者</li>
+<li>Invoker：调用者</li>
+<li>client:客户端</li>
+</ul>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><span id="more"></span>
 
 <h5 id="实际场景"><a href="#实际场景" class="headerlink" title="实际场景"></a>实际场景</h5><h5 id="使用方法（核心代码）"><a href="#使用方法（核心代码）" class="headerlink" title="使用方法（核心代码）"></a>使用方法（核心代码）</h5><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//具体见github</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
