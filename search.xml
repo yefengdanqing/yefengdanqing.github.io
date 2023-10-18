@@ -1689,7 +1689,7 @@ int main() &#123;
 
 <h4 id="add-library（）"><a href="#add-library（）" class="headerlink" title="add_library（）"></a>add_library（）</h4><p>cmake变量BUILD_SHARED_LIB 是一个全局变量，主要是用于控制cmake是否可以生成动态so</p>
 <p>默认情况下BUILD_SHARED_LIB变量打开状态为on，即默认使用add_library是创建的动态lib，值为on。此时除非是cmakelist文件中特别制定需要生成静态lib，否则默认就是生成的动态lib，如果此时想要强制生成静态库则需要使用,如果BUILD_SHARED_LIB 设置为off，则关闭生成动态so，默认为静态lib文件。</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">add_library</span>(&lt;<span class="keyword">target</span> &gt; STATIC &lt;&gt;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ADD_LIBRARY</span>(libname [SHARED|STATIC|MODULE] [EXCLUDE_FROM_ALL] source1 source2 ... sourceN) <span class="comment"># 不需要写全lib.so, 只需要填写,cmake系统会自动为你生成，libxxx.X</span></span><br><span class="line">本文章著作权归作者所有，任何形式的转载都请注明出处。</span><br><span class="line"></span><br><span class="line"><span class="comment">#EXCLUDE_FROM_ALL 参数的意思是这个库不会被默认构建，除非有其他的组件依赖或者手工构建。</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -1802,10 +1802,7 @@ int main() &#123;
 <p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/1746850-20201116091250447-2073530575.png" alt="1746850-20201116091250447-2073530575"></p>
 <h4 id="target-link-libraries"><a href="#target-link-libraries" class="headerlink" title="target_link_libraries()"></a>target_link_libraries()</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">target_link_libraries(&lt;target&gt;</span><br><span class="line">                      &lt;PRIVATE|PUBLIC|INTERFACE&gt; &lt;item&gt;...</span><br><span class="line">                     [&lt;PRIVATE|PUBLIC|INTERFACE&gt; &lt;item&gt;...]...)</span><br></pre></td></tr></table></figure>
 
-
-
-
-
+<h4 id="add-custom-command"><a href="#add-custom-command" class="headerlink" title="add_custom_command()"></a>add_custom_command()</h4><p><a href="https://zhuanlan.zhihu.com/p/397394950">https://zhuanlan.zhihu.com/p/397394950</a></p>
 <h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><p>属性有点像变量，但它依附在某个 target 或者文件、目录上。许多属性的初始值来自于 CMAKE_ 开头的变量，例如设置 CMAKE_CXX_STANDARD，将会设置 target 的 CXX_STANDARD 属性初始值。<br>set_property 用于设置属性，get_property 用于获取属性。参看 cmake-properties 查阅有哪些属性</p>
 <h4 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h4><p>在 CMake 中可以配合其他工具</p>
 <p>CCache，使用它来加快编译速度<br>Clang tidy，对你的代码做静态扫描<br>Include what you use, 检查冗余头文件<br>Clang-format，很不幸 CMake 没法直接使用 Clang-format，但是可以通过一些小技巧将它嵌入到 CMake 流程中来。参考这里还有这里</p>
@@ -1817,6 +1814,8 @@ int main() &#123;
 <li>当前CMakeLists.txt中的变量的作用域仅在当前子目录有效；当前变量被值拷贝到子目录的CMakeLists.txt中，子目录中变量的作用域仅在子目录范围内，不会影响到父目录中变量的值</li>
 <li>缓存变量在整个cmake工程的编译生命周期内都有效</li>
 </ul>
+<p>#define MACRO(r, data, i, elem)     info.BOOST_PP_TUPLE_ELEM(BOOST_PP_TUPLE_SIZE(elem), 0, elem) &#x3D; std::move(std::get<i>(result)); BOOST_PP_SEQ_FOR_EACH_I(MACRO, _, SDK_DEVICE_DMP_ONEID_INFO)</p>
+<p>#undef MACRO</p>
 <h4 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h4><h5 id="cmake-–build-x2F-build-–parallel-2"><a href="#cmake-–build-x2F-build-–parallel-2" class="headerlink" title="cmake –build .&#x2F;build –parallel 2"></a>cmake –build .&#x2F;build –parallel 2</h5><p><img src="https://img-blog.csdnimg.cn/d4d58035a46a4d41b29f75527603f627.png" alt="img"></p>
 <h5 id="cmake-–build-x2F-build-x2F-–verbose-调试构建"><a href="#cmake-–build-x2F-build-x2F-–verbose-调试构建" class="headerlink" title="cmake –build .&#x2F;build&#x2F; –verbose 调试构建"></a>cmake –build .&#x2F;build&#x2F; –verbose 调试构建</h5><h3 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h3><ul>
 <li><em>cmake –help-command-list | grep find</em>【<em>cmake –help-command find_library</em>】</li>
@@ -1845,6 +1844,15 @@ int main() &#123;
 <li><p><input disabled="" type="checkbox"> </p>
 <h5 id="GoogleTest-cmake和FindGoogleTest-cmake的区别"><a href="#GoogleTest-cmake和FindGoogleTest-cmake的区别" class="headerlink" title="GoogleTest.cmake和FindGoogleTest.cmake的区别"></a>GoogleTest.cmake和FindGoogleTest.cmake的区别</h5></li>
 </ul>
+<p>总结：本季度的工作需求更具有多样性，完成需求正确性也有了进一步的提高，也能按照排期交付；每个需求的难度也有了很大的提高，在支持需求的时候尽可能保证最小改动，解耦各个部分，并且做到扩展性上也更灵活。<br>本季度工作成果如下：</p>
+<p>第一，智能出价策略的支持:结合ab平台和词表的方式支持校准和溢价策略，只需要在ab上配置不同的维度就能快速的支持策略同学看效果；</p>
+<p>第二，出价调控框架的支持：通过策略的方式支持稀疏调控，能保证功能的灵活性、高扩展性和松耦合性，每次的改动都是增加部分，不会对已有的做过多的修改，实现快速迭代；</p>
+<p>第三，完成metasample在协议和结构上的升级，协议上支持了创意部分信息落盘，在架构上的升级使metasample数据在每个layer之后落盘，流程上更容易理解并保证数据的正确性;</p>
+<p>第四，定位报警问题，比如词表数据溢出、模型缺失等问题；</p>
+<p>第五，ranker的重构定义 ranker context，实现访问cassandra的客户端，保证逻辑简洁；</p>
+<p>第六，在保证业务和模型特征的正确性的前提下，sdk和adx老dmp的下线，包括cn dmp和ups合规的部分；</p>
+<p>第七，支持其他一些小的业务需求，如增加dmp特征等</p>
+<p>本季度在交付的正确性、需求的难易度、排期的合理性和成果的交付上都有了进一步的提高；同时在技术上的沉淀还需要进一步提高</p>
 ]]></content>
       <categories>
         <category>工具</category>
@@ -1903,6 +1911,9 @@ int main() &#123;
 
 
 <p>sudo chmod 666 &#x2F;var&#x2F;run&#x2F;docker.sock</p>
+<p>第一步：sudo gpasswd -a username docker  #将普通用户username加入到docker组中，username这个字段也可以直接换成$USER。</p>
+<p>第二步：newgrp docker  #更新docker组</p>
+<p>第三步：再执行你报错的命令，此时就不会报错了。<br>————————————————<br>版权声明：本文为CSDN博主「术业还未专攻」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/BaoITcore/article/details/127736052">https://blog.csdn.net/BaoITcore/article/details/127736052</a></p>
 ]]></content>
       <categories>
         <category>工具</category>
@@ -1992,12 +2003,12 @@ int main() &#123;
 
 
 
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">GSSAPIAuthentication <span class="built_in">yes</span></span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">GSSAPICleanupCredentials no</span></span><br><span class="line">PermitRootLogin no</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line">ChallengeResponseAuthentication yes</span><br><span class="line">RSAAuthentication yes</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">GSSAPIAuthentication <span class="built_in">yes</span></span> </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">GSSAPICleanupCredentials no</span></span><br><span class="line">PermitRootLogin no</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line">ChallengeResponseAuthentication yes</span><br><span class="line">RSAAuthentication yes</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">PasswordAuthentication?</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p><img src="https://raw.githubusercontent.com/yefengdanqing/picture_bed/master/image-20230227141430662.png" alt="image-20230227141430662"></p>
 </li>
 <li><p>设置权限</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">//用户权限</span><br><span class="line"></span><br><span class="line">    chmod 700 /home/username</span><br><span class="line"></span><br><span class="line">    //.ssh文件夹权限</span><br><span class="line"></span><br><span class="line">    chmod 700 ~/.ssh/</span><br><span class="line"></span><br><span class="line">    // ~/.ssh/authorized_keys 文件权限</span><br><span class="line"></span><br><span class="line">    chmod 600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">//用户权限</span><br><span class="line"></span><br><span class="line">    chmod 700 /home/username</span><br><span class="line"></span><br><span class="line">    //.ssh文件夹权限</span><br><span class="line"></span><br><span class="line">    chmod 700 ~/.ssh/</span><br><span class="line"></span><br><span class="line">    // ~/.ssh/authorized_keys 文件权限</span><br><span class="line"></span><br><span class="line">    chmod 600 ~/.ssh/authorized_keys</span><br><span class="line">    #ssh-copy-id -i ~/.ssh/id_rsa.pub root@192</span><br></pre></td></tr></table></figure></li>
 </ol>
 <h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>使用ssh-copy-id进行copy</p>
 <p>查看日志<code>tail /var/log/secure -n 100</code></p>
@@ -3570,77 +3581,77 @@ int numslots;
 <td align="left">求婚</td>
 <td>P0</td>
 <td><strong>已完成</strong></td>
-<td>@宋开涛</td>
+<td>@sunketo</td>
 <td></td>
 </tr>
 <tr>
 <td align="left">订婚</td>
 <td>P1</td>
-<td>待开始</td>
-<td>@王慧杰@宋开涛</td>
+<td><strong>已完成</strong></td>
+<td>@王某某@sunketo</td>
 <td></td>
 </tr>
 <tr>
 <td align="left">找房子</td>
 <td>P0</td>
-<td>待开始</td>
-<td>@王慧杰@宋开涛</td>
+<td><strong>已完成</strong></td>
+<td>@王某某@sunketo</td>
 <td></td>
 </tr>
 <tr>
 <td align="left">学游泳1</td>
 <td>P0</td>
-<td>进行中</td>
-<td>@宋开涛</td>
+<td><strong>已完成</strong></td>
+<td>@sunketo</td>
 <td></td>
 </tr>
 <tr>
 <td align="left">学游泳1</td>
 <td>P2</td>
-<td>待开始</td>
-<td>@王慧杰</td>
+<td>进行中</td>
+<td>@王某某</td>
 <td></td>
 </tr>
 <tr>
 <td align="left">考cpa和中级</td>
 <td>P0</td>
-<td>进行中</td>
-<td>@王慧杰</td>
+<td>已完成</td>
+<td>@王某某</td>
 <td></td>
 </tr>
 <tr>
 <td align="left">学驾照1</td>
 <td>P0</td>
 <td>待开始</td>
-<td>@王慧杰</td>
+<td>@王某某</td>
 <td></td>
 </tr>
 <tr>
 <td align="left">学驾照2</td>
 <td>P0</td>
-<td>待开始</td>
-<td>@宋开涛</td>
+<td>进行中</td>
+<td>@sunketo</td>
 <td></td>
 </tr>
 <tr>
 <td align="left">拍婚纱照</td>
 <td>P1</td>
-<td>待开始</td>
-<td>@王慧杰@宋开涛</td>
+<td>进行中</td>
+<td>@王某某@sunketo</td>
 <td></td>
 </tr>
 <tr>
 <td align="left">商定结婚日期</td>
 <td>P2</td>
-<td>待开始</td>
-<td>@王慧杰@宋开涛</td>
+<td>已完成</td>
+<td>@王某某@sunketo</td>
 <td></td>
 </tr>
 <tr>
-<td align="left">换工作</td>
-<td>P0</td>
-<td>待开始</td>
-<td>@王慧杰</td>
+<td align="left"></td>
+<td></td>
+<td></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -4164,7 +4175,7 @@ int numslots;
 </li>
 </ul>
 <h2 id="车速车距-x2F-行驶规则"><a href="#车速车距-x2F-行驶规则" class="headerlink" title="车速车距&#x2F;行驶规则"></a>车速车距&#x2F;行驶规则</h2><h3 id="车速："><a href="#车速：" class="headerlink" title="车速："></a>车速：</h3><p>同向三车道，从左到右限速范围是10，20，30（即120-110，110-90，90-60）；同向两车道，从左到右限速范围是20,40（即左侧道路限速120-100，右侧道路限速100-60）</p>
-<p>没有限速标志、标线的城市道路的最高速度为30公里，[gong路]的最高速度为40公里，只有一条机动车道的城市道路最高50公里，只有一条机动车道的公路最高为70公里。</p>
+<p>没有限速标志、标线的城市道路的最高速度为30公里，[公路]的最高速度为40公里，只有一条机动车道的城市道路最高50公里，只有一条机动车道的公路最高为70公里。</p>
 <p>城市道路：有中心线、一车道，城市50千米&#x2F;小时，公路70千米&#x2F;小时。有中心线、两车道，城市60千米&#x2F;小时，公路80千米&#x2F;小时。无中心线，城市30千米&#x2F;小时，公路40千米&#x2F;小时。</p>
 <p>限速30千米&#x2F;小时：窄路、窄桥、能见度低于50米、铁道路口、转弯、掉头、泥泞路面、冰雪路面、陡坡</p>
 <p>1、同方向一条车道，城市道路最高30，公路最高40；</p>
@@ -4201,7 +4212,7 @@ int numslots;
 <p>15、<strong>环岛行驶</strong>时。让已在环岛内的车辆先行。进入环岛不需要打转向灯。出环岛要打右转向灯。</p>
 <p>16、<strong>限速通行原则</strong>。机动车上道路行驶，机动车不得超过限速、标线标明的速度。在没有限速标志标线路段，应该按车道限速规定保持安全车速。</p>
 <p>17、超速50%将处200元以上2000元以下罚款，并吊销驾驶证。</p>
-<p>18、机动车进出非机动车道、铁路道口、急转弯、窄路、窄桥、冰雪泥泞道路行驶。掉头、下陡坡、最高速度不得超过30公里&#x2F;小时</p>
+<p>18、机动车进出非机动车道、铁路道口、急转弯、窄路、窄桥、冰雪泥泞道路行驶、掉头、下陡坡、最高速度不得超过30公里&#x2F;小时</p>
 <p>19、通过铁路道口要按照交通信号或者管理人员通行。没有交通信号或管理人员。要确认安全后不超过30公里&#x2F;小时的速度通过。</p>
 <h4 id="会车"><a href="#会车" class="headerlink" title="会车"></a>会车</h4><p>1、会车时，减速靠右行驶</p>
 <p>2、 夜间会车150米以外远光必须变为近光灯。</p>
